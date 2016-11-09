@@ -1,0 +1,10 @@
+.breadcrumb > li + li::before {
+    color: #ccc;
+    content: "| ";
+    padding: 0 5px;
+}
+.breadcrumb > li {
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}

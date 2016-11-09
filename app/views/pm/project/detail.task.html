@@ -1,0 +1,293 @@
+
+<div class="right-page-header">
+   <div class="pull-right">
+       <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
+   <h3>
+       <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> 
+       Task</h3>
+</div>
+<div class="clearfix"></div>
+<div class="scrollable">
+   <div class="table-responsive">
+       <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade in" id="add-contact">
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                   <h4 id="myModalLabel" class="modal-title">Add Lable</h4> </div>
+                               <div class="modal-body">
+                                   <from class="form-horizontal form-material">
+                                       <div class="form-group">
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Type name" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Email" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Phone" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Designation" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Age" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Date of joining" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <input placeholder="Salary" class="form-control" type="text"> </div>
+                                           <div class="col-md-12 m-b-20">
+                                               <div class="fileupload btn btn-danger btn-rounded waves-effect waves-light"><span><i class="ion-upload m-r-5"></i>Upload Contact Image</span>
+                                                   <input class="upload" type="file"> </div>
+                                           </div>
+                                       </div>
+                                   </from>
+                               </div>
+                               <div class="modal-footer">
+                                   <button data-dismiss="modal" class="btn btn-info waves-effect" type="button">Save</button>
+                                   <button data-dismiss="modal" class="btn btn-default waves-effect" type="button">Cancel</button>
+                               </div>
+                           </div>
+                           <!-- /.modal-content -->
+                       </div>
+                       <!-- /.modal-dialog -->
+                   </div><table data-page-size="10" class="table m-t-30 table-hover contact-list footable-loaded footable" id="demo-foo-addrow">
+           <thead>
+               <tr>
+                   <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Nama<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Modul<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Tanggal Mulai<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Tanggal Selesai<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Prioritas<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Status<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Progress<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>1</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/genu.jpg"> Genelia Deshmukh</a>
+                   </td>
+                   <td>genelia@gmail.com</td>
+                   <td>+123 456 789</td>
+                   <td><span class="label label-danger">Designer</span> </td>
+                   <td>23</td>
+                   <td>12-10-2014</td>
+                   <td>$1200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>2</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/arijit.jpg"> Arijit Singh</a>
+                   </td>
+                   <td>arijit@gmail.com</td>
+                   <td>+234 456 789</td>
+                   <td><span class="label label-info">Developer</span> </td>
+                   <td>26</td>
+                   <td>10-09-2014</td>
+                   <td>$1800</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>3</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/govinda.jpg"> Govinda jalan</a>
+                   </td>
+                   <td>govinda@gmail.com</td>
+                   <td>+345 456 789</td>
+                   <td><span class="label label-success">Accountant</span></td>
+                   <td>28</td>
+                   <td>1-10-2013</td>
+                   <td>$2200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>4</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/hritik.jpg"> Hritik Roshan</a>
+                   </td>
+                   <td>hritik@gmail.com</td>
+                   <td>+456 456 789</td>
+                   <td><span class="label label-inverse">HR</span></td>
+                   <td>25</td>
+                   <td>2-10-2016</td>
+                   <td>$200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>5</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/john.jpg"> John Abraham</a>
+                   </td>
+                   <td>john@gmail.com</td>
+                   <td>+567 456 789</td>
+                   <td><span class="label label-danger">Manager</span></td>
+                   <td>23</td>
+                   <td>10-9-2015</td>
+                   <td>$1200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>6</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/pawandeep.jpg"> Pawandeep kumar</a>
+                   </td>
+                   <td>pawandeep@gmail.com</td>
+                   <td>+678 456 789</td>
+                   <td><span class="label label-warning">Chairman</span></td>
+                   <td>29</td>
+                   <td>10-5-2013</td>
+                   <td>$1500</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>7</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/ritesh.jpg"> Ritesh Deshmukh</a>
+                   </td>
+                   <td>ritesh@gmail.com</td>
+                   <td>+123 456 789</td>
+                   <td><span class="label label-danger">Designer</span></td>
+                   <td>35</td>
+                   <td>05-10-2012</td>
+                   <td>$3200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>8</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/salman.jpg"> Salman Khan</a>
+                   </td>
+                   <td>salman@gmail.com</td>
+                   <td>+234 456 789</td>
+                   <td><span class="label label-info">Developer</span></td>
+                   <td>27</td>
+                   <td>11-10-2014</td>
+                   <td>$1800</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>9</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/govinda.jpg"> Govinda jalan</a>
+                   </td>
+                   <td>govinda@gmail.com</td>
+                   <td>+345 456 789</td>
+                   <td><span class="label label-success">Accountant</span></td>
+                   <td>18</td>
+                   <td>12-5-2016</td>
+                   <td>$100</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: table-row;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>10</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/sonu.jpg"> Sonu Nigam</a>
+                   </td>
+                   <td>sonu@gmail.com</td>
+                   <td>+456 456 789</td>
+                   <td><span class="label label-inverse">HR</span></td>
+                   <td>36</td>
+                   <td>18-5-2009</td>
+                   <td>$4200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: none;" class="footable-even">
+                   <td><span class="footable-toggle"></span>11</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/varun.jpg"> Varun Dhawan</a>
+                   </td>
+                   <td>varun@gmail.com</td>
+                   <td>+567 456 789</td>
+                   <td><span class="label label-danger">Manager</span></td>
+                   <td>43</td>
+                   <td>12-10-2010</td>
+                   <td>$5200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: none;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>12</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/genu.jpg"> Genelia Deshmukh</a>
+                   </td>
+                   <td>genelia@gmail.com</td>
+                   <td>+123 456 789</td>
+                   <td><span class="label label-danger">Designer</span> </td>
+                   <td>23</td>
+                   <td>12-10-2014</td>
+                   <td>$1200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: none;" class="footable-even">
+                   <td><span class="footable-toggle"></span>13</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/arijit.jpg"> Arijit Singh</a>
+                   </td>
+                   <td>arijit@gmail.com</td>
+                   <td>+234 456 789</td>
+                   <td><span class="label label-info">Developer</span> </td>
+                   <td>26</td>
+                   <td>10-09-2014</td>
+                   <td>$1800</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+               <tr style="display: none;" class="footable-odd">
+                   <td><span class="footable-toggle"></span>14</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/govinda.jpg"> Govinda jalan</a>
+                   </td>
+                   <td>govinda@gmail.com</td>
+                   <td>+345 456 789</td>
+                   <td><span class="label label-success">Accountant</span></td>
+                   <td>28</td>
+                   <td>1-10-2013</td>
+                   <td>$2200</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td colspan="2">
+                       <button data-target="#add-contact" data-toggle="modal" class="btn btn-info btn-rounded" type="button">Add New Contact</button>
+                   </td>
+
+                   <td colspan="7">
+                       <div class="text-right">
+                           <ul class="pagination"> <li class="footable-page-arrow disabled"><a href="#first" data-page="first">«</a></li><li class="footable-page-arrow disabled"><a href="#prev" data-page="prev">‹</a></li><li class="footable-page active"><a href="#" data-page="0">1</a></li><li class="footable-page"><a href="#" data-page="1">2</a></li><li class="footable-page-arrow"><a href="#next" data-page="next">›</a></li><li class="footable-page-arrow"><a href="#last" data-page="last">»</a></li></ul>
+                       </div>
+                   </td>
+               </tr>
+           </tfoot>
+       </table>
+   </div>
+</div>
+
+<div ui-view></div>

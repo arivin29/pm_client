@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>ID.</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th width="20%">{"id":103,"content":"Hello, World!"}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="data in Projects.data">
+    <td click-link="/pm/project/detail/{{data.id_pelanggan}}"><span ng-bind="data.id_pelanggan"></span></td>
+  </tr>
+
+  </tbody>
+</table>
+<div id="detail" ui-view="detail"> </div>
