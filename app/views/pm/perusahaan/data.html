@@ -3,13 +3,21 @@
         <h4 class="page-title">Perusahaan</h4> </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
-            <li class="active" title="Filter"> <i class="fa fa-plus"></i></li>
-            <li class="active" title="Filter"><i class="linea-icon linea-basic" data-icon="/"></i></li>
+            <li>
+                <button class="btn btn-info waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-filter"></i></span>Filter
+                </button>
+            </li>
+            <li>
+                <button click-link="/pm/perusahaan/add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </button>
+            </li>
         </ol>
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<div class="row">
+<div class="row white-box">
     <div class="col-md-12">
         <div class="table-responsive">
             <table class="table">
@@ -48,3 +56,4 @@
         </div>
     </div>
 </div>
+<div ui-view></div>

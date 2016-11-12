@@ -8,6 +8,12 @@ app.config(['$stateProvider', function($stateProvider) {
           templateUrl: 'views/pm/perusahaan/data.html',
           controller :'perusahaanCont'
       })
+      .state('perusahaan.add', {
+          url: '/add',
+          templateUrl: 'views/pm/perusahaan/add.html',
+          controller :'perusahaanCont'
+      })
+
 
 
   }])
