@@ -32,3 +32,13 @@
     width: 80% !important;
     min-width: 400px;
 }
+.list-style-none li.active a {
+    font-weight: bold;
+}
+.p-0{
+    padding: 0 !important;
+}
+
+.m-0{
+    padding: 0 !important;
+}

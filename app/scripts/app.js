@@ -1,5 +1,7 @@
 'use strict';
 
+var months_json = '["January","February","March","April","May","June","July","August","September","October","November","December"]';
+
 /**
  * @ngdoc overview
  * @name v3App
@@ -9,7 +11,7 @@
  * Main module of the application.
  */
 angular.module('v3App', [
-            'ngResource', 
+            'ngResource',
             'v3App.pm',
             'angular-loading-bar',
             'ngAnimate',

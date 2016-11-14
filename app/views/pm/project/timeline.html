@@ -1,0 +1,161 @@
+
+<div class="right-page-header">
+   <div class="pull-right">
+       <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
+       <h3 class="box-title m-b-0">Overview Kegitan</h3>
+       <p class="text-muted m-b-30 font-13"> Uraian Kegiatan </p>
+</div>
+<div class="clearfix"></div>
+<div class="scrollable">
+
+    <div id="gantt"></div>
+
+</div>
+
+<div ui-view></div>
+
+<script>
+    $(function() {
+
+        /*
+        $(".gantt").gantt({
+				source: [{
+					name: "Sprint 0",
+					desc: "Analysis",
+					values: [{
+						id: "t01",
+						from: "/Date(1320192000000)/",
+						to: "/Date(1322401600000)/",
+						label: "Requirement Gathering",
+						customClass: "ganttRed"
+					}]
+				},{
+					name: " ",
+					desc: "Scoping",
+					values: [{
+						id: "t02",
+						from: "/Date(1322611200000)/",
+						to: "/Date(1323302400000)/",
+						label: "Scoping",
+						customClass: "ganttRed"
+					}]
+				},{
+					name: "Sprint 1",
+					desc: "Development",
+					values: [{
+						from: "/Date(1323802400000)/",
+						to: "/Date(1325685200000)/",
+						label: "Development",
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Showcasing",
+					values: [{
+						from: "/Date(1325685200000)/",
+						to: "/Date(1325695200000)/",
+						label: "Showcasing",
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Sprint 2",
+					desc: "Development",
+					values: [{
+						from: "/Date(1326785200000)/",
+						to: "/Date(1325785200000)/",
+						label: "Development",
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Showcasing",
+					values: [{
+						from: "/Date(1328785200000)/",
+						to: "/Date(1328905200000)/",
+						label: "Showcasing",
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Release Stage",
+					desc: "Training",
+					values: [{
+						from: "/Date(1330011200000)/",
+						to: "/Date(1336611200000)/",
+						label: "Training",
+						customClass: "ganttOrange"
+					}]
+				},{
+					name: " ",
+					desc: "Deployment",
+					values: [{
+						from: "/Date(1336611200000)/",
+						to: "/Date(1338711200000)/",
+						label: "Deployment",
+						customClass: "ganttOrange"
+					}]
+				},{
+					name: " ",
+					desc: "Warranty Period",
+					values: [{
+						from: "/Date(1336611200000)/",
+						to: "/Date(1349711200000)/",
+						label: "Warranty Period",
+						customClass: "ganttOrange"
+					}]
+				}],
+				navigate: "scroll",
+				maxScale: "hours",
+				itemsPerPage: 10,
+				onItemClick: function(data) {
+					alert("Item clicked - show some details");
+				},
+				onAddClick: function(dt, rowId) {
+					alert("Empty space clicked - add an item!");
+				},
+				onRender: function() {
+					if (window.console && typeof console.log === "function") {
+						console.log("chart rendered");
+					}
+				},
+				onDataLoadFailed: function(data) {
+					alert("Data failed to load!")
+				}
+			});
+			$(".gantt").popover({
+				selector: ".bar",
+				title: "I'm a popover",
+				content: "And I'm the content of said popover.",
+				trigger: "hover"
+			});
+            */
+
+        var gantt_data = [{"values":[{"from":"2016\/11\/14","to":"2016\/11\/28","desc":"Total logged time: 22 Seconds","label":"Alice; and Alice looked.","dataObj":{"task_id":"11"}}],"desc":"Alice; and Alice looked.","name":"Arnulfo Erdman"},{"values":[{"from":"2016\/11\/14","to":"2017\/01\/02","desc":"Total logged time: 0 Seconds","label":"March Hare had just begun to.","dataObj":{"task_id":"14"}}],"desc":"March Hare had just begun to.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/12","desc":"Total logged time: 0 Seconds","label":" <i class=\"fa fa-check\"><\/i> Mock Turtle is.' 'It's the first figure!' said.","customClass":"ganttGreen","dataObj":{"task_id":"15"}}],"desc":"Mock Turtle is.' 'It's the first figure!' said.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/26","desc":"Total logged time: 0 Seconds","label":" <i class=\"fa fa-check\"><\/i> Gryphon: and it sat down again very.","customClass":"ganttGreen","dataObj":{"task_id":"16"}}],"desc":"Gryphon: and it sat down again very.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/12","desc":"Total logged time: 0 Seconds","label":" <i class=\"fa fa-check\"><\/i> The Hatter's remark seemed to be.","customClass":"ganttGreen","dataObj":{"task_id":"17"}}],"desc":"The Hatter's remark seemed to be.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/11\/28","desc":"Total logged time: 22 Seconds","label":"Alice; and Alice looked.","dataObj":{"task_id":"11"}}],"desc":"Alice; and Alice looked.","name":"Solon Kunde"},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/12","desc":"Total logged time: 0 Seconds","label":"Lizard as she could do to.","dataObj":{"task_id":"12"}}],"desc":"Lizard as she could do to.","name":""},{"values":[{"from":"2016\/11\/14","to":"2017\/01\/02","desc":"Total logged time: 0 Seconds","label":" <i class=\"fa fa-check\"><\/i> Alice in a fight with another hedgehog, which.","customClass":"ganttGreen","dataObj":{"task_id":"18"}}],"desc":"Alice in a fight with another hedgehog, which.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/12","desc":"Total logged time: 0 Seconds","label":"Lizard as she could do to.","dataObj":{"task_id":"12"}}],"desc":"Lizard as she could do to.","name":"Tracey Langosh"},{"values":[{"from":"2016\/11\/14","to":"2017\/01\/02","desc":"Total logged time: 0 Seconds","label":"Alice. 'I'm glad they don't.","dataObj":{"task_id":"13"}}],"desc":"Alice. 'I'm glad they don't.","name":""},{"values":[{"from":"2016\/11\/14","to":"2017\/01\/02","desc":"Total logged time: 0 Seconds","label":"March Hare had just begun to.","dataObj":{"task_id":"14"}}],"desc":"March Hare had just begun to.","name":""},{"values":[{"from":"2016\/11\/14","to":"2016\/12\/12","desc":"Total logged time: 0 Seconds","label":" <i class=\"fa fa-check\"><\/i> Mock Turtle is.' 'It's the first figure!' said.","customClass":"ganttGreen","dataObj":{"task_id":"15"}}],"desc":"Mock Turtle is.' 'It's the first figure!' said.","name":""}];
+
+        $("#gantt").gantt({
+              source: gantt_data,
+              minScale: "years",
+              maxScale: "years",
+              itemsPerPage: 20,
+              months: JSON.parse(months_json),
+              navigate: 'scroll',
+              onRender: function() {
+                  var rm = $('#gantt .leftPanel .name .fn-label:empty').parents('.name').css('background', 'initial');
+                  $('#gantt .leftPanel .spacer').html('<span class="gantt_project_name"><i class="fa fa-cubes"></i> ' + 'Nama Proyek' + '</span>');
+                  var _percent = $('input[name="project_percent"]').val();
+                  $('#gantt .leftPanel .spacer').append('<div style="padding:10px 20px 10px 20px;"><div class="progress mtop5 progress-bar-mini"><div class="progress-bar progress-bar-success no-percent-text" role="progressbar" aria-valuenow="' + _percent + '" aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percent="' + _percent + '"></div></div></div>');
+                  init_progress_bars();
+              },
+              onItemClick: function(data) {
+                  init_task_modal(data.task_id);
+              },
+              onAddClick: function(dt, rowId) {
+                  var fmt = new DateFormatter();
+                  var d0 = new Date(+dt);
+                  var d1 = fmt.formatDate(d0, date_format);
+                  new_task(admin_url + 'tasks/task?rel_type=project&rel_id=' + project_id + '&start_date=' + d1);
+              }
+          });
+    });
+</script>
+
+</div>

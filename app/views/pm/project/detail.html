@@ -1,6 +1,6 @@
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="page-title">Project 1</h4> </div>
+        <h4 class="page-title">Pembangunan SPAM SWRO</h4> </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
             <li class="active" title="Filter"> <i class="fa fa-plus"></i></li>
@@ -21,10 +21,11 @@
                        <ul class="list-style-none">
                            <li ui-sref-active="active" class="box-label"><a ui-sref="project_detail" href="javascript:void(0)">Detail Projek</a></li>
                            <li class="divider"></li>
-                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.task">Task <span>103</span></a></li>
-                           <li><a href="javascript:void(0)">Timeline </a></li>
-                           <li><a href="javascript:void(0)">Modul <span>8</span></a></li>
-                           <li><a href="javascript:void(0)">Dokumen <span>3</span></a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.rekap">Paket Kegiatan </a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.task">Kegiatan <span>103</span></a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.timeline">Timeline </a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.kurva">Kurva </a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.document">Dokumen <span>3</span></a></li>
                            <li><a href="javascript:void(0)">Surat/Tiket <span>3</span></a></li>
                            <li><a href="javascript:void(0)">AktivitAS <span>3</span></a></li>
                       </ul>
@@ -33,21 +34,32 @@
                <!-- /.left-aside-column-->
                <div class="right-aside" id="detail_content" ng-show="$state.current.name === 'project_detail'">
                    <div class="right-page-header">
-                       <div class="pull-right">
+                       <!-- <div class="pull-right">
                            <input type="text" class="form-control" placeholder="search contacts" id="demo-input-search2"> </div>
-                       <h3>Progress </h3> </div>
+                       <h3>Progress </h3>  -->
+
+                       <div class="row sales-report">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <h2>{{ '' | dateNow }}</h2>
+                                    <p>Progress Proyek</p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <h1 class="text-right text-success m-t-20">53%</h1> </div>
+                            </div>
+                   </div>
                        <div class="clearfix"></div>
                        <div class="scrollable">
                            <div class="row">
                                <div class="col-md-12 col-lg-12 col-sm-12">
                                    <div class="white-box">
                                        <div class="row row-in">
-                                           <div class="col-lg-3 col-sm-6 row-in-br">
+
+                                           <div class="col-lg-4 col-sm-6 row-in-br">
                                                <div class="col-in row">
-                                                   <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-user"></i>
-                                                       <h5 class="text-muted vb">MYNEW CLIENTS</h5> </div>
+                                                   <div class="col-md-6 col-sm-6 col-xs-6"> <i class="fa fa-building"></i>
+                                                       <h5 class="text-muted vb">Progress Fisik (Lokasi)</h5> </div>
                                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                                       <h3 class="counter text-right m-t-15 text-danger">23</h3> </div>
+                                                       <h3 class="counter text-right m-t-15 text-danger">55%</h3> </div>
                                                    <div class="col-md-12 col-sm-12 col-xs-12">
                                                        <div class="progress">
                                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
@@ -55,38 +67,13 @@
                                                    </div>
                                                </div>
                                            </div>
-                                           <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
-                                               <div class="col-in row">
-                                                   <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-pencil-alt"></i>
-                                                       <h5 class="text-muted vb">NEW PROJECTS</h5> </div>
-                                                   <div class="col-md-6 col-sm-6 col-xs-6">
-                                                       <h3 class="counter text-right m-t-15 text-info">169</h3> </div>
-                                                   <div class="col-md-12 col-sm-12 col-xs-12">
-                                                       <div class="progress">
-                                                           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                           <div class="col-lg-3 col-sm-6 row-in-br">
-                                               <div class="col-in row">
-                                                   <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-mouse-alt"></i>
-                                                       <h5 class="text-muted vb">OPEN PROJECTS</h5> </div>
-                                                   <div class="col-md-6 col-sm-6 col-xs-6">
-                                                       <h3 class="counter text-right m-t-15 text-success">431</h3> </div>
-                                                   <div class="col-md-12 col-sm-12 col-xs-12">
-                                                       <div class="progress">
-                                                           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                           <div class="col-lg-3 col-sm-6  b-0">
+
+                                           <div class="col-lg-4 col-sm-6  b-0">
                                                <div class="col-in row">
                                                    <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-receipt"></i>
-                                                       <h5 class="text-muted vb">NEW INVOICES</h5> </div>
+                                                       <h5 class="text-muted vb">Progress Fisik (Kontrak)</h5> </div>
                                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                                       <h3 class="counter text-right m-t-15 text-warning">157</h3> </div>
+                                                       <h3 class="counter text-right m-t-15 text-warning">57%</h3> </div>
                                                    <div class="col-md-12 col-sm-12 col-xs-12">
                                                        <div class="progress">
                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
@@ -94,32 +81,84 @@
                                                    </div>
                                                </div>
                                            </div>
+
+
+                                           <div class="col-lg-4 col-sm-6 row-in-br">
+                                               <div class="col-in row">
+                                                   <div class="col-md-6 col-sm-6 col-xs-6"> <i class="fa fa-money"></i>
+                                                       <h5 class="text-muted vb">Penyerapan Anggaran</h5> </div>
+                                                   <div class="col-md-6 col-sm-6 col-xs-6">
+                                                       <h3 class="counter text-right m-t-15 text-success">35%</h3> </div>
+                                                   <div class="col-md-12 col-sm-12 col-xs-12">
+                                                       <div class="progress">
+                                                           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>
+
                                        </div>
                                    </div>
                                </div>
 
                                <div class="col-md-4 col-lg-4 col-xs-12">
                                     <div class="white-box">
-                                        <h3 class="box-title">Project Overview</h3>
+                                        <h3 class="box-title">Proyek Overview</h3>
                                         <ul class="basic-list">
-                                            <li>Google Chrome <span class="pull-right label-danger label">21.8%</span></li>
-                                            <li>Mozila Firefox <span class="pull-right label-purple label">21.8%</span></li>
-                                            <li>Apple Safari <span class="pull-right label-success label">21.8%</span></li>
-                                            <li>Internet Explorer <span class="pull-right ">21.8%</span></li>
-                                            <li>Opera mini <span class="pull-right label-warning label">21.8%</span></li>
-                                            <li>Mozila Firefox <span class="pull-right label-purple label">21.8%</span></li>
+                                            <li>Kontraktor <span class="pull-right">PT MAJU MINDIR Tbk.</span></li>
+                                            <li>Supervisi <span class="pull-right">PT ADIK MAJU</span></li>
+                                            <li>No Kontrak <span class="pull-right">KU.03.08/Strategis-AM/XII/104/2015</span></li>
+                                            <li>Nilai Kontrak
+                                                <span class="pull-right ">
+                                                    <!-- <i class="fa fa-calendar"></i> -->
+                                                    Rp 13,485,638,000.00
+                                                </span>
+                                            </li>
+                                            <li>Pagu
+                                                <span class="pull-right ">
+                                                    <!-- <i class="fa fa-calendar"></i> -->
+                                                    Rp 15,000,000,000.00
+                                                </span>
+                                            </li>
+                                            <li>Periode Kontrak
+                                                <span class="pull-right ">
+                                                    <i class="fa fa-calendar"></i>
+                                                    2016-AGU-21 / 2017-JAN-20
+                                                </span>
+                                            </li>
+                                            <li>Penanggung Jawab <span class="pull-right">Bpk. SURANTMO </span></li>
+
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="col-md-8">
+                                    <div class="lokasi_projek p-20">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15867.046693672042!2d106.7765558!3d-6.162664299999999!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1479106760406" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+
                                     <div class="white-box">
+                                        <h3 class="box-title">Lokasi Proyek</h3>
+                                        <ul class="basic-list">
+                                            <li>PROVINSI <span class="pull-right">SUMBAR</span></li>
+                                            <li>KABUPATEN <span class="pull-right">TANAH DATAR</span></li>
+                                            <li>KECEMATAN
+                                                <span class="pull-right">
+                                                    Kecematan 1,Kecematan 2
+                                                </span>
+                                            </li>
+                                            <li>KELURAHAN
+                                                <span class="pull-right">
+                                                    Kelurahan 1, Kelurahan 2, Kelurahan 3 ...
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                        <br>
                                         <h3 class="box-title">Deskripsi</h3>
                                         <p>Elite Admin is a popular open source WebApp template for admin dashboards and control panels. It is a responsive HTML template that is based on the CSS framework Bootstrap 3.3.6 It utilizes all of the Bootstrap components in its design and re-styles many commonly used plugins to create a consistent design that can be used as a user interface for backend applications. Elite Admin is based on a modular design, which allows it to be easily customized and built upon. This documentation will guide you through installing the template and exploring the various components that are bundled with the template.</p>
                                         <hr>
-                                        <h3 class="box-title">Installation Guide</h3>
-                                        First of all, choose you desire folder & copy that folder and also copy that plugins folder.
-                                        <br>
+
                                     </div>
                                 </div>
 
@@ -129,7 +168,7 @@
                    </div>
                </div>
 
-               <div class="right-aside"  id="sub_detail_content" ng-show="$state.includes('project_detail.task')" >
+               <div class="right-aside"  id="sub_detail_content" ng-show="$state.includes('project_detail.*') || $state.includes('project_detail.*.*')" >
                    <div ui-view></div>
                </div>
                <!-- .left-aside-column-->

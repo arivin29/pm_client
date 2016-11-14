@@ -1,5 +1,3 @@
-var BASE_URL = 'http://localhost:8080/pm';
-
 var app = angular.module('v3App');
 app.config(['$stateProvider', function($stateProvider) {
   $stateProvider
@@ -7,6 +5,11 @@ app.config(['$stateProvider', function($stateProvider) {
           url: '/pm/perusahaan',
           templateUrl: 'views/pm/perusahaan/data.html',
           controller :'perusahaanCont'
+      })
+      .state('perusahaan_detail', {
+          url: '/pm/perusahaan/detail/{id}',
+          templateUrl: 'views/pm/perusahaan/detail.html'
+        //   controller :'perusahaanCont'
       })
       .state('perusahaan.add', {
           url: '/add',

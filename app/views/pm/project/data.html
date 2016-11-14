@@ -1,18 +1,66 @@
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th>ID.</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th width="20%">{"id":103,"content":"Hello, World!"}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="data in Projects.data">
-    <td click-link="/pm/project/detail/{{data.id_pelanggan}}"><span ng-bind="data.id_pelanggan"></span></td>
-  </tr>
 
-  </tbody>
-</table>
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Proyek</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+            <li>
+                <button class="btn btn-info waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-filter"></i></span>Filter
+                </button>
+            </li>
+            <li>
+                <button click-link="/pm/project/add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </button>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Proyek</th>
+                      <th>Tanggal</th>
+                      <th>Paket</th>
+                      <th>Kontraktor</th>
+                      <th>Supervisi</th>
+                      <th>Sumber Anggaran</th>
+                      <th>Pagu Anggaran</th>
+                      <th>Progress</th>
+                      <th>Lokasi</th>
+                      <th width="100px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in Projects.datas">
+                      <td click-link="/pm/project/detail/{{data.ID_PROJECT}}"><span ng-bind="{{$index+1}}"></span></td>
+                      <td>{{data.NAMA_PROJECT}}</td>
+                      <td>{{data.TANGGAL_MULAI | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                      <!-- <td>{{data.TANGGAL_SELESAI}}</td> -->
+                      <td>{{data.NAMA_PAKET}}</td>
+                      <td>{{data.KONTRAKTOR}}</td>
+                      <td>{{data.SUPERVISI}}</td>
+                      <td>{{data.SUMBER_ANGGARAN }}</td>
+                      <td>{{data.PAGU_ANGGARAN | currency:"Rp.":0 }}</td>
+                      <td>{{data.PROGRES_PROJECT}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{Projects}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+
 <div id="detail" ui-view="detail"> </div>

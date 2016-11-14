@@ -1,0 +1,52 @@
+
+<div class="right-page-header">
+   <div class="pull-right">
+       <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
+   <h3>
+       <!-- <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> -->
+       Task /
+       <a ui-sref="project_detail.task.add">
+           <button  class="btn btn-info btn-rounded" type="button">Add New Task</button>
+       </a>
+   </h3>
+</div>
+<div class="clearfix"></div>
+<div class="scrollable">
+   <div class="table-responsive">
+       <table data-page-size="10" class="table m-t-30 table-hover contact-list footable-loaded footable" id="demo-foo-addrow">
+           <thead>
+               <tr>
+                   <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Jenis<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Document<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">No Surat<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Tgl Upload<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Nama File<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat="n in [] | range:5" style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>{{n+1}}</td>
+
+                   <td>Kontrak</td>
+                   <td>
+                       <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/genu.jpg"> Genelia Deshmukh</a>
+                   </td>
+                   <td>KU.03.08/Strategis-AM/XII/104/2015 </td>
+                   <td>{{'' | dateNow}}</td>
+                   <td>Document1.xcel</td>
+
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-download"></i></button>
+                       <button data-original-title="Download" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+
+           </tbody>
+
+       </table>
+   </div>
+</div>
+
+<div ui-view></div>

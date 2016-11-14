@@ -20,6 +20,7 @@ app.directive('clickLink', ['$location', function($location) {
         }
     }
 }]);
+ 
 
 app.directive('onClick', function(){
        return{
@@ -54,6 +55,8 @@ app.directive("backDblClick", ["$window", function ($window) {
         }
     };
 }]);
+
+
 
 
 

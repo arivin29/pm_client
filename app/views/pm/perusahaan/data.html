@@ -28,7 +28,7 @@
                         <th>Direktur</th>
                         <th>Email</th>
                         <th>Telepon</th>
-                        <th>Status</th>
+                        <th>Jenis</th>
                         <th>Alamat</th>
                         <th>Action</th>
                     </tr>
@@ -36,7 +36,7 @@
                 <tbody ng-repeat="x in perusahaans.data">
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td><a href="#kontraktor/detail">Pt Maju Selalu</a></td>
+                        <td><a ui-sref="perusahaan_detail({id:x.perusahaan.id_perusahaan})">Pt Maju Selalu</a></td>
                         <td>{{x.perusahaan.nama_perusahaan}}</td>
                         <td>Info@maju-selalu.com</td>
                         <td>0241-02520-41</td>
