@@ -2,6 +2,20 @@ var BASE_URL = 'http://localhost:8081/pm';
 
 angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateProvider) {
   $stateProvider
+      .state('project_jenis', { // MODULE_TASK
+          url: '/pm/project_jenis',
+          templateUrl: 'views/pm/project/project_jenis.html',
+          controller: 'project_jenis'
+      })
+      .state('project_paket', { // MODULE_TASK
+          url: '/pm/project_paket',
+          templateUrl: 'views/pm/project/project_paket.html'
+      })
+      .state('project_paket.add', { // MODULE_TASK
+          url: '/add',
+          templateUrl: 'views/pm/project/project_paket.add.html'
+      })
+
       .state('project', {
           url: '/pm/project',
           templateUrl: 'views/pm/project/data.html',
@@ -58,6 +72,8 @@ angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateP
           //controller :'taskContAdd'
       })
 
+
+
       //TIMELINE
       .state('project_detail.timeline', {
           url: '/timeline',
@@ -75,6 +91,35 @@ angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateP
           templateUrl: 'views/pm/project/document.html'
           //controller :'taskContAdd'
       })
+
+
+      //TASK Detail     =====================================================================================
+      .state('task_detail', {
+          url: '/pm/project/task/:id_task',
+          templateUrl: 'views/pm/project/task.detail.html'
+          //controller :'taskContAdd'
+      })
+      .state('task_detail.rincian', {
+          url: '/rincian',
+          templateUrl: 'views/pm/project/task.detail.rincian.html'
+          //controller :'taskContAdd'
+      })
+      .state('task_detail.kontraktor', {
+          url: '/kontraktor',
+          templateUrl: 'views/pm/project/task.detail.kontraktor.html'
+          //controller :'taskContAdd'
+      })
+      .state('task_detail.supervisi', {
+          url: '/supervisi',
+          templateUrl: 'views/pm/project/task.detail.supervisi.html'
+          //controller :'taskContAdd'
+      })
+      .state('task_detail.laporan', {
+          url: '/supervisi',
+          templateUrl: 'views/pm/project/task.detail.laporan.html'
+          //controller :'taskContAdd'
+      })
+      //END TASK Detail=====================================================================================
 
 
 

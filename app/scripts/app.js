@@ -1,4 +1,7 @@
 'use strict';
+var DEBUG=true; 
+
+
 
 var months_json = '["January","February","March","April","May","June","July","August","September","October","November","December"]';
 

@@ -30,30 +30,34 @@
                         <th>Telepon</th>
                         <th>Jenis</th>
                         <th>Alamat</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
-                <tbody ng-repeat="x in perusahaans.data">
+                <tbody ng-repeat="x in datas.data">
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td><a ui-sref="perusahaan_detail({id:x.perusahaan.id_perusahaan})">Pt Maju Selalu</a></td>
-                        <td>{{x.perusahaan.nama_perusahaan}}</td>
-                        <td>Info@maju-selalu.com</td>
-                        <td>0241-02520-41</td>
+                        <td><a ui-sref="perusahaan_detail({id:x.perusahaan.id_perusahaan})">{{x.perusahaan.nama_perusahaan}}</a></td>
+                        <td>{{x.perusahaan.direktur_perusahaan}} XXXXXX XSXXXXXXXXXX</td>
+                        <td>{{x.perusahaan.email_perusahaan}}</td>
+                        <td>{{x.perusahaan.telfon_perusahaan}}</td>
                         <td>
-                            <div class="label label-table label-success">Kontruksi</div>
+                            <div class="label label-table label-success">{{x.kategori.kategori}}</div>
                         </td>
-                        <td><span class="text-muted"><i class="fa fa-home"></i>Lorem ipsum accesskey</span> </td>
-                        <td>2 acitive</td>
+                        <td><span class="text-muted"><i class="fa fa-home"></i> {{x.provinsi.nama_prov | uppercase}} - {{x.kabkot.nama_kabkot}} - {{x.kecematan.nama_kec}} - {{x.kelurahan.nama_kel}}</span> </td>
+                        <!-- <td>2 acitive</td> -->
                     </tr>
 
                 </tbody>
             </table>
 
             <pre>
-                <code class="prettyprint"> {{perusahaans}}</code>
+                <code class="prettyprint"> {{datas}}</code>
             </pre>
         </div>
     </div>
 </div>
 <div ui-view></div>
+
+<script>
+GodangMenuKiri()
+</script>

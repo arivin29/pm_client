@@ -1,0 +1,56 @@
+
+<div class="right-page-header">
+   <div class="pull-right">
+       <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
+   <h3>
+       <!-- <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> -->
+       Pegawai /
+       <a ui-sref="perusahaan_detail.pegawai.add">
+           <button  class="btn btn-info btn-rounded" type="button">Input Pegawai</button>
+       </a>
+   </h3>
+</div>
+<div class="clearfix"></div>
+<div class="scrollable">
+   <div class="table-responsive">
+       <table data-page-size="10" class="table m-t-30 table-hover contact-list footable-loaded footable" id="demo-foo-addrow">
+           <thead>
+               <tr>
+                   <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Nama<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">NIP<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Jabatan<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Identitas<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">No Identitas<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Tmp/tgl Lahir<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Hp<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">email<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat="n in [] | range:5" style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>{{n+1}}</td>
+                   <td>
+                       <a><img class="img-circle" alt="user" src="images/users/genu.jpg"> Genelia Deshmukh</a>
+                   </td>
+                   <td>IP54255236525</td>
+                   <td>Direktur</td>
+                   <td>KTP</td>
+                   <td>050520-252224-4131-25545</td>
+                   <td>Guguk/29-10-1991</td>
+                   <td>05845855825</td>
+                   <td>wew@demo.com</td>
+                   <td>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-pencil-alt"></i></button>
+                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                   </td>
+               </tr>
+
+           </tbody>
+
+       </table>
+   </div>
+</div>
+
+<div ui-view></div>

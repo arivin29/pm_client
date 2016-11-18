@@ -42,3 +42,6 @@
 .m-0{
     padding: 0 !important;
 }
+#sub_detail_content .scrollable {
+    min-height: 600px;
+}

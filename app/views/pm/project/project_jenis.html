@@ -1,0 +1,40 @@
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Jenis Proyek</h4> </div>
+
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Jenis Proyek</th>
+                        <th>Keterangan</th>
+                        <th>Keyword</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="x in datas.data">
+                    <tr>
+                        <td class="{{x.id_project_jenis}}">{{$index+1}}</td>
+                        <td>{{x.project_jenis}}</td>
+                        <td>{{x.keterangan}}</td>
+                        <td>{{x.project_jenis}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{datas}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+<script>
+GodangMenuKiri()
+</script>

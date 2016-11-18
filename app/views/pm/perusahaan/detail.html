@@ -1,6 +1,6 @@
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="page-title">Kontraktor > PT Maju Terus</h4> </div>
+        <h4 class="page-title">PT Maju Terus</h4> </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
             <li class="active" title="Filter"> <i class="fa fa-plus"></i></li>
@@ -22,7 +22,7 @@
                            <li ui-sref-active="active" class="box-label"><a ui-sref="perusahaan_detail" href="javascript:void(0)">Profile </a></li>
                            <li class="divider"></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.project" href="javascript:void(0)">Proyek<span>2</span></a></li>
-                           <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.kontak" href="javascript:void(0)">Pegawai </a></li>
+                           <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.pegawai" href="javascript:void(0)">Pegawai </a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.document" href="javascript:void(0)">Dokumen </a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.map" href="javascript:void(0)">Map </a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.tiket" href="javascript:void(0)">Komplain/Keluhan </a></li>
@@ -30,7 +30,7 @@
                    </div>
                </div>
                <!-- /.left-aside-column-->
-               <div class="right-aside">
+               <div class="right-aside"  id="detail_content" ng-show="$state.current.name === 'perusahaan_detail'">
                    <div class="right-page-header"> </div>
                    <div class="clearfix"></div>
                    <div class="scrollable">
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 col-lg-4 col-xs-12">
+                            <div class="col-md-6 col-lg-6 col-xs-12">
                                 <div class="white-box">
                                     <h3 class="box-title">Profile Perusahaan</h3>
                                     <ul class="basic-list">
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="white-box">
                                     <h3 class="box-title">Feeds</h3>
                                     <ul class="feeds">
@@ -116,6 +116,11 @@
 
                    </div>
                </div>
+
+               <div class="right-aside white-box"  id="sub_detail_content" ng-show="$state.includes('perusahaan_detail.*.*') || $state.includes('project_detail.*.*')" >
+                   <div ui-view></div>
+               </div>
+
                <!-- .left-aside-column-->
            </div>
            <!-- /.left-right-aside-column-->
@@ -123,3 +128,7 @@
 
     </div>
 </div>
+
+<script>
+    KeteanMenuKiri();
+</script>

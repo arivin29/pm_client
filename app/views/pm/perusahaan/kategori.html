@@ -1,0 +1,55 @@
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Perusahaan Kategori</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+
+            <li>
+                <button click-link="/pm/perusahaan/add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </button>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kategori</th>
+                        <th>Deskripsi</th>
+                        <th>Keyword</th>
+                        <th>Status</th>
+                        <!-- <th>Action</th> -->
+                    </tr>
+                </thead>
+                <tbody ng-repeat="$x in datas.data">
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{$x.deskripsi}}</td>
+                        <td>{{$x.keyword}}</td>
+                        <td>{{$x.status}}</td>
+                        <!-- <td>
+                           <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-pencil-alt"></i></button>
+                           <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                       </td> -->
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{datas}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+<script>
+GodangMenuKiri()
+</script>

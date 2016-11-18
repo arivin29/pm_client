@@ -1,0 +1,58 @@
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Perusahaan Jabatan</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+
+            <li>
+                <button click-link="/pm/perusahaan/add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </button>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tree</th>
+                        <th>Parent</th>
+                        <th>Jabatan</th>
+                        <th>Keterangan</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="x in perusahaans.data">
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td><a ui-sref="perusahaan_detail({id:x.perusahaan.id_perusahaan})">Pt Maju Selalu</a></td>
+                        <td>{{x.perusahaan.nama_perusahaan}}</td>
+                        <td>Info@maju-selalu.com</td>
+                        <td>0241-02520-41</td>
+                        <td>
+                            <div class="label label-table label-success">Kontruksi</div>
+                        </td>
+                        <td><span class="text-muted"><i class="fa fa-home"></i>Lorem ipsum accesskey</span> </td>
+                        <td>2 acitive</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{perusahaans}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+<script>
+GodangMenuKiri()
+</script>

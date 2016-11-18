@@ -1,3 +1,17 @@
+function KeteanMenuKiri()
+{
+    $('body').addClass('content-wrapper');
+    $(".open-close i").removeClass('icon-arrow-left-circle');
+    $(".sidebar-nav, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
+    $(".logo span").hide();
+}
+
+function GodangMenuKiri() {
+    $('body').removeClass('content-wrapper');
+    $(".open-close i").addClass('icon-arrow-left-circle');
+    $(".logo span").show();    
+}
+
 $(document).ready(function () {
     $(function () {
         $(".preloader").fadeOut();
@@ -65,15 +79,10 @@ $(document).ready(function () {
         $(window).bind("load resize", function () {
             width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
             if (width < 1170) {
-                $('body').addClass('content-wrapper');
-                $(".open-close i").removeClass('icon-arrow-left-circle');
-                $(".sidebar-nav, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
-                $(".logo span").hide();
+                KeteanMenuKiri();
             }
             else {
-                $('body').removeClass('content-wrapper');
-                $(".open-close i").addClass('icon-arrow-left-circle');
-                $(".logo span").show();
+                GodangMenuKiri();
             }
         });
     });
