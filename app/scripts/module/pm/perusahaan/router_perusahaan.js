@@ -20,13 +20,13 @@ app.config(['$stateProvider', function($stateProvider) {
       .state('perusahaan.add', {
           url: '/add',
           templateUrl: 'views/pm/perusahaan/add.html',
-          controller :'perusahaanCont'
+          controller :'perusahaan.add'
       })
 
       .state('perusahaan_detail', {
           url: '/pm/perusahaan/detail/{id}',
-          templateUrl: 'views/pm/perusahaan/detail.html'
-        //   controller :'perusahaanCont'
+          templateUrl: 'views/pm/perusahaan/detail.html',
+          controller :'perusahaan_detail'
       })
 
       //Pegawai
@@ -42,10 +42,15 @@ app.config(['$stateProvider', function($stateProvider) {
       })
 
       //projek
-      .state('perusahaan_detail.project', {
+      .state('perusahaan_detail.kontraktor', {
           url: '/project',
-          templateUrl: 'views/pm/perusahaan/project.html'
-        //   controller :'perusahaanCont'
+          templateUrl: 'views/pm/perusahaan/kontraktor.html',
+          controller :'perusahaan_detail_kontraktor'
+      })
+      .state('perusahaan_detail.supervisi', {
+          url: '/project',
+          templateUrl: 'views/pm/perusahaan/supervisi.html',
+          controller :'perusahaan_detail_supervisi'
       })
 
       //projek

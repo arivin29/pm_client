@@ -1,6 +1,6 @@
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="page-title">PT Maju Terus</h4> </div>
+        <h4 class="page-title">Detail Perusahaan</h4> </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
             <li class="active" title="Filter"> <i class="fa fa-plus"></i></li>
@@ -21,7 +21,8 @@
                        <ul class="list-style-none">
                            <li ui-sref-active="active" class="box-label"><a ui-sref="perusahaan_detail" href="javascript:void(0)">Profile </a></li>
                            <li class="divider"></li>
-                           <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.project" href="javascript:void(0)">Proyek<span>2</span></a></li>
+                           <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.kontraktor" href="javascript:void(0)">Kontraktor<span>2</span></a></li>
+                           <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.supervisi" href="javascript:void(0)">Supervisi<span>2</span></a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.pegawai" href="javascript:void(0)">Pegawai </a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.document" href="javascript:void(0)">Dokumen </a></li>
                            <li ui-sref-active="active" ><a ui-sref="perusahaan_detail.map" href="javascript:void(0)">Map </a></li>
@@ -37,19 +38,19 @@
                        <div class="row m-b-15">
                            <div class="col-md-3 col-xs-6 b-r "> <strong>Nama Perusahaan</strong>
                                <br>
-                               <p class="text-muted">PT. Johnathan Deo</p>
+                               <p class="text-muted">{{data.NAMA_PERUSAHAAN}}</p>
                            </div>
-                           <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
+                           <div class="col-md-3 col-xs-6 b-r"> <strong>Telfon</strong>
                                <br>
-                               <p class="text-muted">(123) 456 7890</p>
+                               <p class="text-muted">{{data.TELFON_PERUSAHAAN}}</p>
                            </div>
                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
                                <br>
-                               <p class="text-muted">johnathan@admin.com</p>
+                               <p class="text-muted">{{data.EMAIL_PERUSAHAAN}}</p>
                            </div>
                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
                                <br>
-                               <p class="text-muted">London</p>
+                               <p class="text-muted">{{data.NAMA_KABKOT }}>{{data.NAMA_KEL }}</p>
                            </div>
                        </div>
 
@@ -77,16 +78,16 @@
                                 <div class="white-box">
                                     <h3 class="box-title">Profile Perusahaan</h3>
                                     <ul class="basic-list">
-                                        <li>Direktur Perusahaan<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Alamat<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Provinsi<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>KabKot<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Kecematan<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>NPWP<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>FAX<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Web<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Kode POS<span class="pull-right ">XXXXXXXXXXX</span></li>
-                                        <li>Kategori<span class="pull-right label-danger label">XXXXXXXXXXX</span></li>
+                                        <li>Direktur Perusahaan<span class="pull-right ">{{data.DIREKTUR_PERUSAHAAN}}</span></li>
+                                        <li>Alamat<span class="pull-right ">{{data.ALAMAT_PERUSAHAAN }}</span></li>
+                                        <li>Provinsi<span class="pull-right ">{{data.NAMA_PROV | uppercase}}</span></li>
+                                        <li>KabKot<span class="pull-right ">{{data.NAMA_KABKOT}}</span></li>
+                                        <li>Kecematan<span class="pull-right ">{{data.NAMA_KEC}}</span></li>
+                                        <li>NPWP<span class="pull-right ">{{data.NPWP}}</span></li>
+                                        <li>FAX<span class="pull-right ">{{data.FAX}}</span></li>
+                                        <li>Web<span class="pull-right ">{{data.WEB}}</span></li>
+                                        <li>Kode POS<span class="pull-right ">{{data.KODE_POS}}</span></li>
+                                        <li>Kategori<span class="pull-right label-danger label">{{data.KATEGORI}}</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -113,9 +114,13 @@
 
 
                         </div>
+                        <pre class="debug">
+
+                        </pre>
 
                    </div>
                </div>
+
 
                <div class="right-aside white-box"  id="sub_detail_content" ng-show="$state.includes('perusahaan_detail.*.*') || $state.includes('project_detail.*.*')" >
                    <div ui-view></div>
@@ -131,4 +136,7 @@
 
 <script>
     KeteanMenuKiri();
+    $(document).ready(function(){
+        <!-- $('.debug').jsontree(DATA); -->
+    });
 </script>

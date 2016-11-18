@@ -8,5 +8,6 @@ app.service('service_perusahaan', ['$http', function($http) {
     this.getPerusahaans = function(query) {
         return $http.get(BASE_URL + '/perusahaan', query);
     };
+ 
 
 }]);

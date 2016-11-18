@@ -16,3 +16,22 @@ $('ul#page-menu li').click(function()
 //         $('#content').load(base_url + 'part/' + url);
 //     })
 // }
+
+function formAutoLoad()
+{
+    if ( $( ".select2" ).length ) {
+        $(".select2").select2();
+    }
+
+    if($('.form-content').length)
+    {
+        var tinggi = $('.hitam-popup').height();
+        $('.form-content').height(tinggi - 200);
+    }
+
+}
+
+function errorView(pesan)
+{
+    console.log("error bro");
+}

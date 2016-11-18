@@ -4,7 +4,7 @@
        <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
    <h3>
        <!-- <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> -->
-       Last Proyek  
+       Last Proyek
    </h3>
 </div>
 <div class="clearfix"></div>
@@ -16,34 +16,30 @@
                  <th>No.</th>
                  <th>Proyek</th>
                  <th>Tanggal</th>
-                 <th>Paket</th>
                  <th>Kontraktor</th>
                  <th>Supervisi</th>
-                 <th>Sumber Anggaran</th>
                  <th>Pagu Anggaran</th>
                  <th>Progress</th>
                  <th>Lokasi</th>
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat="data in Projects.datas">
+               <tr ng-repeat="data in perusahaans.datas">
                  <td click-link="/pm/project/detail/{{data.ID_PROJECT}}"><span ng-bind="{{$index+1}}"></span></td>
                  <td>{{data.NAMA_PROJECT}}</td>
                  <td>{{data.TANGGAL_MULAI | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
-                 <!-- <td>{{data.TANGGAL_SELESAI}}</td> -->
-                 <td>{{data.NAMA_PAKET}}</td>
                  <td>{{data.KONTRAKTOR}}</td>
                  <td>{{data.SUPERVISI}}</td>
-                 <td>{{data.SUMBER_ANGGARAN }}</td>
                  <td>{{data.PAGU_ANGGARAN | currency:"Rp.":0 }}</td>
                  <td>{{data.PROGRES_PROJECT}}</td>
+                 <td>{{data.LOKASI_PROJECT}}</td>
                </tr>
 
            </tbody>
        </table>
 
        <pre>
-           <code class="prettyprint"> {{Projects}}</code>
+           <code class="prettyprint"> {{perusahaans.datas}}</code>
        </pre>
    </div>
 </div>

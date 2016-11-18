@@ -2,50 +2,156 @@
 <div class="all_popup">
     <div class="hitam-popup"></div>
     <div id="popup_content" class="panel panel-info {{wlebar}}">
-        <div class="panel-heading"> With two column <</div>
+        <div class="panel-heading">Input Perusahaan</div>
         <div class="panel-wrapper collapse in" aria-expanded="true">
             <div class="panel-body">
-                <form>
-                   <div class="form-group">
-                       <label for="exampleInputuname">User Name</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputuname" placeholder="Username" type="text">
-                           <div class="input-group-addon"><i class="ti-user"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputEmail1">Email address</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email">
-                           <div class="input-group-addon"><i class="ti-email"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputpwd1">Password</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputpwd1" placeholder="Enter pwd" type="password">
-                           <div class="input-group-addon"><i class="ti-lock"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputpwd2">Confirm Password</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputpwd2" placeholder="Enter pwd" type="password">
-                           <div class="input-group-addon"><i class="ti-lock"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <div class="checkbox checkbox-success">
-                           <input id="checkbox2" type="checkbox">
-                           <label for="checkbox2"> Remember me </label>
-                       </div>
-                   </div>
-                   <div class="text-right">
+                <form class="form-horizontal" ng-submit="submitForm()">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label class="col-md-12">Nama Perusahaan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="Nama Perusahaan" ng-model="perusahaan.nama_perusahaan" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Kategori Perusahaan</label>
+                            <div class="col-md-12">
+                                <select class="form-control select2">
+                                    <option>Select</option>
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                        <option value="AK">Alaska</option>
+                                        <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                    </optgroup>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Direktur Perusahaan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="Direktur Perusahaan" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Email Perusahaan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="Email Perusahaan" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Telfon Perusahaan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="Telfon Perusahaan" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">FAX Perusahaan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="FAX Perusahaan" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">NPWP</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="NPWP" required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Website</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="http://....." required-2 type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">NPWP</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="NPWP" required-2 type="text">
+                            </div>
+                        </div>
+
+
+                        <h2>Alamat</h2>
+                        <div class="form-group">
+                            <label class="col-md-12">Provinsi</label>
+                            <div class="col-md-12">
+                                <select class="form-control select">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Kabupaten / Kota</label>
+                            <div class="col-md-12">
+                                <select class="form-control select">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Kecematan</label>
+                            <div class="col-md-12">
+                                <select class="form-control select">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Kelurahan /Desa</label>
+                            <div class="col-md-12">
+                                <select class="form-control select">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Alamat Detail</label>
+                            <div class="col-md-12">
+                                <textarea class="form-control"  required-2></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                   <div class="text-right form-bottom">
                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                       <button type="submit" back-button class="btn btn-inverse waves-effect waves-light">sCancel</button>
+                       <button  back-button class="btn btn-inverse waves-effect waves-light">Cancel</button>
                    </div>
                </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    formAutoLoad();
+</script>
