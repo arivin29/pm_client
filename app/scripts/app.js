@@ -14,7 +14,7 @@ var months_json = '["January","February","March","April","May","June","July","Au
  *
  * Main module of the application.
  */
-angular.module('v3App', [ 
+angular.module('v3App', [
             'ngResource',
             'angular-loading-bar',
             'ngAnimate',
@@ -30,18 +30,7 @@ angular.module('v3App', [
             url: '/',
             templateUrl: 'views/main.html'
         })
-        .state('perusahaan', {
-            url: '/perusahaan',
-            templateUrl: 'views/pm/kontraktor/indek.html'
-        })
-        .state('kontraktor', {
-            url: '/kontraktor',
-            templateUrl: 'views/pm/kontraktor/indek.html'
-        })
-        .state('detail', {
-            url: '/kontraktor/detail',
-            templateUrl: 'views/pm/kontraktor/detail.html'
-        });
+
 
     }])
 //     ;

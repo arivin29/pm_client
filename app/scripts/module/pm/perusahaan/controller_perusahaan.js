@@ -1,7 +1,7 @@
 var app = angular.module('v3App');
-app.controller('perusahaan_kategori',['$scope','$state','$stateParams','service_perusahaan',function($scope,$state,$stateParams,service_master)
+app.controller('perusahaan_kategori',['$scope','$state','$stateParams','service_perusahaan',function($scope,$state,$stateParams,service_perusahaan)
 {
-    service_master.getKategoriPerusahaan()
+    service_perusahaan.getKategoriPerusahaan()
     .then(function(data){
         $scope.datas = data;
 
@@ -14,7 +14,7 @@ app.controller('perusahaan_kategori',['$scope','$state','$stateParams','service_
     });
 }]);
 
-app.controller('perusahaan',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     var data = {nama:1};
     myHelp.getParam('/perusahaan',data)
@@ -25,14 +25,14 @@ app.controller('perusahaan',['$scope','$state','$stateParams','service_perusahaa
 
 }]);
 
-app.controller('perusahaan.add',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan.add',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
-    service_master.getKategoriPerusahaan()
+    service_perusahaan.getKategoriPerusahaan()
     .then(function(data){
         $scope.perusahaan_kategori = data.data;
     });
 
-    service_master.getProvinsi()
+    service_perusahaan.getProvinsi()
     .then(function(data){
         $scope.provinsi = data.data;
     });
@@ -54,7 +54,7 @@ app.controller('perusahaan.add',['$scope','$state','$stateParams','service_perus
 
 }]);
 
-app.controller('perusahaan_detail',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/perusahaan/detail/' + $stateParams.id)
     .then(function(data){
@@ -64,7 +64,7 @@ app.controller('perusahaan_detail',['$scope','$state','$stateParams','service_pe
 
 }]);
 
-app.controller('perusahaan_detail_kontraktor',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail_kontraktor',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/project?id_kontraktor=' + $stateParams.id)
     .then(function(data){
@@ -74,7 +74,7 @@ app.controller('perusahaan_detail_kontraktor',['$scope','$state','$stateParams',
 
 }]);
 
-app.controller('perusahaan_detail_supervisi',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail_supervisi',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/project?id_supervisi=' + $stateParams.id)
     .then(function(data){
@@ -85,7 +85,7 @@ app.controller('perusahaan_detail_supervisi',['$scope','$state','$stateParams','
 }]);
 
 
-app.controller('perusahaan_detail.pegawai',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail.pegawai',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/perusahaan/' + $stateParams.id + '/pegawai')
     .then(function(respons){
@@ -95,7 +95,7 @@ app.controller('perusahaan_detail.pegawai',['$scope','$state','$stateParams','se
 
 }]);
 
-app.controller('perusahaan_detail.pegawai.add',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail.pegawai.add',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/master/jabatan_perusahaan/')
     .then(function(respons){
@@ -119,7 +119,7 @@ app.controller('perusahaan_detail.pegawai.add',['$scope','$state','$stateParams'
 
 }]);
 
-app.controller('perusahaan_detail.pegawai.edit',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_master,myHelp)
+app.controller('perusahaan_detail.pegawai.edit',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     myHelp.getDetail('/perusahaan/'+ $stateParams.id +'/pegawai/' + $stateParams.id_perusahaan_pegawai)
     .then(function(respons){

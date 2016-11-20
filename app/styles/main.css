@@ -58,3 +58,15 @@
 .form-bottom{
     padding: 10px;
 }
+
+.widget-melayang {
+    margin-right: 10px !important;
+}
+
+.widget-melayang .panel-body {
+    padding: 15px !important;
+    overflow-x: hidden;
+}
+.widget-melayang .panel-footer {
+    padding: 10px;
+}

@@ -38,9 +38,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="data in Projects.datas">
-                      <td click-link="/pm/project/detail/{{data.ID_PROJECT}}"><span ng-bind="{{$index+1}}"></span></td>
-                      <td>{{data.NAMA_PROJECT}}</td>
+                    <tr ng-repeat="data in projects.data.datas">
+                      <td ><span ng-bind="{{$index+1}}"></span></td>
+                      <td><a ui-sref="project_detail({id:data.ID_PROJECT})">{{data.NAMA_PROJECT}}</a></td>
                       <td>{{data.TANGGAL_MULAI | date:'yyyy-MM-dd'}}</td>
                       <!-- <td>{{data.TANGGAL_SELESAI}}</td> -->
                       <td>{{data.NAMA_PAKET}}</td>

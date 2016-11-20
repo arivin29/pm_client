@@ -1,6 +1,5 @@
-
-
-angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateProvider) {
+var app = angular.module('v3App');
+app.config(['$stateProvider', function($stateProvider) {
   $stateProvider
       .state('project_jenis', { // MODULE_TASK
           url: '/pm/project_jenis',
@@ -19,32 +18,18 @@ angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateP
       .state('project', {
           url: '/pm/project',
           templateUrl: 'views/pm/project/data.html',
-          controller :'projectCont',
-          resolve: {
-            Projects: ['ProjectsService',
-                    function(ProjectsService) {
-                        return ProjectsService.getProjects();
-                    }],
-            Project: function() { return {}; }
-            }
+          controller :'project'
       })
       .state('project.add', {
               url: '/add',
               templateUrl: 'views/pm/project/data.add.html',
-              controller :'taskContAdd'
+              controller :'project.add'
           })
 
       .state('project_detail',{
-          url: '/pm/project/detail/:id',
-          templateUrl: 'views/pm/project/detail.html'
-        //   controller: 'projectCont',
-        //   resolve: {
-        //     Projects: ['$stateParams', 'ProjectsService',
-        //             function($stateParams,ProjectsService) {
-        //                 return ProjectsService.getProject($stateParams.id);
-        //             }],
-        //     Project: function() { return {}; }
-        //     }
+          url: '/pm/project/detail/:id_project',
+          templateUrl: 'views/pm/project/detail.html',
+          controller: 'project_detail'
       })
 
       .state('project_detail.rekap', { // MODULE_TASK
@@ -56,14 +41,7 @@ angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateP
       .state('project_detail.task', {
               url: '/task',
               templateUrl: 'views/pm/project/task.html'
-            //   controller :'taskCont',
-            //   resolve: {
-            //       Tasks: ['$stateParams', 'TasksService',
-            //               function($stateParams,TasksService) {
-            //                   return TasksService.getTasks($stateParams.id);
-            //               }],
-            //       Task: function() { return {}; }
-            //       }
+            //   controller :'taskCont'
           })
 
       .state('project_detail.task.add', {
@@ -123,8 +101,8 @@ angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateP
 
 
 
-  }])
-  .run( ['$rootScope', '$state', '$stateParams',
+  }]);
+  app.run( ['$rootScope', '$state', '$stateParams',
   	function ($rootScope,   $state,   $stateParams) {
   		$rootScope.$state = $state;
   		$rootScope.$stateParams = $stateParams;

@@ -1,51 +1,193 @@
 
 <div class="all_popup">
     <div class="hitam-popup"></div>
-    <div id="popup_content" class="panel panel-info {{wlebar}}">
-        <div class="panel-heading"> With two column <</div>
-        <div class="panel-wrapper collapse in" aria-expanded="true">
-            <div class="panel-body">
-                <form>
-                   <div class="form-group">
-                       <label for="exampleInputuname">User Name</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputuname" placeholder="Username" type="text">
-                           <div class="input-group-addon"><i class="ti-user"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputEmail1">Email address</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email">
-                           <div class="input-group-addon"><i class="ti-email"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputpwd1">Password</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputpwd1" placeholder="Enter pwd" type="password">
-                           <div class="input-group-addon"><i class="ti-lock"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="exampleInputpwd2">Confirm Password</label>
-                       <div class="input-group">
-                           <input class="form-control" id="exampleInputpwd2" placeholder="Enter pwd" type="password">
-                           <div class="input-group-addon"><i class="ti-lock"></i></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <div class="checkbox checkbox-success">
-                           <input id="checkbox2" type="checkbox">
-                           <label for="checkbox2"> Remember me </label>
-                       </div>
-                   </div>
-                   <div class="text-right">
-                       <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                       <button type="submit" back-button class="btn btn-inverse waves-effect waves-light">sCancel</button>
-                   </div>
-               </form>
+    <div id="popup_content" class="panel panel-info panel panel-success widget-melayang">
+
+            <div class="panel-heading">Input Proyek baru <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
+            <div class="panel-wrapper collapse in" aria-expanded="true">
+                <div class="panel-body" style="height: 761px;">
+                    <form id="#" class="form-horizontal">
+                        <div class="form-body">
+                            <h3 class="box-title">Person Info</h3>
+                            <hr class="m-t-0 m-b-40">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">First Name</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="nama_pelanggan" placeholder="John doe" type="text"> </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">No KTP</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="no_ktp" placeholder="XX - XXXXXXXXXXXXXX" type="text"> </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Email</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="tgl_lahir" placeholder="doe@email.com" type="text"> </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Telfon</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="tgl_lahir" placeholder="000000000" type="text"> </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Hp</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="tgl_lahir" placeholder="000000000" type="text"> </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Pekerjaan</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" name="tgl_lahir" type="text"> </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Jenis Kelamin</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control">
+                                                <option value="">laki - laki</option>
+                                                <option value="">Perempuan</option>
+                                            </select> <span class="help-block"> Select your gender. </span> </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Tangal lahir</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="dd/mm/yyyy" type="text"> </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Agama</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                <option value="Category 1">Agama 1</option>
+                                                <option value="Category 2">Agama 2</option>
+                                                <option value="Category 3">Agama 5</option>
+                                                <option value="Category 4">Agama 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Status Kawain</label>
+                                        <div class="col-md-9">
+                                            <div class="radio-list">
+                                                <label class="radio-inline">
+                                                    <input name="optionsRadios2" value="option1" type="radio"> Belum </label>
+                                                <label class="radio-inline">
+                                                    <input name="optionsRadios2" value="option2" checked="" type="radio"> Sudah kawin </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <h3 class="box-title">Alamat</h3>
+                            <hr class="m-t-0 m-b-40">
+                            <!--/row-->
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label text-left col-md-12">Alamat</label>
+                                        <div class="col-md-12">
+                                            <input name="alamat" class="form-control" type="text"> </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Provinsi</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control">
+                                                <option>Provinsi 1</option>
+                                                <option>Provinsi 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Kota /Kabupaten </label>
+                                        <div class="col-md-9">
+                                            <select class="form-control">
+                                                <option>Kota 1</option>
+                                                <option>Kota 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Post Code</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text"> </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Kelurahan/ Desa</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control">
+                                                <option>Kelurahan 1</option>
+                                                <option>Kelurahan 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+
+                    </form>
+
+
+                </div>
+
             </div>
-        </div>
+
+            <div class="panel-footer">
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" back-button class="btn btn-default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> </div>
+                    </div>
+                </div>
+            </div>
+
+
+
     </div>
 </div>
+
+<script>
+    Melayang();
+</script>

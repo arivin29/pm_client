@@ -1,3 +1,8 @@
+var WindowTinggi = $(window).height();
+var NavBarTinggi = $('.navbar-header').height() ;
+var WindowLebar = $(window).width() ;
+var SidebarLebar = $('.sidebar').width() ;
+
 $('ul#page-menu li').click(function()
 {
     $('ul#page-menu li > a').removeClass('active');
@@ -5,17 +10,12 @@ $('ul#page-menu li').click(function()
     console.log("ASdsa");
 
 })
-// init();
-//
-// function init(){
-//     $('[load=content]').click(function(e){
-//         e.preventDefault();
-//
-//         var url = $(this).attr('href');
-//         console.log(url);
-//         $('#content').load(base_url + 'part/' + url);
-//     })
-// }
+
+function Melayang()
+{
+    $('.widget-melayang').width(WindowLebar*0.8 - SidebarLebar );
+    $('.widget-melayang .panel-body').height(WindowTinggi - NavBarTinggi - 120);
+}
 
 function formAutoLoad()
 {
