@@ -32,13 +32,18 @@ app.config(['$stateProvider', function($stateProvider) {
       //Pegawai
       .state('perusahaan_detail.pegawai', {
           url: '/pegawai',
-          templateUrl: 'views/pm/perusahaan/pegawai.html'
-        //   controller :'perusahaanCont'
+          templateUrl: 'views/pm/perusahaan/pegawai.html',
+          controller :'perusahaan_detail.pegawai'
       })
       .state('perusahaan_detail.pegawai.add', {
           url: '/add',
-          templateUrl: 'views/pm/perusahaan/pegawai.add.html'
-        //   controller :'perusahaanCont'
+          templateUrl: 'views/pm/perusahaan/pegawai.add.html',
+          controller :'perusahaan_detail.pegawai.add'
+      })
+      .state('perusahaan_detail.pegawai.edit', {
+          url: '/edit/{id_perusahaan_pegawai}',
+          templateUrl: 'views/pm/perusahaan/pegawai.edit.html',
+          controller :'perusahaan_detail.pegawai.edit'
       })
 
       //projek

@@ -20,7 +20,7 @@ app.directive('clickLink', ['$location', function($location) {
         }
     }
 }]);
- 
+
 
 app.directive('onClick', function(){
        return{
@@ -55,7 +55,24 @@ app.directive("backDblClick", ["$window", function ($window) {
         }
     };
 }]);
+ 
+app.directive('datepicker', function () {
+            return {
+                restrict: 'A',
+                require: '?ngModel',
+                link: function (scope, el, attr, ngModel) {
+                    jQuery('.date-picker').datepicker()
+                    .on('changeDate', function(ev){
+                        console.log(ev);
+                        console.log($(ev.target).val());
 
+                        ngModel.$viewValue = ev.date;
+                        ngModel.$commitViewValue();
+
+                    });
+                }
+            };
+        });
 
 
 

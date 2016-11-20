@@ -10,8 +10,8 @@ app.service('myHelp', ['$http', function($http) {
         return $http.get(BASE_URL + url, query);
     };
 
-    this.getDetail = function(url, id) {
-        return $http.get(BASE_URL + url + id);
+    this.getDetail = function(url) {
+        return $http.get(BASE_URL + url);
     };
 
 
@@ -24,14 +24,8 @@ app.service('myHelp', ['$http', function($http) {
              headers : {'Accept' : 'application/json'}
             };
 
-        return $http.post(BASE_URL + url, query);
+        return $http.post(BASE_URL + url, data);
 
-        // return $http({
-        //           method  : 'POST',
-        //           url     : BASE_URL + url,
-        //           data    : data,
-        //           headers : {'Accept' : 'application/json'}
-        //       });
     }
 
 }]);

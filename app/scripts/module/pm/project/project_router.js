@@ -1,4 +1,4 @@
-var BASE_URL = 'http://localhost:8081/pm';
+
 
 angular.module('v3App',['ui.router']).config(['$stateProvider', function($stateProvider) {
   $stateProvider

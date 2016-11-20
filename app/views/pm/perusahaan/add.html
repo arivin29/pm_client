@@ -10,76 +10,69 @@
                         <div class="form-group">
                             <label class="col-md-12">Nama Perusahaan</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Nama Perusahaan" ng-model="perusahaan.nama_perusahaan" required-2 type="text">
+                                <input class="form-control" placeholder="Nama Perusahaan" ng-model="perusahaan.nama_perusahaan" required   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Kategori Perusahaan</label>
                             <div class="col-md-12">
-                                <select class="form-control select2">
-                                    <option>Select</option>
-                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                        <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
-                                    </optgroup>
-                                    <optgroup label="Pacific Time Zone">
-                                        <option value="CA">California</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="WA">Washington</option>
-                                    </optgroup>
-
+                                <select required  class="form-control" name="id_perusahaan_kategori" ng-model="perusahaan.id_perusahaan_kategori"  ng-options="x.id_perusahaan_kategori as x.kategori for x in perusahaan_kategori">
+                                    <option value="">-- please choose --</option>
                                 </select>
+
+                                <!-- <select ng-model="perusahaan.id_perusahaan_kategori" s2-options="x.id_perusahaan_kategori as x.kategori for x in perusahaan"></select> -->
+
                             </div>
                         </div>
+ 
 
                         <div class="form-group">
                             <label class="col-md-12">Direktur Perusahaan</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Direktur Perusahaan" required-2 type="text">
+                                <input class="form-control" placeholder="Direktur Perusahaan" required ng-model="perusahaan.direktur_perusahaan"   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Email Perusahaan</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Email Perusahaan" required-2 type="text">
+                                <input class="form-control" placeholder="Email Perusahaan" required ng-model="perusahaan.email_perusahaan"   type="email">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Telfon Perusahaan</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Telfon Perusahaan" required-2 type="text">
+                                <input class="form-control" placeholder="Telfon Perusahaan" required ng-model="perusahaan.telfon_perusahaan"   type="number">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">FAX Perusahaan</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="FAX Perusahaan" required-2 type="text">
+                                <input class="form-control" placeholder="FAX Perusahaan" required ng-model="perusahaan.fax"   type="number">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">NPWP</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="NPWP" required-2 type="text">
+                                <input class="form-control" placeholder="NPWP" required ng-model="perusahaan.npwp"   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Website</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="http://....." required-2 type="text">
+                                <input class="form-control" placeholder="http://....." ng-model="perusahaan.web"   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12">NPWP</label>
+                            <label class="col-md-12">Kode Pos</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="NPWP" required-2 type="text">
+                                <input class="form-control"  placeholder="523521" required ng-model="perusahaan.kode_pos"   type="number">
                             </div>
                         </div>
 
@@ -88,14 +81,12 @@
                         <div class="form-group">
                             <label class="col-md-12">Provinsi</label>
                             <div class="col-md-12">
-                                <select class="form-control select">
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
+                                <select required class="form-control select2" ng-model="perusahaan.id_prov"  ng-options="x.id_prov as x.nama_prov for x in provinsi">
+                                    <option value="">-- please choose --</option>
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="col-md-12">Kabupaten / Kota</label>
                             <div class="col-md-12">
@@ -135,7 +126,7 @@
                         <div class="form-group">
                             <label class="col-md-12">Alamat Detail</label>
                             <div class="col-md-12">
-                                <textarea class="form-control"  required-2></textarea>
+                                <textarea class="form-control"  required ng-model="perusahaan.alamat_perusahaan"  ></textarea>
                             </div>
                         </div>
 

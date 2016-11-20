@@ -1,6 +1,7 @@
 'use strict';
-var DEBUG=true; 
-
+var DEBUG=true;
+var BASE_URL = 'http://localhost:8081/pm';
+var MASTER = 'http://localhost:8081/master';
 
 
 var months_json = '["January","February","March","April","May","June","July","August","September","October","November","December"]';
@@ -13,13 +14,13 @@ var months_json = '["January","February","March","April","May","June","July","Au
  *
  * Main module of the application.
  */
-angular.module('v3App', [
+angular.module('v3App', [ 
             'ngResource',
-            'v3App.pm',
             'angular-loading-bar',
             'ngAnimate',
             'ngTouch',
             'ui.router'
+
         ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

@@ -34,14 +34,14 @@
                       <th>Pagu Anggaran</th>
                       <th>Progress</th>
                       <th>Lokasi</th>
-                      <th width="100px">Action</th>
+                      <!-- <th width="100px">Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="data in Projects.datas">
                       <td click-link="/pm/project/detail/{{data.ID_PROJECT}}"><span ng-bind="{{$index+1}}"></span></td>
                       <td>{{data.NAMA_PROJECT}}</td>
-                      <td>{{data.TANGGAL_MULAI | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                      <td>{{data.TANGGAL_MULAI | date:'yyyy-MM-dd'}}</td>
                       <!-- <td>{{data.TANGGAL_SELESAI}}</td> -->
                       <td>{{data.NAMA_PAKET}}</td>
                       <td>{{data.KONTRAKTOR}}</td>
@@ -49,6 +49,7 @@
                       <td>{{data.SUMBER_ANGGARAN }}</td>
                       <td>{{data.PAGU_ANGGARAN | currency:"Rp.":0 }}</td>
                       <td>{{data.PROGRES_PROJECT}}</td>
+                      <td>{{data.NAMA_PROV | uppercase}} /{{data.NAMA_KABKOT}}</td>
                     </tr>
 
                 </tbody>

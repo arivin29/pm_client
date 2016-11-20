@@ -29,21 +29,22 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat="n in [] | range:5" style="display: table-row;" class="footable-even">
-                   <td><span class="footable-toggle"></span>{{n+1}}</td>
+               <tr ng-repeat="x in pegawais.datas" style="display: table-row;" class="footable-even">
+                   <td><span class="footable-toggle"></span>{{$index+1}}</td>
                    <td>
-                       <a><img class="img-circle" alt="user" src="images/users/genu.jpg"> Genelia Deshmukh</a>
+                       <a><img class="img-circle" alt="user" src="images/users/genu.jpg"> {{x.pegawai.nama_pegawai_p}}</a>
                    </td>
-                   <td>IP54255236525</td>
-                   <td>Direktur</td>
-                   <td>KTP</td>
-                   <td>050520-252224-4131-25545</td>
-                   <td>Guguk/29-10-1991</td>
-                   <td>05845855825</td>
-                   <td>wew@demo.com</td>
+                   <td>{{x.pegawai.nip}}</td>
+                   <td>{{x.jabatan.jabatan}}- {{x.pegawai.bagian_bidang_p}}</td>
+                   <td>{{x.pegawai.jenis_identitas_p}}</td>
+                   <td>{{x.pegawai.nomor_identitas_p}}</td>
+                   <td>{{x.pegawai.tempat_lahir_p}} /{{x.pegawai.tgl_lahir_p | date:'yyyy-MM-dd'}} </td>
+                   <td>{{x.pegawai.no_hp_p}}</td>
+                   <td>{{x.pegawai.email_p}}</td>
+
                    <td>
-                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-pencil-alt"></i></button>
-                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                       <a ui-sref="perusahaan_detail.pegawai.edit({id_perusahaan_pegawai:x.pegawai.id_perusahaan_pegawai})" data-original-title="edit" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-pencil-alt"></i></a>
+                       <a data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></a>
                    </td>
                </tr>
 

@@ -20,7 +20,7 @@ $('ul#page-menu li').click(function()
 function formAutoLoad()
 {
     if ( $( ".select2" ).length ) {
-        $(".select2").select2();
+        // $(".select2").select2();
     }
 
     if($('.form-content').length)

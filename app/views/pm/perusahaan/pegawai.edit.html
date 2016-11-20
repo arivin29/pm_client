@@ -2,23 +2,23 @@
 <div class="all_popup">
     <div class="hitam-popup"></div>
     <div id="popup_content" class="panel panel-info {{wlebar}}">
-        <div class="panel-heading">Input Pegawai</div>
+        <div class="panel-heading">Edit Pegawai #{{pegawai.id_perusahaan_pegawai}}</div>
         <div class="panel-wrapper collapse in" aria-expanded="true">
             <div class="panel-body">
                 <form class="form-horizontal" ng-submit="submitForm()">
                     <div class="form-content">
-                        
+
                         <div class="form-group">
                             <label class="col-md-12">Nama Pegawai</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Nama Pegawai" ng-model="pegawai.nama_pegawai_p" required-1   type="text">
+                                <input class="form-control" placeholder="Nama Pegawai" ng-model="pegawai.nama_pegawai_p"  ng-value="pegawai.nama_pegawai_p" required-1   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">NIP</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="PEGAWAI-NIP" ng-model="pegawai.nip" required-1   type="text">
+                                <input class="form-control" placeholder="PEGAWAI-NIP" ng-model="pegawai.nip" ng-value="pegawai.nip" required-1   type="text">
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label class="col-md-12">Posisi di Proyek</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Perusahaan" ng-model="pegawai.bagian_bidang_p" required-1   type="text">
+                                <input class="form-control" placeholder="Perusahaan" ng-model="pegawai.bagian_bidang_p" ng-value="pegawai.bagian_bidang_p" required-1   type="text">
                             </div>
                         </div>
 
@@ -43,14 +43,14 @@
                         <div class="form-group">
                             <label class="col-md-12">Handphone</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="" ng-model="pegawai.no_hp_p" required-1   type="text">
+                                <input class="form-control" placeholder="" ng-model="pegawai.no_hp_p" ng-value="pegawai.no_hp_p" required-1   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Email</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="" ng-model="pegawai.email_p" required-1   type="email">
+                                <input class="form-control" placeholder="" ng-model="pegawai.email_p"  ng-value="pegawai.email_p" required-1   type="email">
                             </div>
                         </div>
 
@@ -69,28 +69,28 @@
                         <div class="form-group">
                             <label class="col-md-12">No Identitas</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="XXXXXXXX XXXXXXXXXX" ng-model="pegawai.no_identitas" required-1   type="text">
+                                <input class="form-control" placeholder="XXXXXXXX XXXXXXXXXX" ng-model="pegawai.no_identitas" ng-value="pegawai.no_identitas" required-1   type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Tempat lahir</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="" ng-model="pegawai.tempat_lahir_p"   type="text">
+                                <input class="form-control" placeholder="" ng-model="pegawai.tempat_lahir_p"  ng-value="pegawai.tempat_lahir_p"  type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Tanggal Lahir</label>
                             <div class="col-md-12">
-                                <input class="form-control date-picker" placeholder="" datepicker ng-model="pegawai.tgl_lahir_p"   type="text">
+                                <input class="form-control date-picker" placeholder="" datepicker ng-model="pegawai.tgl_lahir_p"  ng-value="pegawai.tgl_lahir_p" type="text">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Kode Pos</label>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="26253" ng-model="pegawai.kode_pos_p" required-1   type="text">
+                                <input class="form-control" placeholder="26253" ng-model="pegawai.kode_pos_p"  required-1   type="text">
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@
                         <div class="form-group">
                             <label class="col-md-12">Alamat</label>
                             <div class="col-md-12">
-                                <textarea class="form-control"  required ng-model="perusahaan.alamat_perusahaan"  ></textarea>
+                                <textarea class="form-control"  required ng-model="pegawai.alamat_p"  ></textarea>
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@
 
                    <div class="text-right form-bottom">
                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                       <button  back-button class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                       <a  back-button class="btn btn-inverse waves-effect waves-light">Cancel</a>
                    </div>
                </form>
             </div>
