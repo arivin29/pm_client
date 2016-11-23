@@ -21,10 +21,12 @@ module.exports = function(config) {
     files: [
       // bower:js
       'bower_components/angular/angular.js',
+      'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/moment/moment.js',
       'bower_components/angular-datepicker/dist/angular-datepicker.js',
+      'bower_components/angular-input-masks/angular-input-masks-standalone.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

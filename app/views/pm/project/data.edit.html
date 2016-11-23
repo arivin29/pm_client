@@ -3,7 +3,7 @@
     <div class="hitam-popup"></div>
     <div id="popup_content" class="panel panel-info panel panel-success widget-melayang">
         <form id="#" class="form-horizontal" name="Form" ng-submit="submitForm(Form.$valid)">
-            <div class="panel-heading">Input Proyek baru <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
+            <div class="panel-heading">Edit Proyek #{{project.id_project}} <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body" style="height: 761px;">
 
@@ -20,13 +20,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Paket Proyek</label>
+                                        <label class="control-label col-md-3">Paket Proyek </label>
                                         <div class="col-md-9">
-                                            <select required class="form-control select2" required select2 ng-model="project.id_project_paket"
+
+                                            <select required class="form-control" select2 ng-model="project.id_project_paket"
                                             ng-change="ambilPaket()"
-                                            ng-options="x.NAMA_PAKET for x in pakets track by x.ID_PROJECT_PAKET">
-                                                <option value="">-- please choose --</option>
+                                            ng-options="x.ID_PROJECT_PAKET*1 as x.NAMA_PAKET for x in pakets">
+                                                <option value="">-- please choose--</option>
                                             </select>
+
                                         </div>
                                     </div>
 
@@ -105,10 +107,11 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Kontraktor Proyek</label>
                                         <div class="col-md-9">
-                                            <select  class="form-control select2" select2  ng-model="project.id_kontraktor"
-                                            ng-options="x.nama_perusahaan for x in perusahaans track by x.id_perusahaan">
+                                            <select  class="form-control" select2  ng-model="project.id_kontraktor"
+                                            ng-options="x.id_perusahaan*1 as x.nama_perusahaan for x in perusahaans">
                                                 <option value="">-- please choose --</option>
                                             </select>
+
                                         </div>
                                     </div>
 
@@ -116,7 +119,7 @@
                                         <label class="control-label col-md-3">Supervisi Proyek</label>
                                         <div class="col-md-9">
                                             <select  class="form-control select2" select2 ng-model="project.id_supervisi"
-                                            ng-options="x.nama_perusahaan for x in perusahaans track by x.id_perusahaan">
+                                            ng-options="x.id_perusahaan*1 as x.nama_perusahaan for x in perusahaans">
                                                 <option value="">-- please choose --</option>
                                             </select>
                                         </div>
@@ -134,7 +137,7 @@
                                         <label class="control-label col-md-3">Jenis Proyek</label>
                                         <div class="col-md-9">
                                             <select required class="form-control select2" select2 ng-model="project.id_project_jenis"
-                                            ng-options="x.project_jenis for x in jenis_project track by x.id_project_jenis">
+                                            ng-options="x.id_project_jenis*1 as x.project_jenis for x in jenis_project">
                                                 <option value="">-- please choose --</option>
                                             </select>
                                         </div>
@@ -150,10 +153,6 @@
                                         <div class="col-md-9">
                                             <input class="form-control" datepicker ng-model="project.batas_waktu" type="text"> </div>
                                     </div>
-
-
-
-
                                 </div>
 
 
@@ -207,7 +206,7 @@
                                         <label class="control-label col-md-3">Provinsi</label>
                                         <div class="col-md-9">
                                             <select required class="form-control" select2 ng-model="project.id_prov"
-                                            ng-options="x.nama_prov for x in provinsis track by x.id_prov" ng-change="update_kabkot()">
+                                            ng-options="x.id_prov*1 as x.nama_prov for x in provinsis" ng-change="update_kabkot()">
                                                 <option value="">-- please choose --</option>
                                             </select>
                                         </div>
@@ -219,7 +218,7 @@
                                         <label class="control-label col-md-3">Kabupaten Kota</label>
                                         <div class="col-md-9">
                                             <select required class="form-control" required="required"  select2 ng-model="project.id_kabkot"
-                                            ng-options="x.nama_kabkot for x in kabkots track by x.id_kabkot">
+                                            ng-options="x.id_kabkot*1 as x.nama_kabkot for x in kabkots">
                                                 <option value="" >-- please choose --</option>
                                             </select>
                                         </div>

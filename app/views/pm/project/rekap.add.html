@@ -1,0 +1,54 @@
+sdfds
+
+<div class="all_popup">
+    <div class="hitam-popup"></div>
+    <div id="popup_content" class="panel panel-info {{wlebar}}">
+        <div class="panel-heading">Paket Kegiatan</div>
+        <div class="panel-wrapper collapse in" aria-expanded="true">
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="submitForm()">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label class="col-md-12">Nama Paket Kegitanan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="Nama Paket" ng-model="modul.modul" required   type="text">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-12">Periode Pekerjaan</label>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="" datepicker required ng-model="modul.modul_start"   type="text">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="" datepicker required ng-model="modul.modul_end"   type="text">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-12">Keterangan</label>
+                            <div class="col-md-12">
+                                <textarea class="form-control"  required ng-model="modul.modul_desk"  ></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                   <div class="text-right form-bottom">
+                       <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                       <button  back-button class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                   </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    formAutoLoad();
+    formAutoLoad();
+</script>

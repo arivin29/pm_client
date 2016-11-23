@@ -35,3 +35,8 @@ function errorView(pesan)
 {
     console.log("error bro");
 }
+
+var count_hari = function(start,end) {
+    var hari = (end - start) / (1000 * 60 * 60 * 24);
+    return Math.round(hari);
+};

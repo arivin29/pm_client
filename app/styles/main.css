@@ -70,3 +70,9 @@
 .widget-melayang .panel-footer {
     padding: 10px;
 }
+.widget-melayang .detail {
+    border-bottom: 1px dotted;
+    font-size: 14px;
+    padding: 5px;
+    text-align: right;
+}

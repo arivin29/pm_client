@@ -2,7 +2,7 @@
 <div class="all_popup">
     <div class="hitam-popup"></div>
     <div id="popup_content" class="panel panel-info {{wlebar}}">
-        <div class="panel-heading">Input Paket Proyek</div>
+        <div class="panel-heading">Edit paket Proyek #{{paket.id_project_paket}}</div>
         <div class="panel-wrapper collapse in" aria-expanded="true">
             <div class="panel-body">
                 <form class="form-horizontal" ng-submit="submitForm()">
@@ -61,20 +61,51 @@
                         <div class="form-group">
                             <label class="col-md-12">Kontraktor</label>
                             <div class="col-md-12">
-                                <select required class="form-control select2" select2 ng-model="paket.id_kontraktor_paket"
-                                ng-options="x.nama_perusahaan for x in perusahaans track by x.id_perusahaan">
+                                <select required class="form-control" select2 ng-model="paket.id_kontraktor_paket"
+                                      ng-options="x.id_perusahaan*1 as x.nama_perusahaan for x in perusahaans">
+                                <!-- ng-options="x.nama_perusahaan for x in perusahaans track by x.id_perusahaan"> -->
                                     <option value="">-- please choose --</option>
                                 </select>
+
+                                <!-- <select required class="form-control" ng-model="paket.id_kontraktor_paket" ng-init="perusahaans=1">
+                                    <option value="{{x.id_perusahaan}}"  ng-repeat="x in perusahaans">{{x.nama_perusahaan}}</option>
+                                </select> -->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-12">Supervisi</label>
                             <div class="col-md-12">
-                                <select required class="form-control select2" ng-model="paket.id_supervisi_paket"
-                                ng-options="x.nama_perusahaan for x in perusahaans track by x.id_perusahaan">
-                                    <option value="">-- please choose --</option>
+                                <select required class="form-control" select2 ng-model="paket.id_supervisi_paket"
+                                      ng-options="x.id_perusahaan*1 as x.nama_perusahaan for x in perusahaans">
+                                    <option value="">-- please choose{{paket.id_supervisi_paket}} --</option>
                                 </select>
+
+                                <!-- <select class="form-control" ng-model="selectedBook" ng-options="book.id as book.title for book in books" ng-init="selectedBook=0"></select> -->
+                            </div>
+                        </div>
+                        <h3 class="box-title">Status</h3>
+                        <hr>
+                        <div class="form-group">
+                            <label class="col-md-12">Status Kunci</label>
+                            <div class="col-md-12">
+                                <select required class="form-control" select2 ng-model="paket.status_lock" >
+                                    <option value="ya">Kunci</option>
+                                    <option value="no">Buka</option>
+                                </select>
+
+                                <!-- <select class="form-control" ng-model="selectedBook" ng-options="book.id as book.title for book in books" ng-init="selectedBook=0"></select> -->
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-12">Status Aktif</label>
+                            <div class="col-md-12">
+                                <select required class="form-control" select2 ng-model="paket.is_deleted" >
+                                    <option value="ya">Non Aktif</option>
+                                    <option value="no">aktif</option>
+                                </select>
+
+                                <!-- <select class="form-control" ng-model="selectedBook" ng-options="book.id as book.title for book in books" ng-init="selectedBook=0"></select> -->
                             </div>
                         </div>
 

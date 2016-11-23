@@ -3,7 +3,7 @@
     <div class="hitam-popup"></div>
     <div id="popup_content" class="panel panel-info panel panel-success widget-melayang">
         <form id="#" class="form-horizontal" name="Form" ng-submit="submitForm(Form.$valid)">
-            <div class="panel-heading">Input Kegiatan baru <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
+            <div class="panel-heading">Edit Kegiatan <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body" style="height: 761px;">
 
@@ -24,7 +24,7 @@
                                         <div class="col-md-9">
                                             <select required class="form-control select2" required select2 ng-model="task.id_modul"
                                             ng-change="ambilModul()"
-                                            ng-options="x.modul for x in moduls track by x.id_modul">
+                                            ng-options="x.id_modul as x.modul for x in moduls">
                                                 <option value="">-- please choose --</option>
                                             </select>
                                         </div>
@@ -91,7 +91,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Mulai</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" required datelimit ng-model="task.task_start" startDate="{{modul.MODUL_START | date:'yyyy-MM-dd'}}"  endDate="{{modul.MODUL_END | date:'yyyy-MM-dd'}}" type="text"> </div>
+                                            <input class="form-control" required datelimit ng-value="task.task_start | date:'dd/MM/yyyy'" ng-model="task.task_start" startDate="{{modul.MODUL_START | date:'yyyy-MM-dd'}}"  endDate="{{modul.MODUL_END | date:'yyyy-MM-dd'}}" type="text"> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -111,9 +111,9 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Prioritas</label>
                                         <div class="col-md-9">
-                                            <select required class="form-control"  ng-model="task.prioritas" >
-                                                <option value="0"> Tidak </option>
-                                                <option value="1"> Ya </option>
+                                            <select required class="form-control"  ng-model="task.prioritas" ng-init="task.prioritas=0">
+                                                <option value="0" ng-selected="task.prioritas==0"> Tidak </option>
+                                                <option value="1" ng-selected="task.prioritas==1"> Ya </option>
                                             </select>
                                         </div>
                                     </div>
@@ -181,6 +181,35 @@
                                     </div>
                                 </div>
 
+                            </div>
+
+                            <h3 class="box-title">STATUS TASK</h3>
+                            <hr class="m-t-0 m-b-40">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Status Progress</label>
+                                        <div class="col-md-9">
+                                            <select required class="form-control" required ng-model="task.status_task" ng-init="task.status_task=0">
+                                                <option value="open" ng-selected="task.status_task=='open'"> Open </option>
+                                                <option value="close" ng-selected="task.status_task=='close'"> Close </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Batas Selesai</label>
+                                        <div class="col-md-9">
+                                            <select required class="form-control" required  ng-model="task.is_deleted" ng-init="task.is_deleted=0">
+                                                <option value="0" ng-selected="task.is_deleted==0"> Aktif </option>
+                                                <option value="1" ng-selected="task.is_deleted==1"> Deleted </option>
+                                            </select>
+                                            <p>Jika status hapus, automatis hilang dari llist Kegiatan</p>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
 

@@ -19,8 +19,8 @@ angular.module('v3App', [
             'angular-loading-bar',
             'ngAnimate',
             'ngTouch',
-            'ui.router'
-
+            'ui.router',
+            'ui.utils.masks'
         ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -44,7 +44,6 @@ angular.module('v3App', [
 .run( ['$rootScope', '$state', '$stateParams',
 	function ($rootScope,   $state,   $stateParams) {
 		$rootScope.$state = $state;
-		$rootScope.$stateParams = $stateParams;
-        console.log('ASdsa');
+		$rootScope.$stateParams = $stateParams; 
 	}
 ])

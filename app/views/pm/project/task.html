@@ -19,8 +19,8 @@
                    <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Task<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Modul<span class="footable-sort-indicator"></span></th>
+                   <th class="footable-sortable">Periode<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Waktu<span class="footable-sort-indicator"></span></th>
-                   <th class="footable-sortable">Prioritas<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Status<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Progress<span class="footable-sort-indicator"></span></th>
                    <th class="footable-sortable">Harga Satuan<span class="footable-sort-indicator"></span></th>
@@ -29,29 +29,33 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat="n in [] | range:5" style="display: table-row;" class="footable-even">
-                   <td><span class="footable-toggle"></span>{{n+1}}</td>
+               <tr ng-repeat="x in tasks" style="display: table-row;" class="footable-even {{x.PRIORITAS > 0 ? 'danger': '' }}"> 
+                   <td><span class="footable-toggle"></span>{{$index+1}}</td>
                    <td>
-                       <a ui-sref="task_detail({id_task:1})"><img class="img-circle" alt="user" src="../plugins/images/users/genu.jpg"> Genelia Deshmukh</a>
+                       <a ui-sref="task_detail({id_task:x.ID_TASK})">{{x.TASK | uppercase}}</a>
                    </td>
-                   <td>Modul {{x+1}} </td>
-                   <td>2016-10-01</td>
-                   <td>-</td>
-                   <td><span class="label label-danger">progress</span> </td>
-                   <td>5% / 1.08%</td>
-                   <td>1 X 24.000.600</td>
-                   <td>Rp.24.000.600</td>
+                   <td>{{x.MODUL}}</td>
+                   <td>{{x.TASK_START | date:"yyyy-MM-dd"}} / {{x.TASK_END | date:"yyyy-mm-dd"}} </td>
+                   <td>{{ hitung_hari(x.TASK_START, x.TASK_END) }} Hari</td>
+                   <td><span class="label label-danger">{{x.STATUS_TASK}}</span> </td>
                    <td>
-                       <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
+                       <div class="progress progress-xs margin-vertical-10 ">
+                            <div class="progress-bar progress-bar-danger" style="width: 35%"></div>
+                        </div>
+                       {{x.TASK_PROGRESS_REALISASI/100 * x.TASK_PROGRESS }}% / {{x.TASK_PROGRESS}}%</td>
+                   <td>{{x.TASK_NILAI}} X {{x.TASK_FEE | currency:"Rp.":0}}</td>
+                   <td>{{x.TASK_NILAI*x.TASK_FEE | currency:"Rp.":0}}</td>
+                   <td>
+                       <a ui-sref="project_detail.task.edit({id_task:x.ID_TASK})" data-original-title="Update" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="fa fa-edit"></i></button>
                    </td>
                </tr>
 
            </tbody>
 
            <tfoot>
-               <tr>
+               <tr style="border-top: 6px solid !important;">
                    <td colspan="2">
-                       <button data-target="#add-contact" data-toggle="modal" class="btn btn-info btn-rounded" type="button">Add New Contact</button>
+
                    </td>
 
                    <td colspan="">

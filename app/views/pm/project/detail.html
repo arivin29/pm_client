@@ -1,10 +1,11 @@
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="page-title">Pembangunan SPAM SWRO</h4> </div>
+        <h4 class="page-title">{{project.NAMA_PROJECT | capitalize}}</h4> </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
-            <li class="active" title="Filter"> <i class="fa fa-plus"></i></li>
-            <li class="active" title="Filter"><i class="linea-icon linea-basic" data-icon="/"></i></li>
+            <a ui-sref="project_detail.edit" class="btn btn-success waves-effect waves-light" type="button">
+                <span class="btn-label"><i class="fa fa-pencil"></i></span>Edit
+            </a>
         </ol>
     </div>
     <!-- /.col-lg-12 -->
@@ -39,13 +40,13 @@
                        <h3>Progress </h3>  -->
 
                        <div class="row sales-report">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <h2>{{ '' | dateNow }}</h2>
-                                    <p>Progress Proyek</p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <h1 class="text-right text-success m-t-20">Progress</h1> </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <h2>PAKET: {{project.NAMA_PAKET}} > <small>{{project.NILAI_KONTRAK | currency:"Rp.":0 }} </small?</h2>
+                                <p>{{ '' | dateNow }} </p>
                             </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                <h1 class="text-right text-success m-t-20">{{project.STATUS_PROJECT | capitalize }}</h1> </div>
+                        </div>
                    </div>
                        <div class="clearfix"></div>
                        <div class="scrollable">
@@ -105,28 +106,36 @@
                                     <div class="white-box">
                                         <h3 class="box-title">Proyek Overview</h3>
                                         <ul class="basic-list">
-                                            <li>Kontraktor <span class="pull-right">PT MAJU MINDIR Tbk.</span></li>
-                                            <li>Supervisi <span class="pull-right">PT ADIK MAJU</span></li>
-                                            <li>No Kontrak <span class="pull-right">KU.03.08/Strategis-AM/XII/104/2015</span></li>
+                                            <li>Kontraktor <span class="pull-right">{{project.KONTRAKTOR}}</span></li>
+                                            <li>Supervisi <span class="pull-right">{{project.SUPERVISI}}</span></li>
+                                            <li>No Kontrak <span class="pull-right">{{project.NO_KONTRAK}}</span></li>
+                                            <li>Jenis Proyek <span class="pull-right">{{project.PROJECT_JENIS}}</span></li>
                                             <li>Nilai Kontrak
                                                 <span class="pull-right ">
                                                     <!-- <i class="fa fa-calendar"></i> -->
-                                                    Rp 13,485,638,000.00
+                                                     {{project.ANGGARAN_NILAI | currency:"Rp.":0 }}
                                                 </span>
                                             </li>
                                             <li>Pagu
                                                 <span class="pull-right ">
                                                     <!-- <i class="fa fa-calendar"></i> -->
-                                                    Rp 15,000,000,000.00
+                                                    {{project.PAGU_ANGGARAN_PAKET | currency:"Rp.":0 }}
                                                 </span>
                                             </li>
                                             <li>Periode Kontrak
                                                 <span class="pull-right ">
                                                     <i class="fa fa-calendar"></i>
-                                                    2016-AGU-21 / 2017-JAN-20
+                                                    {{project.TANGGAL_MULAI | date:'yyyy-MM-dd'}} / {{project.BATAS_WAKTU | date:'yyyy-MM-dd'}}
                                                 </span>
                                             </li>
-                                            <li>Penanggung Jawab <span class="pull-right">Bpk. SURANTMO </span></li>
+                                            </li>
+                                            <li>Lama Kontrak
+                                                <span class="pull-right ">
+                                                    <i class="fa fa-calendar"></i>
+                                                    {{  hitung_hari(project.TANGGAL_MULAI, project.BATAS_WAKTU)}} Hari
+                                                </span>
+                                            </li>
+                                            <li>Penanggung Jawab(PPK) <span class="pull-right">{{project.PPK}} </span></li>
 
                                         </ul>
                                     </div>
@@ -140,22 +149,28 @@
                                     <div class="white-box">
                                         <h3 class="box-title">Lokasi Proyek</h3>
                                         <ul class="basic-list">
-                                            <li>PROVINSI <span class="pull-right">SUMBAR</span></li>
-                                            <li>KABUPATEN <span class="pull-right">TANAH DATAR</span></li>
+                                            <li>PROVINSI <span class="pull-right">{{project.NAMA_PROV | uppercase }}</span></li>
+                                            <li>KABUPATEN <span class="pull-right">{{project.NAMA_KABKOT}}</span></li>
                                             <li>KECEMATAN
                                                 <span class="pull-right">
-                                                    Kecematan 1,Kecematan 2
+                                                    {{project.NAMA_KEC}}
                                                 </span>
                                             </li>
                                             <li>KELURAHAN
                                                 <span class="pull-right">
-                                                    Kelurahan 1, Kelurahan 2, Kelurahan 3 ...
+                                                    {{project.NAMA_KEL}}
+                                                </span>
+                                            </li>
+                                            <li>Alamat
+                                                <span class="pull-right">
+                                                    {{project.LOKASI_PROJECT}}
                                                 </span>
                                             </li>
 
                                         </ul>
                                         <br>
                                         <h3 class="box-title">Deskripsi</h3>
+                                        <p>{{project.KETERANGAN_PAKET}}</p>
                                         <p>Elite Admin is a popular open source WebApp template for admin dashboards and control panels. It is a responsive HTML template that is based on the CSS framework Bootstrap 3.3.6 It utilizes all of the Bootstrap components in its design and re-styles many commonly used plugins to create a consistent design that can be used as a user interface for backend applications. Elite Admin is based on a modular design, which allows it to be easily customized and built upon. This documentation will guide you through installing the template and exploring the various components that are bundled with the template.</p>
                                         <hr>
 
@@ -179,6 +194,5 @@
     </div>
 </div>
 <script>
-    //$(".right-aside").height(600)
-
+KeteanMenuKiri();
 </script>

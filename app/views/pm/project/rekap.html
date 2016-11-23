@@ -1,21 +1,30 @@
 
 <div class="right-page-header">
    <div class="pull-right">
-       <input class="form-control" placeholder="search contacts" id="demo-input-search2" type="text"> </div>
+       <a ui-sref="project_detail.rekap.add" class="btn btn-info waves-effect waves-light" type="button">
+            <span class="btn-label"><i class="fa fa-plus"></i></span>Paket Baru
+        </a>
+   </div>
        <h3 class="box-title m-b-0">Overview Kegitan</h3>
        <p class="text-muted m-b-30 font-13"> Uraian Kegiatan </p>
 </div>
 <div class="clearfix"></div>
 <div class="scrollable">
 
-    <div ng-repeat="x in [] | range:5"  class="modul_task">
+    <div ng-repeat="x in modules"  class="modul_task">
         <div class="row sales-report p-b-5">
              <div class="col-md-6 col-sm-6 col-xs-6">
-                 <h2>Modul {{x+1}}</h2>
+                 <h2>{{$index+1}}. {{x.modul.modul}} </h2>
+                 <p>
+                    <a ui-sref="project_detail.rekap.edit({id_modul:x.modul.id_modul})">Edit</a> 
+                     {{x.modul.modul_desk}}
+                 </p>
              </div>
-             <div class="col-md-6 col-sm-6 col-xs-6 ">
-                 <h1 class="text-right text-success m-t-20">10% / 45%</h1> </div>
-         </div>
+             <div class="col-md-6 col-sm-6 col-xs-6 text-right  ">
+                 <h3 class="text-success m-t-20">{{x.modul.modul_progres}}% / 100%</h3>
+                 <p><i class="fa fa-calendar"></i> {{x.modul.modul_start | date:'yyyy-MM-dd' }} / {{x.modul.modul_end | date:'yyyy-MM-dd' }}</p>
+             </div>
+        </div>
 
         <div class="table-responsive">
 
@@ -24,81 +33,51 @@
                    <tr>
                        <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Task<span class="footable-sort-indicator"></span></th>
-                       <th class="footable-sortable">Modul<span class="footable-sort-indicator"></span></th>
-                       <th class="footable-sortable">Waktu<span class="footable-sort-indicator"></span></th>
-                       <th class="footable-sortable">Prioritas<span class="footable-sort-indicator"></span></th>
+                       <th class="footable-sortable">Mulai<span class="footable-sort-indicator"></span></th>
+                       <th class="footable-sortable">Target<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Status<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Progress<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Harga Satuan<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Total<span class="footable-sort-indicator"></span></th>
-                       <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
                    </tr>
                </thead>
                <tbody>
-                   <tr ng-repeat="n in [] | range:5" style="display: table-row;" class="footable-even">
-                       <td><span class="footable-toggle"></span>{{n+1}}</td>
+                   <tr ng-repeat="n in x.task" style="display: table-row;" class="footable-even">
+                       <td><span class="footable-toggle"></span>{{$index+1}}</td>
                        <td>
-                           <a href="contact-detail.html"><img class="img-circle" alt="user" src="../plugins/images/users/genu.jpg"> Genelia Deshmukh</a>
+                           <a href="contact-detail.html"> {{n.task}}</a>
                        </td>
-                       <td>Modul {{x+1}} </td>
-                       <td>2016-10-01</td>
-                       <td>-</td>
-                       <td><span class="label label-danger">progress</span> </td>
-                       <td>5% / 1.08%</td>
-                       <td>1 X 24.000.600</td>
-                       <td>Rp.24.000.600</td>
-                       <td>
-                           <button data-original-title="Delete" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-close"></i></button>
-                       </td>
+                       <td>{{n.task_start | date:'YYYY-MM-dd'}} </td>
+                       <td>{{n.task_end | date:'YYYY-MM-dd'}} </td>
+                       <td><span class="label label-danger">{{n.status_task}}</span> </td>
+                       <td>{{n.task_progress_realisasi}}% / {{n.task_progress}}%</td>
+                       <td>{{n.task_nilai}} X {{n.task_nilai | currency:"Rp.":0  }}</td>
+                       <td>{{n.task_nilai*n.task_nilai | currency:"Rp.":0  }}</td>
                    </tr>
-
                </tbody>
-
-               <tfoot>
-                   <tr>
-                       <td colspan="2">
-                           <button data-target="#add-contact" data-toggle="modal" class="btn btn-info btn-rounded" type="button">Add New Contact</button>
-                       </td>
-
-                       <td colspan="">
-                           Total Bobot
-                       </td>
-
-                       <td colspan="">
-                           100%
-                       </td>
-
-                       <td colspan="">
-                           Total Realisasi
-                       </td>
-
-                       <td colspan="">
-                           100%
-                       </td>
-
-                       <td colspan="2">
-                            Jumlah
-                       </td>
-
-                       <td colspan="2">
-                            14,808,884,413.93
-                       </td>
-                   </tr>
-                   <tr>
-                       <td colspan="6"></td>
-                       <td colspan="2">Ppn</td>
-                       <td colspan="2">14,808,884</td>
-                   </tr>
-                   <tr>
-                       <td colspan="6"></td>
-                       <td colspan="2">Jumlah Total</td>
-                       <td colspan="2">14,808,884,413.93</td>
-                   </tr>
-               </tfoot>
-
 
            </table>
         </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <div class-"row">
+        <div class="col-md-12">
+               <div class="pull-right m-t-30 text-right">
+                   <p>Sub - Total amount: $13,848</p>
+                   <p>vat (10%) : $138 </p>
+                   <hr>
+                   <h3><b>Total :</b> $13,986</h3> </div>
+               <div class="clearfix"></div>
+               <hr>
+               <div class="text-right">
+                   <button class="btn btn-danger" type="submit"> Export PDF </button>
+                   <button onclick="javascript:window.print();" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
+               </div>
+        </div>
+
     </div>
 
 </div>

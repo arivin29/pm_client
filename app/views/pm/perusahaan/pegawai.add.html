@@ -7,7 +7,7 @@
             <div class="panel-body">
                 <form class="form-horizontal" ng-submit="submitForm()">
                     <div class="form-content">
-                        
+
                         <div class="form-group">
                             <label class="col-md-12">Nama Pegawai</label>
                             <div class="col-md-12">
@@ -25,9 +25,11 @@
                         <div class="form-group">
                             <label class="col-md-12">Jabatan</label>
                             <div class="col-md-12">
-                                <select required class="form-control select2" ng-model="pegawai.id_jabatan_p"  ng-options="x.id_jabatan_p as x.jabatan for x in jabatan">
+                                <select required class="form-control select2" ng-model="pegawai.id_jabatan_p"
+                                ng-options="x.jabatan for x in jabatan track by x.id_jabatan_p ">
                                     <option value="">-- please choose --</option>
                                 </select>
+ 
                             </div>
                         </div>
 

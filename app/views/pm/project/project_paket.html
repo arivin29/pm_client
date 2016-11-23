@@ -22,34 +22,36 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Perusahaan</th>
-                        <th>Direktur</th>
-                        <th>Email</th>
-                        <th>Telepon</th>
-                        <th>Jenis</th>
-                        <th>Alamat</th>
+                        <th>Nama Paket</th>
+                        <th>Thn Anggaran</th>
+                        <th>Pagu Anggaran</th>
+                        <th>No Kontrak</th>
+                        <th>Nilai Kontrak</th>
+                        <th>Kontraktor</th>
+                        <th>PPK</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody ng-repeat="x in perusahaans.data">
+                <tbody ng-repeat="x in pakets">
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td><a ui-sref="perusahaan_detail({id:x.perusahaan.id_perusahaan})">Pt Maju Selalu</a></td>
-                        <td>{{x.perusahaan.nama_perusahaan}}</td>
-                        <td>Info@maju-selalu.com</td>
-                        <td>0241-02520-41</td>
+                        <td><a ui-sref="project_paket.detail({id_paket:x.ID_PROJECT_PAKET})">{{x.NAMA_PAKET | uppercase}}</a></td>
+                        <td>{{x.TAHUN_ANGGARAN_PAKET}}</td>
+                        <td>{{x.PAGU_ANGGARAN_PAKET | currency:"Rp.":0}}</td>
+                        <td>{{x.NO_KONTRAK}}</td>
+                        <td>{{x.NILAI_KONTRAK | currency:"Rp.":0}}</td>
+                        <td>{{x.KONTRAKTOR}}</td>
+                        <td>{{x.PPK}}</td>
                         <td>
-                            <div class="label label-table label-success">Kontruksi</div>
+                            <a ui-sref="project_paket.edit({id_paket:x.ID_PROJECT_PAKET})" data-original-title="edit" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="ti-pencil-alt"></i></a>
                         </td>
-                        <td><span class="text-muted"><i class="fa fa-home"></i>Lorem ipsum accesskey</span> </td>
-                        <td>2 acitive</td>
                     </tr>
 
                 </tbody>
             </table>
 
             <pre>
-                <code class="prettyprint"> {{perusahaans}}</code>
+                <code class="prettyprint"> {{pakets}}</code>
             </pre>
         </div>
     </div>

@@ -38,3 +38,18 @@ function debugData(data)
         DATA=data;
     }
 }
+function clearInt (val) {
+    if(isNaN(val))
+    {
+        return val.replace(/number:/g,"");
+    }
+    return val;
+
+}
+
+function clearObj(obj) {
+    var json_data = clearInt(JSON.stringify(obj)); 
+    var json_data = JSON.parse(json_data);
+    return json_data;
+
+}
