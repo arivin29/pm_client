@@ -108,10 +108,90 @@ appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',f
     myHelp.getDetail('/project/task/detail/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task = respons.data.task;
+        $scope.report_rekap = respons.data.report_rekap;
+        $scope.check_rangkum = respons.data.check_rangkum;
+        $scope.perusahaan = respons.data.perusahaan;
 
         $scope.lamaKerja = count_hari(respons.data.task.task_start, respons.data.task.task_end );
         $scope.sisaHari = count_hari(new Date(), respons.data.task.task_end );
         debugData(respons);
     });
+
+    // myHelp.getDetail('/project/task/report/detail_report/' + $stateParams.id_task)
+    // .then(function(respons){
+    //     $scope.report = respons.data;
+    // });
+
+}]);
+appProject.controller('task_detail.rincian',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    myHelp.getDetail('/project/check/' + $stateParams.id_task)
+    .then(function(respons){
+        $scope.checks = respons.data;
+        debugData(respons);
+    });
+
+}]);
+
+
+appProject.controller('task_detail.rincian.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    $scope.check={};
+     $scope.check.id_task =  $stateParams.id_task;
+
+     $scope.submitForm = function() {
+         var Param = clearObj($scope.check)
+
+        myHelp.postParam('/project/check/add', Param)
+        .then(function mySuccesresponse()
+        {
+           $state.go("task_detail.rincian",{}, { reload: true })
+
+        }
+        , function myError()
+        {
+           errorView("error paja tu");
+        });
+
+     };
+
+}]);
+
+appProject.controller('task_detail.rincian.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    myHelp.getDetail('/project/check/detail/' + $stateParams.id_check)
+    .then(function(respons){
+        $scope.check = respons.data;
+        debugData(respons);
+    });
+
+    $scope.submitForm = function() {
+        var Param = clearObj($scope.check)
+
+       myHelp.postParam('/project/check/edit', Param)
+       .then(function mySuccesresponse()
+       {
+          $state.go("task_detail.rincian",{}, { reload: true })
+
+       }
+       , function myError()
+       {
+          errorView("error paja tu");
+       });
+
+    };
+
+}]);
+
+
+//laporan
+
+appProject.controller('task_detail.laporan',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+   myHelp.getDetail('/project/task/report/' + $stateParams.id_task)
+   .then(function(respons){
+       $scope.reports = respons.data;
+       debugData(respons);
+   });
 
 }]);

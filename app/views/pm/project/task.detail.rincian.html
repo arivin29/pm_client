@@ -6,234 +6,42 @@
     <h3>
        <!-- <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> -->
        Rincian Kegiatan /
-       <a ui-sref="perusahaan_detail.pegawai.add">
-           <button  class="btn btn-info btn-rounded" type="button">Input sub Task</button>
+       <a ui-sref="task_detail.rincian.add">
+           <button  class="btn btn-info btn-rounded" type="button">Input sub kegiatan</button>
        </a>
     </h3>
 </div>
 <div class="clearfix"></div>
 <div class="scrollable">
     <div class="inbox-center">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th width="30">
-                                                        <div class="checkbox m-t-0 m-b-0 ">
-                                                            <input id="checkbox0" class="checkbox-toggle" value="check all" type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </th>
-                                                    <th colspan="4">
-                                                         Nama sub kegiatan
-                                                    </th>
-                                                    <th class="hidden-xs" width="100">
-                                                        <div class="btn-group pull-right">
-                                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
-                                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
-                                                        </div>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="unread">
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Hritik Roshan</td>
-                                                    <td class="max-texts"> <a href="inbox-detail.html"><span class="label label-info m-r-10">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="30">
+                            No
+                        </th>
+                        <th colspan="5">
+                             Nama sub kegiatan
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="{{x.status_check=='open' ? 'unread':''}}" ng-repeat="x in checks">
+                        <td>
+                            {{$index+1}}
+                        </td>
+                        <td class="hidden-xs">{{x.task_check}}</td>
+                        <td class="hidden-xs" width="90"><span class="label label-{{x.status_check}} m-r-10">{{x.status_check}}</span></td>
+                        <td class="max-texts">{{x.desk_check}}<br>{{x.catatan_check}}</td>
+                        <td class="text-right" width="100"> {{x.tgl_check | date:'yyyy-MMMM-dd'}} </td>
+                        <td class="text-right" width="30">
+                            <a ui-sref="task_detail.rincian.edit({id_check:x.id_task_check})" data-original-title="Update" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="fa fa-edit"></i></button>
+                        </td>
+                    </tr>
 
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> 12:30 PM </td>
-                                                </tr>
-                                                <tr class="unread">
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star text-warning"></i></td>
-                                                    <td class="hidden-xs">Genelia Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html">Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 13 </td>
-                                                </tr>
-                                                <tr class="unread">
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Ritesh Deshmukh</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-success">Elite</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 12 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Akshay Kumar</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-warning">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 12 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Hritik Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-info m-r-10">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 12 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star text-warning"></i></td>
-                                                    <td class="hidden-xs">Genelia Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html">Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 11 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Ritesh Deshmukh</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-success">Elite</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 11 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Akshay Kumar</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-warning">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 11 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Hritik Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-info m-r-10">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 10 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star text-warning"></i></td>
-                                                    <td class="hidden-xs">Genelia Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html">Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 10 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Ritesh Deshmukh</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-success">Elite</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 10 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Akshay Kumar</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-warning">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 09 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Hritik Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-info m-r-10">Work</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 09 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star text-warning"></i></td>
-                                                    <td class="hidden-xs">Genelia Roshan</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html">Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 09 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="checkbox m-t-0 m-b-0">
-                                                            <input type="checkbox">
-                                                            <label for="checkbox0"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
-                                                    <td class="hidden-xs">Ritesh Deshmukh</td>
-                                                    <td class="max-texts"><a href="inbox-detail.html"><span class="label label-success">Elite</span> Lorem ipsum perspiciatis unde omnis iste natus error sit voluptatem</a></td>
-                                                    <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                    <td class="text-right"> May 09 </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                </tbody>
+            </table>
+        </div>
 </div>
 
 <div ui-view></div>

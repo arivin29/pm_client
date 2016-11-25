@@ -86,13 +86,13 @@
 
                                          <div class="col-md-6 col-sm-6 col-xs-12">
                                           <div class="col-in row">
-                                              <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-pencil-alt"></i> {{4}} laporan
+                                              <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-pencil-alt"></i> {{report_rekap.JUML_REPORT}} laporan
                                                   <h5 class="text-muted vb">Progress</h5> </div>
                                               <div class="col-md-6 col-sm-6 col-xs-6">
-                                                  <h3 class="counter text-right m-t-15 text-info">{{task.task_progress_realisasi + 10}}% </h3> </div>
+                                                  <h3 class="counter text-right m-t-15 text-info">{{report_rekap.REPORT_PROGRESS}}% </h3> </div>
                                               <div class="col-md-12 col-sm-12 col-xs-12">
                                                   <div class="progress">
-                                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{task.task_progress_realisasi + 10}}%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{report_rekap.REPORT_PROGRESS}}%"> <span class="sr-only">{{report_rekap.REPORT_PROGRESS}}% Complete (success)</span> </div>
                                                   </div>
                                               </div>
                                           </div>
@@ -136,9 +136,9 @@
                                     <div class="white-box">
                                         <h3 class="box-title">Sub Kegiatan Progress</h3>
                                         <div class="text-right"> <span class="text-muted">Per hari ini</span>
-                                            <h1><sup><i class="ti-arrow-up text-success"></i></sup> 2 /10</h1> </div> <span class="text-success">20%</span>
+                                            <h1><sup><i class="ti-arrow-up text-success"></i></sup> {{check_rangkum.CLOSE }} /{{check_rangkum.TOTAL}}</h1> </div> <span class="text-success">{{check_rangkum.CLOSE*100/check_rangkum.TOTAL}}%</span>
                                         <div class="progress m-b-0">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:20%;"> <span class="sr-only">20% Complete</span> </div>
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:{{check_rangkum.CLOSE*100/check_rangkum.TOTAL}}%;"> <span class="sr-only">20% Complete</span> </div>
                                         </div>
                                     </div>
                                 </div>

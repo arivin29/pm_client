@@ -112,9 +112,21 @@ app.config(['$stateProvider', function($stateProvider) {
       })
       .state('task_detail.rincian', {
           url: '/rincian',
-          templateUrl: 'views/pm/project/task.detail.rincian.html'
-          //controller :'taskContAdd'
+          templateUrl: 'views/pm/project/task.detail.rincian.html',
+          controller :'task_detail.rincian'
       })
+      .state('task_detail.rincian.add', {
+          url: '/add',
+          templateUrl: 'views/pm/project/task.detail.rincian.add.html',
+          controller :'task_detail.rincian.add'
+      })
+      .state('task_detail.rincian.edit', {
+          url: '/edit/:id_check',
+          templateUrl: 'views/pm/project/task.detail.rincian.edit.html',
+          controller :'task_detail.rincian.edit'
+      })
+
+
       .state('task_detail.kontraktor', {
           url: '/kontraktor',
           templateUrl: 'views/pm/project/task.detail.kontraktor.html'
@@ -126,9 +138,15 @@ app.config(['$stateProvider', function($stateProvider) {
           //controller :'taskContAdd'
       })
       .state('task_detail.laporan', {
-          url: '/supervisi',
-          templateUrl: 'views/pm/project/task.detail.laporan.html'
-          //controller :'taskContAdd'
+          url: '/laporan',
+          templateUrl: 'views/pm/project/task.detail.laporan.html',
+          controller :'task_detail.laporan'
+      })
+
+      .state('task_detail.laporan.detail', {
+          url: '/detail/:id_laporan',
+          templateUrl: 'views/pm/project/task.detail.laporan.detail.html',
+          controller :'task_detail.laporan.detail'
       })
       //END TASK Detail=====================================================================================
 
