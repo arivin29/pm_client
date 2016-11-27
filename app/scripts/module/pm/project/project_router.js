@@ -65,6 +65,20 @@ app.config(['$stateProvider', function($stateProvider) {
           controller: 'project_detail.rekap.edit'
       })
 
+      //LOKASI --------------------------------------------------------
+
+      .state('project_detail.lokasi_add', {
+          url: '/lokasi_add',
+          templateUrl: 'views/pm/project/lokasi_add.html',
+          controller :'project_detail.lokasi_add'
+      })
+
+      .state('project_detail.lokasi_edit', {
+          url: '/lokasi_edit/:id_lokasi',
+          templateUrl: 'views/pm/project/lokasi.edit.html',
+          controller :'project_detail.lokasi_edit'
+      })
+
     // TASK------------------------------------------------------------
       .state('project_detail.task', {
               url: '/task',
@@ -129,8 +143,8 @@ app.config(['$stateProvider', function($stateProvider) {
 
       .state('task_detail.kontraktor', {
           url: '/kontraktor',
-          templateUrl: 'views/pm/project/task.detail.kontraktor.html'
-          //controller :'taskContAdd'
+          templateUrl: 'views/pm/project/task.detail.kontraktor.html',
+          controller :'task_detail.kontraktor'
       })
       .state('task_detail.supervisi', {
           url: '/supervisi',
@@ -144,12 +158,19 @@ app.config(['$stateProvider', function($stateProvider) {
       })
 
       .state('task_detail.laporan.detail', {
-          url: '/detail/:id_laporan',
+          url: '/detail/:id_report',
           templateUrl: 'views/pm/project/task.detail.laporan.detail.html',
           controller :'task_detail.laporan.detail'
       })
-      //END TASK Detail=====================================================================================
 
+
+      //END TASK Detail laporan=====================================================================================
+
+      .state('task_detail.media', {
+          url: '/media',
+          templateUrl: 'views/pm/project/task.detail.media.html',
+          controller :'task_detail.media'
+      })
 
 
   }]);

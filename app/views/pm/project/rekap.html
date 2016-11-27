@@ -16,12 +16,12 @@
              <div class="col-md-6 col-sm-6 col-xs-6">
                  <h2>{{$index+1}}. {{x.modul.modul}} </h2>
                  <p>
-                    <a ui-sref="project_detail.rekap.edit({id_modul:x.modul.id_modul})">Edit</a> 
+                    <a ui-sref="project_detail.rekap.edit({id_modul:x.modul.id_modul})">Edit</a>
                      {{x.modul.modul_desk}}
                  </p>
              </div>
              <div class="col-md-6 col-sm-6 col-xs-6 text-right  ">
-                 <h3 class="text-success m-t-20">{{x.modul.modul_progres}}% / 100%</h3>
+                 <h3 class="text-success m-t-20">{{x.modul.modul_progress_realisasi + 0 }}% / {{x.modul.modul_progres}}%</h3>
                  <p><i class="fa fa-calendar"></i> {{x.modul.modul_start | date:'yyyy-MM-dd' }} / {{x.modul.modul_end | date:'yyyy-MM-dd' }}</p>
              </div>
         </div>
@@ -45,7 +45,7 @@
                    <tr ng-repeat="n in x.task" style="display: table-row;" class="footable-even">
                        <td><span class="footable-toggle"></span>{{$index+1}}</td>
                        <td>
-                           <a href="contact-detail.html"> {{n.task}}</a>
+                           <a ui-sref="task_detail({id_task:n.id_task})"> {{n.task}}</a>
                        </td>
                        <td>{{n.task_start | date:'YYYY-MM-dd'}} </td>
                        <td>{{n.task_end | date:'YYYY-MM-dd'}} </td>

@@ -134,6 +134,7 @@ appProject.controller('task_detail.rincian',['$scope','$state','$stateParams','m
 }]);
 
 
+
 appProject.controller('task_detail.rincian.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     $scope.check={};
@@ -193,5 +194,84 @@ appProject.controller('task_detail.laporan',['$scope','$state','$stateParams','m
        $scope.reports = respons.data;
        debugData(respons);
    });
+
+}]);
+
+
+appProject.controller('task_detail.laporan.detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+   myHelp.getDetail('/project/task/report/detail/' + $stateParams.id_report)
+   .then(function(respons){
+       $scope.report = respons.data.report;
+       $scope.media = respons.media;
+       debugData(respons);
+   });
+
+}]);
+
+//MEDIA
+appProject.controller('task_detail.media',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+   myHelp.getDetail('/project/task/media/' + $stateParams.id_report)
+   .then(function(respons){
+       $scope.media = respons.media;
+       debugData(respons);
+   });
+}]);
+
+
+//KONTRAKTOR
+appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    //aal pegawai http://localhost:8081/pm/project/task/detail_id_id/1
+    myHelp.getDetail('/project/task/detail_id_id/' + $stateParams.id_task)
+    .then(function(respons){
+        $scope.task_id = respons.data;
+
+        myHelp.getDetail('/perusahaan/'+ respons.data.ID_KONTRAKTOR +'/pegawai_lite')
+        .then(function(respons){
+            $scope.pegawais = respons.data;
+            debugData(respons);
+        });
+    });
+
+
+
+    //pm/perusahaan/{id_perusahaan}/pegawai_lite
+    function load()
+    {
+        var data = {jenis:"kontraktor"};
+        myHelp.getParam('/project/task/team/' + $stateParams.id_task, data)
+        .then(function(respons){
+            $scope.kontraktors = respons.data;
+
+        });
+    }
+    load();
+
+
+    //tambah
+    $scope.submitForm = function() {
+        var Param = clearObj($scope.kontraktor)
+        Param.jenis="kontraktor";
+        Param.team_status=1;
+        Param.id_task=$stateParams.id_task;
+
+       myHelp.postParam('/project/task/team/add', Param)
+       .then(function mySuccesresponse()
+       {
+          load();
+
+       }
+       , function myError()
+       {
+          errorView("error paja tu");
+       });
+
+    };
+
+
+
+
 
 }]);

@@ -1,0 +1,81 @@
+sdfds
+
+<div class="all_popup">
+    <div class="hitam-popup"></div>
+    <div id="popup_content" class="panel panel-info {{wlebar}}">
+        <div class="panel-heading">Input Lokasi #{{lokasi.id_lokasi}}</div>
+        <div class="panel-wrapper collapse in" aria-expanded="true">
+            <div class="panel-body">
+                <form class="form-horizontal" name="Form" ng-submit="submitFormLokasi(Form.$valid)">
+                    <div class="form-content">
+
+                        <div class="form-group">
+                            <label class="control-label ">Propinsi</label>
+                            <div class="col-md-12" style="border-bottom:1px solid; padding:5px">
+                                {{project.NAMA_PROV}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Kabkot</label>
+                            <div class="col-md-12"  style="border-bottom:1px solid; padding:5px">
+                                {{project.NAMA_KABKOT}}
+                            </div>
+                        </div>
+
+                        <div class="form-group" >
+                            <label class="col-md-12">Kecematan </label>
+                            <div class="col-md-12"  ng-init="">
+                                <select required  class="form-control" select2 ng-model="lokasi.id_kec"
+                                ng-options="x.id_kec as x.nama_kec for x in kecematans " ng-change="updateKel()">
+                                    <option value="">-- please choose --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Kelurahan</label>
+                            <div class="col-md-12">
+                                <select required class="form-control" select2 ng-model="lokasi.id_kel"
+                                ng-options="x.id_kel as x.nama_kel for x in kelurahans ">
+                                    <option value="">-- please choose --</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-12">Lon / LAT</label>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="100" ng-model="lokasi.lon" required   ui-number-mask="4"  type="text">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="0" ng-model="lokasi.lat" required  ui-number-mask="4"  type="text">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-12">Keterangan</label>
+                            <div class="col-md-12">
+                                <textarea class="form-control"  required ng-model="lokasi.keterangan"  ></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                   <div class="text-right form-bottom">
+                       <button type="submit" class="btn btn-success">Submit</button>
+                       <button type="button" back-button class="btn btn-default">Cancel</button>
+                   </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    formAutoLoad();
+    formAutoLoad();
+</script>

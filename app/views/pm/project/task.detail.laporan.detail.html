@@ -1,0 +1,129 @@
+
+<div class="all_popup">
+    <div class="hitam-popup"></div>
+    <div id="popup_content" class="panel panel-info panel panel-success widget-melayang">
+        <form id="#" class="form-horizontal" >
+            <div class="panel-heading">Detail Laporan #{{report.ID_TASK_REPORT}} <i id="close" back-button class="ti-close right-side-toggle pull-right"></i></div>
+            <div class="panel-wrapper collapse in" aria-expanded="true">
+                <div class="panel-body" style="height: 761px;">
+
+                        <div class="form-body">
+                            <h3 class="box-title">Report Info</h3>
+
+                            <div class="row">
+                                <hr class="m-t-0 m-b-40">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Tanggal Laporan</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.REPORT_TANGGAL | date:'dd MMMM yyyy'}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Tanggal ACC</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.TGL_ACC | date:'dd MMMM yyyy'}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Status ACC</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.REPORT_STATUS ==1 ? 'Pending' : 'ACC'}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Nama Pegawai</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.NAMA_PEGAWAI_P | uppercase}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">NIP</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.NIP}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Detail Laporan</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.REPORT_DETAIL}}</div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Progress</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{report.REPORT_PROGRESS}}% </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Total Progress</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{ report_rekap.REPORT_PROGRESS}}% </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Total Progress</label>
+                                        <div class="col-md-9">
+                                            <h5>{{report.REPORT_PROGRESS}}%<span class="pull-right">{{ report_rekap.REPORT_PROGRESS}}%</span></h5>
+                                            <div class="progress">
+                                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;" class="progress-bar progress-bar-info wow animated progress-animated"></div>
+                                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;" class="progress-bar progress-bar-warning"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <h3 class="box-title">Media</h3>
+                            <hr class="m-t-0 m-b-40">
+                            <div class="row">
+                                <div ng-repeat="n in [] | range:5"  class="col-md-3" style="padding-top:10px">
+                                     <img src="/images/assets/studio1.jpg" alt="gallery" class="all studio isotope-item isotope-hidden img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+
+                                    <button type="button" back-button class="btn btn-default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+
+<script>
+    Melayang();
+</script>

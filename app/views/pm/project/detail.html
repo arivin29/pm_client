@@ -26,9 +26,10 @@
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.task">Kegiatan <span>103</span></a></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.timeline">Timeline </a></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.kurva">Kurva </a></li>
-                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.document">Dokumen <span>3</span></a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.document">Dokumen</a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.cair">Pembayaran <span>3</span></a></li>
                            <li><a href="javascript:void(0)">Surat/Tiket <span>3</span></a></li>
-                           <li><a href="javascript:void(0)">AktivitAS <span>3</span></a></li>
+                           <li><a href="javascript:void(0)">Kalender </a></li>
                       </ul>
                    </div>
                </div>
@@ -151,16 +152,6 @@
                                         <ul class="basic-list">
                                             <li>PROVINSI <span class="pull-right">{{project.NAMA_PROV | uppercase }}</span></li>
                                             <li>KABUPATEN <span class="pull-right">{{project.NAMA_KABKOT}}</span></li>
-                                            <li>KECEMATAN
-                                                <span class="pull-right">
-                                                    {{project.NAMA_KEC}}
-                                                </span>
-                                            </li>
-                                            <li>KELURAHAN
-                                                <span class="pull-right">
-                                                    {{project.NAMA_KEL}}
-                                                </span>
-                                            </li>
                                             <li>Alamat
                                                 <span class="pull-right">
                                                     {{project.LOKASI_PROJECT}}
@@ -168,6 +159,38 @@
                                             </li>
 
                                         </ul>
+
+                                        <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="30px">
+                                                        <a ui-sref="project_detail.lokasi_add">
+                                                            <button  class="btn btn-info btn-rounded" type="button">Lokasi Baru</button>
+                                                        </a>
+                                                    </th>
+                                                    <th>Kecematan</th>
+                                                    <th>Kelurahan</th>
+                                                    <th>Keterangan</th>
+                                                    <th class="text-right">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="x in lokasis">
+                                                    <td>{{$index+1}}</td>
+                                                    <td>{{x.NAMA_KEC}}</td>
+                                                    <td>{{x.NAMA_KEL}}</td>
+                                                    <td>{{x.KETERANGAN}}</td>
+                                                    <td class="text-nowrap text-right">
+                                                        <a href="#" ui-sref="project_detail.lokasi_edit({id_lokasi:x.ID_LOKASI})" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <!-- <a href="#" ui-sref="project_detail.lokasi_hapus" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> -->
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                         <br>
                                         <h3 class="box-title">Deskripsi</h3>
                                         <p>{{project.KETERANGAN_PAKET}}</p>

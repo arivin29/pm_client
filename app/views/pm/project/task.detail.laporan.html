@@ -5,10 +5,7 @@
     </div>
     <h3>
        <!-- <a ui-sref="project_detail.task.add"><i class="ti-pencil"></i></a> -->
-       Laporan /
-       <a ui-sref="perusahaan_detail.pegawai.add">
-           <button  class="btn btn-info btn-rounded" type="button">Input sub Task</button>
-       </a>
+       Laporan 
     </h3>
 </div>
 <div class="clearfix"></div>
@@ -23,7 +20,7 @@
                                        <th>Supervisi</th>
                                        <th>Laporan</th>
                                        <th>Status</th>
-                                       <th class="text-nowrap">Action</th>
+                                       <th class="text-nowrap" width="50px">Action</th>
                                    </tr>
                                </thead>
                                <tbody>
@@ -41,8 +38,9 @@
                                        <td>{{x.REPORT_DETAIL}}</td>
                                        <td>{{x.REPORT_STATUS ==1 ? 'Acc': 'Pending'}}</td>
                                        <td class="text-nowrap">
-                                           <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                           <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                           <a href="#" ui-sref="task_detail.laporan.detail({id_report:x.ID_TASK_REPORT})" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-check"></i> </a>
+                                           <a href="#" ui-sref="task_detail.laporan.detail({id_report:x.ID_TASK_REPORT})" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-eye"></i> </a>
+                                           <!-- <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> -->
                                        </td>
                                    </tr>
 

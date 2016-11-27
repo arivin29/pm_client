@@ -1,0 +1,23 @@
+
+<div class="right-page-header">
+    <div class="pull-right">
+       <button type="button" class="btn btn-default waves-effect waves-light  dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-refresh"></i> </button>
+    </div>
+    <h3>
+       Media
+    </h3>
+</div>
+<div class="clearfix"></div>
+<div class="scrollable">
+    <div class="inbox-center">
+        <h3 class="box-title">Muhammad Arifin | {{ '' | dateNow }}</h3>
+        <hr class="m-t-0 m-b-40">
+        <div class="row">
+            <div ng-repeat="n in [] | range:5"  class="col-md-3" style="padding-top:10px">
+                 <img src="/images/assets/studio1.jpg" alt="gallery" class="all studio isotope-item isotope-hidden img-responsive">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>
