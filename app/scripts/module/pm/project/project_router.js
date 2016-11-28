@@ -172,9 +172,10 @@ app.config(['$stateProvider', function($stateProvider) {
       })
       .state('task_detail.supervisi', {
           url: '/supervisi',
-          templateUrl: 'views/pm/project/task.detail.supervisi.html'
-          //controller :'taskContAdd'
+          templateUrl: 'views/pm/project/task.detail.supervisi.html',
+          controller :'task_detail.supervisi'
       })
+
       .state('task_detail.laporan', {
           url: '/laporan',
           templateUrl: 'views/pm/project/task.detail.laporan.html',

@@ -31,63 +31,50 @@
                </div>
            </div>
            <hr>
-        <div class="row">
-            <!-- .col -->
-            <div class="col-md-4 col-sm-4">
-                <div class="white-box">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 text-center">
-                            <a href="contact-detail.html"><img src="images/users/genu.jpg" alt="user" class="img-circle img-responsive"></a>
-                        </div>
-                        <div class="col-md-8 col-sm-8">
-                            <h3 class="box-title m-b-0">Johnathan Doe</h3> <small>Web Designer</small>
-                            <p> </p><address>
-                    795 Folsom Ave, Suite 600 San Francisco, CADGE 94107<br><br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address> <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col -->
-            <!-- .col -->
-            <div class="col-md-4 col-sm-4">
-                <div class="white-box">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 text-center">
-                            <a href="contact-detail.html"><img src="images/users/varun.jpg" alt="user" class="img-circle img-responsive"></a>
-                        </div>
-                        <div class="col-md-8 col-sm-8">
-                            <h3 class="box-title m-b-0">Johnathan Doe</h3> <small>Web Designer</small>
-                            <p> </p><address>
-                    795 Folsom Ave, Suite 600 San Francisco, CADGE 94107<br><br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address> <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col -->
-            <!-- .col -->
-            <div class="col-md-4 col-sm-4">
-                <div class="white-box">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 text-center">
-                            <a href="contact-detail.html"><img src="images/users/ritesh.jpg" alt="user" class="img-circle img-responsive"></a>
-                        </div>
-                        <div class="col-md-8 col-sm-8">
-                            <h3 class="box-title m-b-0">Johnathan Doe</h3> <small>Web Designer</small>
-                            <p> </p><address>
-                    795 Folsom Ave, Suite 600 San Francisco, CADGE 94107<br><br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address> <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col -->
-        </div>
-    </div>
-</div>
+             <form class="form-horizontal" ng-submit="submitForm()">
+                 <div class="form-group">
+                     <label for="exampleInputuname" class="col-sm-3 control-label text-left " style="text-align:left">Pegawai Perusahaan </label>
+                     <div class="col-sm-6">
+                         <div class="input-group">
+                             <select required class="form-control select2" required select2 ng-model="supervisi.id_perusahaan_pegawai"
+                             ng-change="ambilPaket()"
+                             ng-options="x.nama_pegawai_p for x in pegawais track by x.id_perusahaan_pegawai">
+                                 <option value="">-- please choose --</option>
+                             </select>
+                             <div class="input-group-addon"><i class="ti-user"></i></div>
+                         </div>
+                     </div>
+                     <div class="col-sm-3">
+                         <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Tambah</button>
+                     </div>
+                 </div>
+             </form>
+             <hr>
 
-<div ui-view></div>
+         <div class="row">
+             <!-- .col -->
+                 <div class="col-md-4 col-sm-4" ng-repeat="x in supervisis">
+                     <div class="white-box">
+                         <div class="row">
+                             <div class="col-md-4 col-sm-4 text-center">
+                                 <a href="contact-detail.html"><img src="images/users/genu.jpg" alt="user" class="img-circle img-responsive"></a>
+                             </div>
+                             <div class="col-md-8 col-sm-8">
+                                 <h3 class="box-title m-b-0">
+                                     {{x.NAMA_PEGAWAI_P}}
+                                     <a ng-click="hapus(x.ID_TASK_TEAM)"  title="hapus" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="fa fa-times"></i></button>
+                                 </h3> <small>{{x.JABATAN}}</small>
+                                 <address>
+                                     {{x.NIP}} - {{x.EMAIL_P}}<br><br>
+                                     Telfon : {{x.NO_HP_P}}
+                                 </address>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+         </div>
+     </div>
+ </div>
+
+ <div ui-view></div>

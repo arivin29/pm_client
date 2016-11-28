@@ -55,26 +55,35 @@
                                             <div class="detail" >{{modul.MODUL_END | date:'yyyy-MM-dd'}}</div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Max Lama Paket kegiatan</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{ hitung_hari(modul.MODUL_START+0, modul.MODUL_END+0) }} Hari</div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Max Lama Paket kegiatan</label>
-                                        <div class="col-md-9">
-                                            <div class="detail" >{{ hitung_hari(modul.TASK_START, modul.TASK_END) }} Hari</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="control-label col-md-3">Nilai Kontrak</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{modul.ANGGARAN_NILAI | currency:"Rp.":0}} / Digunakan: {{modul.TERPAKAI | currency:"Rp.":0}}</div>
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI | currency:"Rp.":0}} / Digunakan: {{modul.TOTAL | currency:"Rp.":0}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">PPN {{modul.PPN + 0 }}%</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((modul.PPN)/100) | currency:"Rp.":0}}</div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Sisa Anggaran</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{modul.ANGGARAN_NILAI - modul.TERPAKAI | currency:"Rp.":0}}</div>
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((100-modul.PPN)/100) - modul.TOTAL | currency:"Rp.":0}} </div>
                                         </div>
                                     </div>
 
@@ -84,7 +93,7 @@
 
 
                             </div>
-                            <h3 class="box-title">Peroide</h3>
+                            <h3 class="box-title">Peroide : {{hitung_hari(task.task_start+0,task.task_end+0)}} Hari</h3>
                             <hr class="m-t-0 m-b-40">
                             <div class="row">
                                 <div class="col-md-6">
@@ -120,8 +129,10 @@
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Jumlah Satuan Unit</label>
-                                        <div class="col-md-9">
+                                        <div class="col-md-6">
                                             <input class="form-control" ng-model="task.task_nilai" required type="number"> </div>
+                                        <div class="col-md-3">
+                                            <input class="form-control" ng-model="task.satuan" value="Unit" placeholder="satuan" required type="text"> </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Nilai/ Harga Satuan</label>

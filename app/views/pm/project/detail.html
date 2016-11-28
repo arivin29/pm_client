@@ -1,7 +1,7 @@
 <div class="row bg-title">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
         <h4 class="page-title">{{project.NAMA_PROJECT | capitalize}}</h4> </div>
-    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+    <div class="col-lg-3 col-sm-3 col-md-8 col-xs-12">
         <ol class="breadcrumb">
             <a ui-sref="project_detail.edit" class="btn btn-success waves-effect waves-light" type="button">
                 <span class="btn-label"><i class="fa fa-pencil"></i></span>Edit
@@ -41,11 +41,11 @@
                        <h3>Progress </h3>  -->
 
                        <div class="row sales-report">
-                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-md-9 col-sm-9 col-xs-6">
                                 <h2>PAKET: {{project.NAMA_PAKET}} > <small>{{project.NILAI_KONTRAK | currency:"Rp.":0 }} </small?</h2>
                                 <p>{{ '' | dateNow }} </p>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 ">
+                            <div class="col-md-3 col-sm-3 col-xs-6 ">
                                 <h1 class="text-right text-success m-t-20">{{project.STATUS_PROJECT | capitalize }}</h1> </div>
                         </div>
                    </div>
@@ -86,12 +86,12 @@
 
 
                                            <div class="col-lg-4 col-sm-6 row-in-br">
-                                                    <div class="row">
-                                                        <div class="pull-left">
-                                                            <div class="text-muted m-t-20">Penyerapan Anggaran</div>
-                                                            <h2>{{pembayaran.REALISASI_CAIR | currency:"Rp.":0}}</h2> </div>
-                                                        <div data-label="{{pembayaran.REALISASI_PROGRESS+0}}%" class="css-bar css-bar-60 css-bar-lg m-b-0 css-bar-purple pull-right"></div>
-                                                    </div>
+                                                <div class="row">
+                                                    <div class="pull-left">
+                                                        <div class="text-muted m-t-20">Penyerapan Anggaran</div>
+                                                        <h2>{{pembayaran.REALISASI_CAIR | currency:"Rp.":0}}</h2> </div>
+                                                    <div data-label="{{pembayaran.REALISASI_PROGRESS+0}}%" class="css-bar css-bar-60 css-bar-lg m-b-0 css-bar-purple pull-right"></div>
+                                                </div>
 
                                            </div>
 

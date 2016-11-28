@@ -2,7 +2,10 @@
 <div class="right-page-header">
    <div class="pull-right">
        <a ui-sref="project_detail.rekap.add" class="btn btn-info waves-effect waves-light" type="button">
-            <span class="btn-label"><i class="fa fa-plus"></i></span>Paket Baru
+            <span class="btn-label"><i class="fa fa-plus"></i></span>Paket
+        </a>
+       <a ui-sref="project_detail.task.add" class="btn btn-info waves-effect waves-light" type="button">
+            <span class="btn-label"><i class="fa fa-plus"></i></span>Kegiatan
         </a>
    </div>
        <h3 class="box-title m-b-0">Overview Kegitan</h3>
@@ -47,8 +50,8 @@
                        <td>
                            <a ui-sref="task_detail({id_task:n.id_task})"> {{n.task}}</a>
                        </td>
-                       <td>{{n.task_start | date:'YYYY-MM-dd'}} </td>
-                       <td>{{n.task_end | date:'YYYY-MM-dd'}} </td>
+                       <td>{{n.task_start | date:'yyyy-MM-dd'}} </td>
+                       <td>{{n.task_end | date:'yyyy-MM-dd'}} </td>
                        <td><span class="label label-danger">{{n.status_task}}</span> </td>
                        <td>{{n.task_progress_realisasi}}% / {{n.task_progress}}%</td>
                        <td>{{n.task_nilai}} X {{n.task_nilai | currency:"Rp.":0  }}</td>

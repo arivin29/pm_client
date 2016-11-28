@@ -54,22 +54,25 @@
 
         <div class="row">
             <!-- .col -->
-            <div class="col-md-4 col-sm-4" ng-repeat="x in kontraktors">
-                <div class="white-box">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 text-center">
-                            <a href="contact-detail.html"><img src="images/users/genu.jpg" alt="user" class="img-circle img-responsive"></a>
-                        </div>
-                        <div class="col-md-8 col-sm-8">
-                            <h3 class="box-title m-b-0">{{x.NAMA_PEGAWAI_P}}</h3> <small>{{x.JABATAN}}</small>
-                            <p> </p><address>
-                    {{x.NIP}} - {{x.EMAIL_P}}<br><br>
-                    Telfon : {{x.NO_HP_P}}
-                </address> <p></p>
+                <div class="col-md-4 col-sm-4" ng-repeat="x in kontraktors">
+                    <div class="white-box">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 text-center">
+                                <a href="contact-detail.html"><img src="images/users/genu.jpg" alt="user" class="img-circle img-responsive"></a>
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                <h3 class="box-title m-b-0">
+                                    {{x.NAMA_PEGAWAI_P}}
+                                    <a ng-click="hapus(x.ID_TASK_TEAM)"  title="hapus" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="fa fa-times"></i></button>
+                                </h3> <small>{{x.JABATAN}}</small>
+                                <address>
+                                    {{x.NIP}} - {{x.EMAIL_P}}<br><br>
+                                    Telfon : {{x.NO_HP_P}}
+                                </address>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </div>
     </div>

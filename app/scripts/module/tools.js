@@ -10,7 +10,7 @@ app.filter('range', function() {
 
 app.filter('dateNow',['$filter',  function($filter) {
     return function() {
-        return $filter('date')(new Date(), 'yyyy-MMMM-dd');
+        return $filter('date')(new Date(), 'dd MMMM yyyy');
     };
 }])
 
@@ -44,6 +44,7 @@ app.filter('status_proyek', function() {
 app.run(function($rootScope) {
     $rootScope.hitung_hari = function(start,end) {
         var hari = (end - start) / (1000 * 60 * 60 * 24);
+        console.log(start);
         return Math.round(hari);
     };
 });

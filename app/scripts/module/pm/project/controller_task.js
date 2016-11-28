@@ -63,10 +63,13 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
     myHelp.getDetail('/project/task/detail_lite/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task = respons.data;
+        var task_progress = respons.data.task_progress;
+
 
         myHelp.getDetail('/project/task/detail_pre_add/' + $scope.task.id_modul)
         .then(function(respons){
             $scope.modul = respons.data;
+            $scope.modul.TOTAL_PROGRESS = $scope.modul.TOTAL_PROGRESS -task_progress;
             debugData(respons);
         });
 
@@ -113,7 +116,18 @@ appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',f
         $scope.perusahaan = respons.data.perusahaan;
 
         $scope.lamaKerja = count_hari(respons.data.task.task_start, respons.data.task.task_end );
-        $scope.sisaHari = count_hari(new Date(), respons.data.task.task_end );
+
+        var sisaHari = count_hari(new Date(), respons.data.task.task_end );
+        var Status = "Close";
+        if(respons.data.task.task_progress_realisasi < 99)
+        {
+            $scope.sisaHari = sisaHari;
+            $scope.Status = "Open";
+        }
+        else
+        {
+            $scope.sisaHari = 0;
+        }
         debugData(respons);
     });
 
@@ -244,9 +258,10 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
         myHelp.getParam('/project/task/team/' + $stateParams.id_task, data)
         .then(function(respons){
             $scope.kontraktors = respons.data;
-
+            debugData(respons);
         });
     }
+
     load();
 
 
@@ -270,7 +285,116 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
 
     };
 
+    //hapus
+    $scope.hapus = function(id_task_team){
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this imaginary file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel plx!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm){
+            if (isConfirm) {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
 
+                myHelp.getDetail('/project/task/team/hapus/' + id_task_team)
+                .then(function(respons){
+                     load();
+                });
+
+            } else {
+                swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+    };
+
+
+
+}]);
+
+
+
+//KONTRAKTOR
+appProject.controller('task_detail.supervisi',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    //aal pegawai http://localhost:8081/pm/project/task/detail_id_id/1
+    myHelp.getDetail('/project/task/detail_id_id/' + $stateParams.id_task)
+    .then(function(respons){
+        $scope.task_id = respons.data;
+
+        myHelp.getDetail('/perusahaan/'+ respons.data.ID_SUPERVISI +'/pegawai_lite')
+        .then(function(respons){
+            $scope.pegawais = respons.data;
+            debugData(respons);
+        });
+    });
+
+
+
+    //pm/perusahaan/{id_perusahaan}/pegawai_lite
+    function load()
+    {
+        var data = {jenis:"supervisi"};
+        myHelp.getParam('/project/task/team/' + $stateParams.id_task, data)
+        .then(function(respons){
+            $scope.supervisis = respons.data;
+            debugData(respons);
+        });
+    }
+
+    load();
+
+
+    //tambah
+    $scope.submitForm = function() {
+        var Param = clearObj($scope.supervisi)
+        Param.jenis="supervisi";
+        Param.team_status=1;
+        Param.id_task=$stateParams.id_task;
+
+       myHelp.postParam('/project/task/team/add', Param)
+       .then(function mySuccesresponse()
+       {
+          load();
+
+       }
+       , function myError()
+       {
+          errorView("error paja tu");
+       });
+
+    };
+
+    //hapus
+    $scope.hapus = function(id_task_team){
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this imaginary file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel plx!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm){
+            if (isConfirm) {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+
+                myHelp.getDetail('/project/task/team/hapus/' + id_task_team)
+                .then(function(respons){
+                     load();
+                });
+
+            } else {
+                swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+    };
 
 
 
