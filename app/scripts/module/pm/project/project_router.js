@@ -117,6 +117,30 @@ app.config(['$stateProvider', function($stateProvider) {
           //controller :'taskContAdd'
       })
 
+      .state('project_detail.cair', {
+          url: '/cair',
+          templateUrl: 'views/pm/project/cair.html',
+          controller :'project_detail.cair'
+      })
+
+      .state('project_detail.cair.add', {
+          url: '/add',
+          templateUrl: 'views/pm/project/cair.add.html',
+          controller :'project_detail.cair.add'
+      })
+
+      .state('project_detail.cair.edit', {
+          url: '/edit/:id_cair',
+          templateUrl: 'views/pm/project/cair.edit.html',
+          controller :'project_detail.cair.edit'
+      })
+
+      .state('project_detail.cair.acc', {
+          url: '/acc/:id_cair',
+          templateUrl: 'views/pm/project/cair.acc.html',
+          controller :'project_detail.cair.acc'
+      })
+
 
       //TASK Detail     =====================================================================================
       .state('task_detail', {

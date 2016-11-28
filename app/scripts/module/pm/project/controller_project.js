@@ -202,6 +202,12 @@ appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp
         chace.id_kabkot = respons.data.ID_KABKOT;
     });
 
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    .then(function(respons){
+        $scope.pembayaran = respons.data;
+    });
+
     myHelp.getDetail('/project/lokasi/' + id_project)
     .then(function(respons){
         $scope.lokasis = respons.data;
@@ -431,7 +437,7 @@ app.controller('project_detail.rekap.edit',['$scope','$state','$stateParams','my
 
         myHelp.getDetail('/project/modul/pre_add/' + respons.data.id_project)
         .then(function(respons){
-            $scope.pre = respons.data; 
+            $scope.pre = respons.data;
             $scope.pre.TOTAL = respons.data.TOTAL - progres;
         });
     });
@@ -443,6 +449,103 @@ app.controller('project_detail.rekap.edit',['$scope','$state','$stateParams','my
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.rekap",{}, { reload: true })
+
+         }
+         , function myError()
+         {
+            errorView("error paja tu");
+         });
+     };
+
+}]);
+
+// PENCAIRAN DANA
+
+appProject.controller('project_detail.cair',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/cair/' + id_project)
+    .then(function(respons){
+        $scope.cairs = respons.data;
+        debugData(respons);
+    });
+
+}]);
+
+app.controller('project_detail.cair.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    .then(function(respons){
+        $scope.pre = respons.data;
+    });
+
+     $scope.submitForm = function() {
+         $scope.cair.id_project = $stateParams.id_project;
+
+         myHelp.postParam('/project/cair/add', $scope.cair)
+         .then(function mySuccesresponse()
+         {
+            $state.go("project_detail.cair",{}, { reload: true })
+
+         }
+         , function myError()
+         {
+            errorView("error paja tu");
+         });
+     };
+
+}]);
+
+app.controller('project_detail.cair.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    myHelp.getDetail('/project/cair/detail/' + $stateParams.id_cair)
+    .then(function(respons){
+        $scope.cair = respons.data;
+    });
+
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    .then(function(respons){
+        $scope.pre = respons.data;
+    });
+
+     $scope.submitForm = function() {
+         $scope.cair.id_project = $stateParams.id_project;
+
+         myHelp.postParam('/project/cair/edit', $scope.cair)
+         .then(function mySuccesresponse()
+         {
+            $state.go("project_detail.cair",{}, { reload: true })
+
+         }
+         , function myError()
+         {
+            errorView("error paja tu");
+         });
+     };
+
+}]);
+app.controller('project_detail.cair.acc',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    myHelp.getDetail('/project/cair/detail/' + $stateParams.id_cair)
+    .then(function(respons){
+        $scope.cair = respons.data;
+    });
+
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    .then(function(respons){
+        $scope.pre = respons.data;
+    });
+
+     $scope.submitForm = function() {
+         $scope.cair.id_project = $stateParams.id_project;
+
+         myHelp.postParam('/project/cair/edit', $scope.cair)
+         .then(function mySuccesresponse()
+         {
+            $state.go("project_detail.cair",{}, { reload: true })
 
          }
          , function myError()

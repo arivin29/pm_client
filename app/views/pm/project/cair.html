@@ -1,0 +1,57 @@
+<div id="sub_detail_content">
+
+    <h3 class="box-title">Pembayaran (termin)
+        <small class="pull-right">
+        <a ui-sref="project_detail.cair.add" class="btn btn-info waves-effect waves-light " type="button" >
+            <span class="btn-label"><i class="fa fa-plus"></i></span>Input
+        </a>
+    </small></h3>
+    <!-- <p class="text-muted m-b-20">Add<code>.table-striped</code>for borders on all sides of the table and cells.</p> -->
+    <div class="scrollable">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Pembayaran</th>
+                        <th>Target</th>
+                        <th>Realisai</th>
+                        <th>Jumlah Termin</th>
+                        <th>Jumlah Realisai</th>
+                        <th class="text-nowrap">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in cairs">
+                        <td>{{$index+1}}</td>
+                        <td>Pembayaran {{ x.pencairan_ke | uppercase}}</td>
+                        <td>
+                            <div class="">~{{x.rencana_tanggal | date:'yyyy-MM-dd'}} <div class="pull-right">{{x.progress}}% </div></div>
+
+                            <div class="progress progress-xs margin-vertical-10 ">
+                                <div class="progress-bar progress-bar-danger" style="width: {{x.progress}}%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">~{{x.realisasi_tanggal | date:'yyyy-MM-dd'}} <div class="pull-right">{{x.realisasi_progress}}% </div></div>
+
+                            <div class="progress progress-xs margin-vertical-10 ">
+                                <div class="progress-bar progress-bar-info" style="width: {{x.realisasi_progress}}%"></div>
+                            </div>
+                        </td>
+                        <td>{{x.jumlah_cair | currency:"Rp.":0}}</td>
+                        <td>{{x.realisasi_cair | currency:"Rp.":0}}</td>
+                        <td class="text-nowrap text-right" width="50px">
+                            <a ng-hide="x.realisasi_progress > 100000" href="#" ui-sref="project_detail.cair.edit({id_cair:x.id_cair})" data-toggle="tooltip" title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                            <a ng-show="x.realisasi_progress < 100" href="#" ui-sref="project_detail.cair.acc({id_cair:x.id_cair})" data-toggle="tooltip" title="Acc"> <i class="fa fa-check text-inverse m-r-10"></i> </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>
