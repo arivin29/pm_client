@@ -3759,7 +3759,7 @@ table.focus-on tbody tr.focused td {
 .error-box {
     height: 100%;
     position: fixed;
-    background: url(../../plugins/images/error-bg.jpg) no-repeat center center #fff !important;
+    background: url(../../images/error-bg.jpg) no-repeat center center #fff !important;
     width: 100%
 }
 .error-box .footer {
@@ -3776,7 +3776,7 @@ table.focus-on tbody tr.focused td {
     line-height: 210px
 }
 .login-register {
-    background: url(../../plugins/images/login-register.jpg) no-repeat center center / cover !important;
+    background: url(../../images/login-register.jpg) no-repeat center center / cover !important;
     height: 100%;
     position: fixed
 }
@@ -14084,12 +14084,12 @@ a.mytooltip {
     margin: -7px 0 0 -15px;
     width: 30px;
     height: 20px;
-    background: url(../../plugins/images/tooltip/tooltip1.svg) no-repeat center center;
+    background: url(../../images/tooltip/tooltip1.svg) no-repeat center center;
     background-size: 100%
 }
 .tooltip-content3 {
     position: absolute;
-    background: url(../../plugins/images/tooltip/shape1.svg) no-repeat center bottom;
+    background: url(../../images/tooltip/shape1.svg) no-repeat center bottom;
     background-size: 100% 100%;
     z-index: 9999;
     width: 200px;

@@ -26,8 +26,8 @@ angular.module('v3App', [
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
     $stateProvider
-        .state('main', {
-            url: '/',
+        .state('/', {
+            url: '/pm',
             templateUrl: 'views/main.html'
         })
 
@@ -44,6 +44,6 @@ angular.module('v3App', [
 .run( ['$rootScope', '$state', '$stateParams',
 	function ($rootScope,   $state,   $stateParams) {
 		$rootScope.$state = $state;
-		$rootScope.$stateParams = $stateParams; 
+		$rootScope.$stateParams = $stateParams;
 	}
 ])
