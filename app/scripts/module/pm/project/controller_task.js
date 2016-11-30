@@ -210,6 +210,33 @@ appProject.controller('task_detail.laporan',['$scope','$state','$stateParams','m
    });
 
 }]);
+appProject.controller('task_detail.laporan.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
+{
+    $scope.report= {};
+    $scope.report.id_task=$stateParams.id_task;
+    $scope.report.report_status=0;
+    $scope.report.id_perusahaan_pegawai=1;
+
+
+    $scope.submitForm = function(isValid) {
+        var Param = clearObj($scope.report)
+        if (isValid)
+        {
+            myHelp.postParam('/project/task/report/add', {"laporan" : Param })
+           .then(function mySuccesresponse()
+           {
+              $state.go("task_detail.laporan",{}, { reload: true })
+
+           }
+           , function myError()
+           {
+              errorView("error paja tu");
+           });
+       }
+
+    };
+
+}]);
 
 
 appProject.controller('task_detail.laporan.detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)

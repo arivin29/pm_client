@@ -202,6 +202,15 @@ appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp
         chace.id_kabkot = respons.data.ID_KABKOT;
     });
 
+    //rekap report project dari modul
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/project/modul/pre_add/' + id_project)
+    .then(function(respons){
+        $scope.pre = respons.data;
+        $scope.progress_rekap = respons.data;
+    });
+
+
     var id_project = $stateParams.id_project;
     myHelp.getDetail('/project/cair/pre_add/' + id_project)
     .then(function(respons){
@@ -404,11 +413,7 @@ appProject.controller('project_detail.rekap',['$scope','$state','$stateParams','
 }]);
 app.controller('project_detail.rekap.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/modul/pre_add/' + id_project)
-    .then(function(respons){
-        $scope.pre = respons.data;
-    });
+
 
      $scope.submitForm = function() {
          $scope.modul.id_project = $stateParams.id_project;

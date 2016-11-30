@@ -3,7 +3,7 @@
         <h4 class="page-title">{{task.task}}</h4> </div>
     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <ol class="breadcrumb">
-            <li class="active" ui-sref="project_detail({id_project:perusahaan.ID_PROJECT})" title=""> <i class="fa fa-arrow-left"></i> {{perusahaan.NAMA_PROJECT}}</li> 
+            <li class="active" ui-sref="project_detail({id_project:perusahaan.ID_PROJECT})" title=""> <i class="fa fa-arrow-left"></i> {{perusahaan.NAMA_PROJECT}}</li>
         </ol>
     </div>
     <!-- /.col-lg-12 -->
@@ -50,7 +50,7 @@
                                     </div> -->
 
                                     <div class="progress progress-lg" style="clear: left;">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{100 - ((sisaHari/lamaKerja)*100)}}%; role="progressbar""> {{((sisaHari/lamaKerja)*100)}}% sisa waktu </div>
+                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{task.task_progress_realisasi}}%; role="progressbar""> {{task.task_progress_realisasi}}% Progress </div>
                                     </div>
                               </div>
                               <div class="weather-info">

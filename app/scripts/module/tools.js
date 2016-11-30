@@ -44,7 +44,7 @@ app.filter('status_proyek', function() {
 app.run(function($rootScope) {
     $rootScope.hitung_hari = function(start,end) {
         var hari = (end - start) / (1000 * 60 * 60 * 24);
-        console.log(start);
+        // console.log(start);
         return Math.round(hari);
     };
 });

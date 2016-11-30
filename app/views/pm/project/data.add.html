@@ -79,6 +79,20 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label class="control-label col-md-3">PPN {{paket.PPN+0}}%</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{(paket.NILAI_KONTRAK*(paket.PPN+0)/100 )  | currency:"Rp.":0}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Nilai Sesudah PPN</label>
+                                        <div class="col-md-9">
+                                            <div class="detail" >{{(paket.NILAI_KONTRAK*(100 - (paket.PPN+0) )/100 ) | currency:"Rp.":0}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label class="control-label col-md-3">PPK</label>
                                         <div class="col-md-9">
                                             <div class="detail" >{{paket.PPK}}</div>

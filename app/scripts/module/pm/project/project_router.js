@@ -181,6 +181,11 @@ app.config(['$stateProvider', function($stateProvider) {
           templateUrl: 'views/pm/project/task.detail.laporan.html',
           controller :'task_detail.laporan'
       })
+      .state('task_detail.laporan.add', {
+          url: '/add',
+          templateUrl: 'views/pm/project/task.detail.laporan.add.html',
+          controller :'task_detail.laporan.add'
+      })
 
       .state('task_detail.laporan.detail', {
           url: '/detail/:id_report',
