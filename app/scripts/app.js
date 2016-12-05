@@ -1,6 +1,6 @@
 'use strict';
 var DEBUG=true;
-var BASE_URL = 'http://localhost:8081/pm';
+var BASE_URL = 'http://localhost:8081';
 var MASTER = 'http://localhost:8081/master';
 
 

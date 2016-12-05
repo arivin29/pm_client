@@ -21,11 +21,11 @@ app.service('service_perusahaan', ['$http', function($http) {
 
 
     this.getKategoriPerusahaan = function() {
-        return $http.get(BASE_URL + '/master/kategori_perusahaan');
+        return $http.get(BASE_URL + '/pm/master/kategori_perusahaan');
     };
 
     this.getPerusahaans = function(query) {
-        return $http.get(BASE_URL + '/perusahaan', query);
+        return $http.get(BASE_URL + '/pm/perusahaan', query);
     };
 
 

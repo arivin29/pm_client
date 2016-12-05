@@ -10,7 +10,8 @@
     "angular-touch": "^1.4.0",
     "angular-ui-router": "*",
     "angular-datepicker": "^2.0.3",
-    "angular-input-masks": "^2.5.0"
+    "angular-input-masks": "^2.5.0",
+    "moment-timezone": "^0.5.10"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

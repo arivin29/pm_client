@@ -23,7 +23,7 @@
                            <li ui-sref-active="active" class="box-label"><a ui-sref="project_detail" href="javascript:void(0)">Detail Projek</a></li>
                            <li class="divider"></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.rekap">Paket Kegiatan </a></li>
-                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.task">Kegiatan <span>103</span></a></li>
+                           <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.task">Kegiatan </a></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.timeline">Timeline </a></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.kurva">Kurva </a></li>
                            <li ui-sref-active="active"><a href="javascript:void(0)" ui-sref="project_detail.document">Dokumen</a></li>
@@ -56,7 +56,7 @@
                                    <div class="white-box">
                                        <div class="row row-in">
 
-                                           <div class="col-lg-4 col-sm-6 row-in-br">
+                                           <div class="col-lg-6 col-sm-6 row-in-br">
                                                <div class="col-in row">
                                                    <div class="col-md-6 col-sm-6 col-xs-6"> <i class="fa fa-building"></i>
                                                        <h5 class="text-muted vb">Progress Fisik (Lokasi)</h5> </div>
@@ -70,22 +70,21 @@
                                                </div>
                                            </div>
 
-                                           <div class="col-lg-4 col-sm-6  b-0">
+                                           <div class="col-lg-6 col-sm-6  b-0">
                                                <div class="col-in row">
                                                    <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-receipt"></i>
                                                        <h5 class="text-muted vb">Progress Fisik (Kontrak)</h5> </div>
                                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                                       <h3 class="counter text-right m-t-15 text-warning">57%</h3> </div>
+                                                       <h3 class="counter text-right m-t-15 text-warning">{{pembayaran.REALISASI_PROGRESS+0}}%</h3> </div>
                                                    <div class="col-md-12 col-sm-12 col-xs-12">
                                                        <div class="progress">
-                                                           <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                                           <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{pembayaran.REALISASI_PROGRESS+0}}%"> <span class="sr-only">{{pembayaran.REALISASI_PROGRESS+0}}% Complete (success)</span> </div>
                                                        </div>
                                                    </div>
                                                </div>
                                            </div>
 
-
-                                           <div class="col-lg-4 col-sm-6 row-in-br">
+                                           <!-- <div class="col-lg-4 col-sm-6 row-in-br">
                                                 <div class="row">
                                                     <div class="pull-left">
                                                         <div class="text-muted m-t-20">Penyerapan Anggaran</div>
@@ -93,7 +92,7 @@
                                                     <div data-label="{{pembayaran.REALISASI_PROGRESS+0}}%" class="css-bar css-bar-60 css-bar-lg m-b-0 css-bar-purple pull-right"></div>
                                                 </div>
 
-                                           </div>
+                                           </div> -->
 
                                        </div>
                                    </div>
@@ -113,18 +112,25 @@
                                                      {{project.ANGGARAN_NILAI | currency:"Rp.":0 }}
                                                 </span>
                                             </li>
+                                            <li>PPN {{project.PPN+0}}%
+                                                <span class="pull-right ">
+                                                    <!-- <i class="fa fa-calendar"></i> -->
+                                                    {{project.ANGGARAN_NILAI*project.PPN/100 | currency:"Rp.":0 }}
+                                                </span>
+                                            </li>
                                             <li>Pagu
                                                 <span class="pull-right ">
                                                     <!-- <i class="fa fa-calendar"></i> -->
                                                     {{project.PAGU_ANGGARAN_PAKET | currency:"Rp.":0 }}
                                                 </span>
                                             </li>
+
+
                                             <li>Periode Kontrak
                                                 <span class="pull-right ">
                                                     <i class="fa fa-calendar"></i>
                                                     {{project.TANGGAL_MULAI | date:'yyyy-MM-dd'}} / {{project.BATAS_WAKTU | date:'yyyy-MM-dd'}}
                                                 </span>
-                                            </li>
                                             </li>
                                             <li>Lama Kontrak
                                                 <span class="pull-right ">

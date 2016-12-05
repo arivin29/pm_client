@@ -1,0 +1,52 @@
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Modul</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+
+            <li>
+                <a ui-sref="modul.add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </a>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Nama Modul</th>
+                      <th>Keterangan</th>
+                      <th width="100px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in moduls">
+                      <td ><span ng-bind="{{$index+1}}"></span></td>
+                      <td>{{data.modul}}</td>
+                      <td>{{data.keterangan_modul}}</td>
+                      <td>
+                          <a ui-sref="modul.edit({id_modul:data.id_modul})"   class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button" ><i aria-hidden="true" class="fa fa-edit"></i>
+                          </a>
+                      </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{Projects}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+
+<div id="detail" ui-view="detail"> </div>

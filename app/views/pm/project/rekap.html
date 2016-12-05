@@ -34,8 +34,8 @@
            <table data-page-size="10" class="table table-hover contact-list footable-loaded footable" id="demo-foo-addrow">
                <thead>
                    <tr>
-                       <th class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
-                       <th class="footable-sortable">Task<span class="footable-sort-indicator"></span></th>
+                       <th width="50px" class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
+                       <th width="30%" class="footable-sortable">Task<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Mulai<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Target<span class="footable-sort-indicator"></span></th>
                        <th class="footable-sortable">Status<span class="footable-sort-indicator"></span></th>
@@ -54,8 +54,19 @@
                        <td>{{n.task_end | date:'yyyy-MM-dd'}} </td>
                        <td><span class="label label-danger">{{n.status_task}}</span> </td>
                        <td>{{n.task_progress_realisasi}}% / {{n.task_progress}}%</td>
-                       <td>{{n.task_nilai}} X {{n.task_nilai | currency:"Rp.":0  }}</td>
-                       <td>{{n.task_nilai*n.task_nilai | currency:"Rp.":0  }}</td>
+                       <td>{{n.task_nilai}} X {{n.task_fee | currency:"Rp.":0  }}</td>
+                       <td>{{n.task_nilai * n.task_fee | currency:"Rp.":0  }}</td>
+                   </tr>
+
+                   <tr>
+                       <td class="bg-info"></td>
+                       <td  colspan="3">  </td>
+                       <td><span class="label label-danger">{{n.status_task}}</span> </td>
+                       <td>{{x.rekap_modul.TOTAL_TASK_PROGRESS_REALISASI}}%</td>
+                       <td class="{{ x.rekap_modul.TOTAL_PROGRESS <100 ? 'bg-danger' : 'bg-info'}}">{{x.rekap_modul.TOTAL_PROGRESS}} % <br>
+                       <b>{{ x.rekap_modul.TOTAL_PROGRESS <100 ? 'Harus 100%' : ''}}</b>
+                       </td>
+                       <td>{{x.rekap_modul.TOTAL_BIAYA_TASK  | currency:"Rp.":0  }}</td>
                    </tr>
                </tbody>
 
@@ -67,18 +78,29 @@
     <hr>
 
     <div class-"row">
-        <div class="col-md-12">
-               <div class="pull-right m-t-30 text-right">
-                   <p>Sub - Total amount: $13,848</p>
-                   <p>vat (10%) : $138 </p>
+        <div class="col-md-6">
+               <div class="pull-left m-t-30 text-left">
+                   <p>Total Rencana progress 100%</b></p>
+                   <p>Realisasi : {{progress_rekap.MODUL_PROGRESS_REALISASI}}% </p>
                    <hr>
-                   <h3><b>Total :</b> $13,986</h3> </div>
+                   <h3><b>Total :</b> {{progress_rekap.MODUL_PROGRES}}% <b style="color:red">{{progress_rekap.MODUL_PROGRES+0 < 100 ? 'Proyek Anda belum lengkap (harus 100% )':''}}</h3> </div>
                <div class="clearfix"></div>
                <hr>
                <div class="text-right">
                    <button class="btn btn-danger" type="submit"> Export PDF </button>
                    <button onclick="javascript:window.print();" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
                </div>
+        </div>
+        <div class="col-md-6">
+               <div class="pull-right m-t-30 text-right">
+                   <p>Serapan Anggaran: {{serapan.TOTAL_SERAPAN_ANGGARAN  | currency:"Rp.":0 }}</p>
+                   <p>PPN ({{project.PPN}}%) :{{ serapan.TOTAL_SERAPAN_ANGGARAN* project.PPN/100 |currency:"Rp.":0 }} </p>
+                   <p> <b>Nilai Kontrak: {{project.NILAI_KONTRAK  | currency:"Rp.":0}}</b></p>
+                   <hr>
+                   <h3><b>Total :</b> {{serapan.TOTAL_SERAPAN_ANGGARAN + serapan.TOTAL_SERAPAN_ANGGARAN* project.PPN/100 | currency:"Rp.":0 }}</h3> </div>
+               <div class="clearfix"></div>
+               <hr>
+
         </div>
 
     </div>

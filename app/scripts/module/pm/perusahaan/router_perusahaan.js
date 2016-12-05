@@ -13,7 +13,8 @@ app.config(['$stateProvider', function($stateProvider) {
       })
       .state('perusahaan_jabatan',{
           url: '/pm/perusahaan_jabatan',
-          templateUrl: 'views/pm/perusahaan/jabatan.html'
+          templateUrl: 'views/pm/perusahaan/jabatan.html',
+          controller: 'perusahaan_jabatan'
       })
 
 

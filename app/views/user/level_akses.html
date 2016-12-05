@@ -1,0 +1,74 @@
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Group Level</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+
+            <li>
+                <a ui-sref="level_akses.add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </a>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class=" ">
+
+            <div ng-repeat="x in level_aksess"  class="modul_task">
+                <div class="row sales-report p-b-5">
+                     <div class="col-md-6 col-sm-6 col-xs-6">
+                         <h2>{{$index+1}}. {{x.modul.modul}} </h2>
+                         <p>
+                            <!-- <a ui-sref="project_detail.rekap.edit({id_modul:x.modul.id_modul})">Edit</a> -->
+                             {{x.modul.keterangan_modul | capitalize}}
+                         </p>
+                     </div>
+                     <!-- <div class="col-md-6 col-sm-6 col-xs-6 text-right  ">
+                         <h3 class="text-success m-t-20">{{x.modul.modul_progress_realisasi + 0 }}% / {{x.modul.modul_progres}}%</h3>
+                         <p><i class="fa fa-calendar"></i> {{x.modul.modul_start | date:'yyyy-MM-dd' }} / {{x.modul.modul_end | date:'yyyy-MM-dd' }}</p>
+                     </div> -->
+                </div>
+
+                <div class="table-responsive">
+
+                   <table data-page-size="10" class="table table-hover contact-list footable-loaded footable" id="demo-foo-addrow">
+                       <thead>
+                           <tr>
+                               <th width="50px" class="footable-sortable">No<span class="footable-sort-indicator"></span></th>
+                               <th width="30%" class="footable-sortable">Url Keyword <span class="footable-sort-indicator"></span></th>
+                               <th class="footable-sortable">Url<span class="footable-sort-indicator"></span></th>
+                               <th width="50px" class="footable-sortable">action<span class="footable-sort-indicator"></span></th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr ng-repeat="n in x.akses" style="display: table-row;" class="footable-even">
+                               <td><span class="footable-toggle"></span>{{$index+1}}</td>
+                               <td>{{n.url_detail}}</td>
+                               <td>{{n.url}}</td>
+                               <td>
+                                   <a ui-sref="level_akses.edit({id_akses:n.id_akses})"   class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button" ><i aria-hidden="true" class="fa fa-edit"></i>
+                                   </a>
+                               </td>
+
+                           </tr>
+
+
+                       </tbody>
+
+                   </table>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+
+<div id="detail" ui-view="detail"> </div>

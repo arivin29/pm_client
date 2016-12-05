@@ -1,0 +1,38 @@
+<div class="all_popup">
+   <div class="hitam-popup"></div>
+   <div id="popup_content" class="panel panel-info {{wlebar}}">
+       <div class="panel-heading">Tambah Group</div>
+       <div class="panel-wrapper collapse in" aria-expanded="true">
+           <div class="panel-body">
+               <form class="form-horizontal" ng-submit="submitForm()">
+                   <div class="form-content">
+                       <div class="form-group">
+                           <label class="col-md-12">Nama Group</label>
+                           <div class="col-md-12">
+                               <input class="form-control" placeholder="" ng-model="group.nama_group" required   type="text">
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                           <label class="col-md-12">Keterangan</label>
+                           <div class="col-md-12">
+                               <textarea class="form-control"  required ng-model="group.keterangan_group"  ></textarea>
+                           </div>
+                       </div>
+
+                   </div>
+
+
+                  <div class="text-right form-bottom">
+                      <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                      <a  back-button class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                  </div>
+              </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+<script>
+   formAutoLoad();
+</script>

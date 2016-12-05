@@ -5,7 +5,7 @@ var appProject = angular.module('v3App');
 appProject.controller('project',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var data = {};
-    myHelp.getParam('/project',data)
+    myHelp.getParam('/pm/project',data)
     .then(function(respons){
         $scope.projects = respons;
         debugData(respons);
@@ -33,7 +33,7 @@ app.controller('project.add',['$scope','$state','$stateParams','service_perusaha
     }
 
     //jenis project
-    myHelp.getDetail('/master/jenis_project')
+    myHelp.getDetail('/pm/master/jenis_project')
     .then(function(respons){
         $scope.jenis_project = respons.data;
     });
@@ -41,19 +41,19 @@ app.controller('project.add',['$scope','$state','$stateParams','service_perusaha
     //list perusahaan
     var data = {};
     var Perusahaans;
-    myHelp.getParam('/perusahaan/master',data)
+    myHelp.getParam('/pm/perusahaan/master',data)
     .then(function(respons){
         Perusahaans = respons.data;
     });
 
 
     //paket project
-    myHelp.getParam('/project/paket',{status_lock:'no'})
+    myHelp.getParam('/pm/project/paket',{status_lock:'no'})
     .then(function(respons){
         $scope.pakets = respons.data;
 
         $scope.ambilPaket = function functionName() {
-            myHelp.getParam('/project/paket/' + $scope.project.id_project_paket)
+            myHelp.getParam('/pm/project/paket/' + $scope.project.id_project_paket)
             .then(function(responsPaket){
                 $scope.paket = responsPaket.data;
 
@@ -74,7 +74,7 @@ app.controller('project.add',['$scope','$state','$stateParams','service_perusaha
          console.log($scope.project);
          if (isValid)
          {
-            myHelp.postParam('/project/add', $scope.project)
+            myHelp.postParam('/pm/project/add', $scope.project)
             .then(function mySuccesresponse()
             {
                $state.go("project",{}, { reload: true })
@@ -93,7 +93,7 @@ app.controller('project.add',['$scope','$state','$stateParams','service_perusaha
 app.controller('project.edit',['$scope','$state','$stateParams','service_perusahaan','myHelp',function($scope,$state,$stateParams,service_perusahaan,myHelp)
 {
     //paket project
-    myHelp.getParam('/project/paket',{})
+    myHelp.getParam('/pm/project/paket',{})
     .then(function(respons){
         $scope.pakets = respons.data;
     });
@@ -102,14 +102,14 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
         $scope.provinsis = respons.data;
     });
 
-    myHelp.getDetail('/project/detail_lite/'+ $stateParams.id_project)
+    myHelp.getDetail('/pm/project/detail_lite/'+ $stateParams.id_project)
     .then(function(respons){
         $scope.project = respons.data;
 
         //list perusahaan
         var data = {};
         var Perusahaans;
-        myHelp.getParam('/perusahaan/master',data)
+        myHelp.getParam('/pm/perusahaan/master',data)
         .then(function(respons){
             Perusahaans = respons.data;
         });
@@ -130,7 +130,7 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
 
     function ambilPaket()
     {
-        myHelp.getParam('/project/paket/' + clearInt($scope.project.id_project_paket))
+        myHelp.getParam('/pm/project/paket/' + clearInt($scope.project.id_project_paket))
         .then(function(responsPaket){
             $scope.paket = responsPaket.data;
 
@@ -154,7 +154,7 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
     }
 
     //jenis project
-    myHelp.getDetail('/master/jenis_project')
+    myHelp.getDetail('/pm/master/jenis_project')
     .then(function(respons){
         $scope.jenis_project = respons.data;
     });
@@ -162,7 +162,7 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
     //list perusahaan
     var data = {};
     var Perusahaans;
-    myHelp.getParam('/perusahaan/master',data)
+    myHelp.getParam('/pm/perusahaan/master',data)
     .then(function(respons){
         Perusahaans = respons.data;
     });
@@ -175,7 +175,7 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
          var Param = clearObj($scope.project)
          if (isValid)
          {
-            myHelp.postParam('/project/edit/' + $scope.project.id_project, Param)
+            myHelp.postParam('/pm/project/edit/' + $scope.project.id_project, Param)
             .then(function mySuccesresponse()
             {
                $state.go("project",{}, { reload: true })
@@ -194,7 +194,7 @@ app.controller('project.edit',['$scope','$state','$stateParams','service_perusah
 appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/' + id_project)
+    myHelp.getDetail('/pm/project/' + id_project)
     .then(function(respons){
         $scope.project = respons.data;
         debugData(respons);
@@ -202,9 +202,16 @@ appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp
         chace.id_kabkot = respons.data.ID_KABKOT;
     });
 
+    var id_project = $stateParams.id_project;
+    myHelp.getDetail('/pm/project/serapan/' + id_project)
+    .then(function(respons){
+        $scope.serapan = respons.data;
+        chace.id_kabkot = respons.data.ID_KABKOT;
+    });
+
     //rekap report project dari modul
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/modul/pre_add/' + id_project)
+    myHelp.getDetail('/pm/project/modul/pre_add/' + id_project)
     .then(function(respons){
         $scope.pre = respons.data;
         $scope.progress_rekap = respons.data;
@@ -212,12 +219,12 @@ appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp
 
 
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    myHelp.getDetail('/pm/project/cair/pre_add/' + id_project)
     .then(function(respons){
         $scope.pembayaran = respons.data;
     });
 
-    myHelp.getDetail('/project/lokasi/' + id_project)
+    myHelp.getDetail('/pm/project/lokasi/' + id_project)
     .then(function(respons){
         $scope.lokasis = respons.data;
         debugData(respons);
@@ -227,7 +234,7 @@ appProject.controller('project_detail',['$scope','$state','$stateParams','myHelp
 
 appProject.controller('project_paket',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/paket')
+    myHelp.getDetail('/pm/project/paket')
     .then(function(respons){
         $scope.pakets = respons.data;
         debugData(respons);
@@ -238,7 +245,7 @@ appProject.controller('project_paket',['$scope','$state','$stateParams','myHelp'
 appProject.controller('project_paket.detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var id_paket = $stateParams.id_paket;
-    myHelp.getDetail('/project/paket/' + id_paket)
+    myHelp.getDetail('/pm/project/paket/' + id_paket)
     .then(function(respons){
         $scope.paket = respons.data;
         debugData(respons);
@@ -248,7 +255,7 @@ appProject.controller('project_paket.detail',['$scope','$state','$stateParams','
 app.controller('project_paket.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var data = {};
-    myHelp.getParam('/perusahaan/master',data)
+    myHelp.getParam('/pm/perusahaan/master',data)
     .then(function(respons){
         $scope.perusahaans = respons.data;
         debugData(data);
@@ -256,7 +263,7 @@ app.controller('project_paket.add',['$scope','$state','$stateParams','myHelp',fu
 
      $scope.submitForm = function() {
          console.log($scope.paket);
-         myHelp.postParam('/project/paket/add', $scope.paket)
+         myHelp.postParam('/pm/project/paket/add', $scope.paket)
          .then(function mySuccesresponse()
          {
             $state.go("project_paket",{}, { reload: true })
@@ -273,14 +280,14 @@ app.controller('project_paket.add',['$scope','$state','$stateParams','myHelp',fu
 app.controller('project_paket.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var data = {};
-    myHelp.getParam('/perusahaan/master',data)
+    myHelp.getParam('/pm/perusahaan/master',data)
     .then(function(respons){
         $scope.perusahaans = respons.data;
     });
 
     //jenis project
     var select;
-    myHelp.getDetail('/project/paket_lite/' + $stateParams.id_paket)
+    myHelp.getDetail('/pm/project/paket_lite/' + $stateParams.id_paket)
     .then(function(respons){
         $scope.paket = respons.data;
     });
@@ -288,7 +295,7 @@ app.controller('project_paket.edit',['$scope','$state','$stateParams','myHelp',f
 
      $scope.submitForm = function() {
          var Param = clearObj($scope.paket)
-         myHelp.postParam('/project/paket/edit',Param)
+         myHelp.postParam('/pm/project/paket/edit',Param)
          .then(function mySuccesresponse()
          {
             $state.go("project_paket",{}, { reload: true })
@@ -308,7 +315,7 @@ appProject.controller('project_detail.lokasi_add',['$http','$scope','$state','$s
 {
     $scope.lokasi={};
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/detail_lite/' + id_project)
+    myHelp.getDetail('/pm/project/detail_lite/' + id_project)
     .then(function(respons){
         $scope.project_lite = respons.data;
         $scope.lokasi.id_project = id_project;
@@ -333,7 +340,7 @@ appProject.controller('project_detail.lokasi_add',['$http','$scope','$state','$s
     $scope.submitFormLokasi = function() {
         var Param = clearObj($scope.lokasi)
 
-        myHelp.postParam('/project/lokasi/add',Param)
+        myHelp.postParam('/pm/project/lokasi/add',Param)
         .then(function mySuccesresponse()
         {
            $state.go("project_detail",{}, { reload: true })
@@ -352,7 +359,7 @@ appProject.controller('project_detail.lokasi_edit',['$http','$scope','$state','$
 
     $scope.lokasi={};
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/detail_lite/' + id_project)
+    myHelp.getDetail('/pm/project/detail_lite/' + id_project)
     .then(function(respons){
         $scope.project_lite = respons.data;
         $scope.lokasi.id_project = id_project;
@@ -366,7 +373,7 @@ appProject.controller('project_detail.lokasi_edit',['$http','$scope','$state','$
 
     $scope.lokasi={};
     var id_lokasi = $stateParams.id_lokasi;
-    myHelp.getDetail('/project/lokasi/detail_lite/' + id_lokasi)
+    myHelp.getDetail('/pm/project/lokasi/detail_lite/' + id_lokasi)
     .then(function(respons){
         $scope.lokasi = respons.data;
         $scope.updateKel();
@@ -385,7 +392,7 @@ appProject.controller('project_detail.lokasi_edit',['$http','$scope','$state','$
     $scope.submitFormLokasi = function() {
         var Param = clearObj($scope.lokasi)
 
-        myHelp.postParam('/project/lokasi/edit',Param)
+        myHelp.postParam('/pm/project/lokasi/edit',Param)
         .then(function mySuccesresponse()
         {
            $state.go("project_detail",{}, { reload: true })
@@ -404,7 +411,7 @@ appProject.controller('project_detail.lokasi_edit',['$http','$scope','$state','$
 appProject.controller('project_detail.rekap',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/modul/' + id_project)
+    myHelp.getDetail('/pm/project/modul/' + id_project)
     .then(function(respons){
         $scope.modules = respons.data;
         debugData(respons);
@@ -418,7 +425,7 @@ app.controller('project_detail.rekap.add',['$scope','$state','$stateParams','myH
      $scope.submitForm = function() {
          $scope.modul.id_project = $stateParams.id_project;
 
-         myHelp.postParam('/project/modul/add', $scope.modul)
+         myHelp.postParam('/pm/project/modul/add', $scope.modul)
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.rekap",{}, { reload: true })
@@ -435,12 +442,12 @@ app.controller('project_detail.rekap.add',['$scope','$state','$stateParams','myH
 app.controller('project_detail.rekap.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
 
-    myHelp.getDetail('/project/modul/detail_lite/' + $stateParams.id_modul)
+    myHelp.getDetail('/pm/project/modul/detail_lite/' + $stateParams.id_modul)
     .then(function(respons){
         $scope.modul = respons.data;
         var progres = respons.data.modul_progres;
 
-        myHelp.getDetail('/project/modul/pre_add/' + respons.data.id_project)
+        myHelp.getDetail('/pm/project/modul/pre_add/' + respons.data.id_project)
         .then(function(respons){
             $scope.pre = respons.data;
             $scope.pre.TOTAL = respons.data.TOTAL - progres;
@@ -450,7 +457,7 @@ app.controller('project_detail.rekap.edit',['$scope','$state','$stateParams','my
      $scope.submitForm = function() {
         // $scope.modul.id_project = $stateParams.id_project;
 
-         myHelp.postParam('/project/modul/edit', $scope.modul)
+         myHelp.postParam('/pm/project/modul/edit', $scope.modul)
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.rekap",{}, { reload: true })
@@ -469,7 +476,7 @@ app.controller('project_detail.rekap.edit',['$scope','$state','$stateParams','my
 appProject.controller('project_detail.cair',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/cair/' + id_project)
+    myHelp.getDetail('/pm/project/cair/' + id_project)
     .then(function(respons){
         $scope.cairs = respons.data;
         debugData(respons);
@@ -480,7 +487,7 @@ appProject.controller('project_detail.cair',['$scope','$state','$stateParams','m
 app.controller('project_detail.cair.add',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    myHelp.getDetail('/pm/project/cair/pre_add/' + id_project)
     .then(function(respons){
         $scope.pre = respons.data;
     });
@@ -488,7 +495,7 @@ app.controller('project_detail.cair.add',['$scope','$state','$stateParams','myHe
      $scope.submitForm = function() {
          $scope.cair.id_project = $stateParams.id_project;
 
-         myHelp.postParam('/project/cair/add', $scope.cair)
+         myHelp.postParam('/pm/project/cair/add', $scope.cair)
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.cair",{}, { reload: true })
@@ -504,13 +511,13 @@ app.controller('project_detail.cair.add',['$scope','$state','$stateParams','myHe
 
 app.controller('project_detail.cair.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/cair/detail/' + $stateParams.id_cair)
+    myHelp.getDetail('/pm/project/cair/detail/' + $stateParams.id_cair)
     .then(function(respons){
         $scope.cair = respons.data;
     });
 
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    myHelp.getDetail('/pm/project/cair/pre_add/' + id_project)
     .then(function(respons){
         $scope.pre = respons.data;
     });
@@ -518,7 +525,7 @@ app.controller('project_detail.cair.edit',['$scope','$state','$stateParams','myH
      $scope.submitForm = function() {
          $scope.cair.id_project = $stateParams.id_project;
 
-         myHelp.postParam('/project/cair/edit', $scope.cair)
+         myHelp.postParam('/pm/project/cair/edit', $scope.cair)
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.cair",{}, { reload: true })
@@ -533,13 +540,13 @@ app.controller('project_detail.cair.edit',['$scope','$state','$stateParams','myH
 }]);
 app.controller('project_detail.cair.acc',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/cair/detail/' + $stateParams.id_cair)
+    myHelp.getDetail('/pm/project/cair/detail/' + $stateParams.id_cair)
     .then(function(respons){
         $scope.cair = respons.data;
     });
 
     var id_project = $stateParams.id_project;
-    myHelp.getDetail('/project/cair/pre_add/' + id_project)
+    myHelp.getDetail('/pm/project/cair/pre_add/' + id_project)
     .then(function(respons){
         $scope.pre = respons.data;
     });
@@ -547,7 +554,7 @@ app.controller('project_detail.cair.acc',['$scope','$state','$stateParams','myHe
      $scope.submitForm = function() {
          $scope.cair.id_project = $stateParams.id_project;
 
-         myHelp.postParam('/project/cair/edit', $scope.cair)
+         myHelp.postParam('/pm/project/cair/edit', $scope.cair)
          .then(function mySuccesresponse()
          {
             $state.go("project_detail.cair",{}, { reload: true })

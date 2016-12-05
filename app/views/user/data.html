@@ -1,0 +1,66 @@
+
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Pengguna</h4> </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <ol class="breadcrumb">
+            <li>
+                <button class="btn btn-info waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-filter"></i></span>Filter
+                </button>
+            </li>
+            <li>
+                <button click-link="/user/add" class="btn btn-success waves-effect waves-light" type="button">
+                    <span class="btn-label"><i class="fa fa-check"></i></span>Input
+                </button>
+            </li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row white-box">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Nama User</th>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Jenis</th>
+                      <th>Perusahaan</th>
+                      <th>Group Level</th>
+                      <th>Status</th>
+                      <th width="100px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in users.data.datas">
+                      <td ><span ng-bind="{{$index+1}}"></span></td>
+                      <td>{{data.NAMA_PEGAWAI_P}}</td>
+                      <td>{{data.NAME}}</td>
+                      <td>{{data.EMAIL}}</td>
+                      <td>{{data.JENIS }}</td>
+                      <td>{{data.NAMA_PERUSAHAN | uppercase }}</td>
+                      <td>{{data.NAMA_GROUP}}</td>
+                      <td>{{data.STATUS==1? 'Aktif':'nonAktif'}}</td>
+                      <td>
+                          <a ui-sref="user.edit({id_user:data.ID})"   class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button" ><i aria-hidden="true" class="fa fa-edit"></i>
+                          </a>
+                      </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <pre>
+                <code class="prettyprint"> {{Projects}}</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div ui-view></div>
+
+
+<div id="detail" ui-view="detail"> </div>

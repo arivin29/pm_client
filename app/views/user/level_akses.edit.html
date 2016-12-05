@@ -1,0 +1,50 @@
+<div class="all_popup">
+   <div class="hitam-popup"></div>
+   <div id="popup_content" class="panel panel-info {{wlebar}}">
+       <div class="panel-heading">Edit Level Akses #{{level_akses.id_akses}}</div>
+       <div class="panel-wrapper collapse in" aria-expanded="true">
+           <div class="panel-body">
+               <form class="form-horizontal" ng-submit="submitForm()">
+                   <div class="form-content">
+                       <div class="form-group">
+                           <label class="col-md-12">Url</label>
+                           <div class="col-md-12">
+                               <input class="form-control" placeholder="" ng-model="level_akses.url" required   type="text">
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                           <label class="col-md-12">Url Keyword</label>
+                           <div class="col-md-12">
+                               <input class="form-control" disallow-spaces placeholder="" ng-model="level_akses.url_detail" required   type="text">
+                           </div>
+                       </div>
+
+
+
+                       <div class="form-group">
+                           <label class="col-md-12 ">Modul</label>
+                           <div class="col-md-12">
+                               <select required class="form-control" select2 ng-model="level_akses.id_modul"
+                               ng-options="x.id_modul*1 as x.modul for x in moduls">
+                                   <option value="">-- please choose--</option>
+                               </select>
+
+                           </div>
+                       </div>
+
+                   </div>
+
+                  <div class="text-right form-bottom">
+                      <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                      <a  back-button class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                  </div>
+              </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+<script>
+   formAutoLoad();
+</script>

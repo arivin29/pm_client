@@ -277,6 +277,7 @@
         <!-- <div ng-include="'views/pm/menu.html'"></div> -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search hidden-sm hidden-md hidden-lg">
                         <!-- input-group -->
@@ -302,36 +303,29 @@
                 </ul>
 
                 <ul class="nav" id="page-menu">
-                    <li> <a href="index.html" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-custom pull-right">4</span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li > <a load="content" href="index.html">Demographical</a> </li>
-                            <li> <a href="index2.html">Minimalistic</a> </li>
-                            <li> <a href="index3.html">Analitical</a> </li>
-                            <li> <a href="index4.html">Simpler</a> </li>
-                        </ul>
+
+
+                    <li>
+                        <a ui-sref="user" ui-sref-active="active" class="waves-effect"><i class="icon-people"></i>
+                            <span class="hide-menu">Pengguna</span>
+                        </a>
                     </li>
-                    <li><a href="javascript:void(0)" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Perusahaan<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">New</span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a ui-sref="perusahaan">Data Perusahaan</a></li>
-                            <li><a ui-sref="perusahaan_kategori">Kategori</a></li>
-                            <li><a ui-sref="perusahaan_jabatan" href="#">Jabatan</a></li>
-                        </ul>
+
+                    <li>
+                        <a ui-sref="group" ui-sref-active="active" class="waves-effect"><i class="icon-layers"></i>
+                            <span class="hide-menu">Group</span>
+                        </a>
                     </li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="/" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Proyek<span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">13</span> </span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a ui-sref="project">Data Proyek</a></li>
-                            <li><a ui-sref="project_paket">Paket Proyek</a></li>
-                            <li><a ui-sref="project_jenis" href="#">Jenis Proyek</a></li>
-                            <li><a href="#">Adendum</a></li>
-                            <li><a href="#">Master</a></li>
-                        </ul>
+
+                    <li>
+                        <a ui-sref="level_akses" ui-sref-active="active" class="waves-effect"><i class=" icon-equalizer  "></i>
+                            <span class="hide-menu">Level Akses</span>
+                        </a>
                     </li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="#" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Supervisi<span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">3</span> </span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="#">Data Supervisi</a></li>
-                            <li><a href="#">Jenis Supervisi</a></li>
-                            <li><a href="#">Master</a></li>
-                        </ul>
+                    <li>
+                        <a ui-sref="modul" ui-sref-active="active" class="waves-effect"><i class="icon-briefcase"></i>
+                            <span class="hide-menu"> Modul </span>
+                        </a>
                     </li>
 
                     <li class="nav-small-cap">--- Support</li>
@@ -461,16 +455,8 @@
         <!-- endbuild -->
 
         <!-- PM -->
-        <script src="scripts/module/pm/project/project_router.js"></script>
-        <script src="scripts/module/pm/project/service_master.js"></script>
-        <script src="scripts/module/pm/project/controller_master.js"></script>
-        <script src="scripts/module/pm/project/controller_project.js"></script>
-        <script src="scripts/module/pm/project/controller_task.js"></script>
-
-        <!-- perusahaan -->
-        <script src="scripts/module/pm/perusahaan/router_perusahaan.js"></script>
-        <script src="scripts/module/pm/perusahaan/controller_perusahaan.js"></script>
-        <script src="scripts/module/pm/perusahaan/service_perusahaan.js"></script>
+        <script src="scripts/module/user/router_user.js"></script>
+        <script src="scripts/module/user/controller_user.js"></script>
 
         <!-- Master -->
         <script src="scripts/module/pm/master/service.js"></script>

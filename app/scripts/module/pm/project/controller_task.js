@@ -1,7 +1,7 @@
 appProject.controller('project_detail.task',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     var data = {};
-    myHelp.getParam('/project/task/' + $stateParams.id_project,data)
+    myHelp.getParam('/pm/project/task/' + $stateParams.id_project,data)
     .then(function(respons){
         $scope.tasks = respons.data;
         debugData(respons);
@@ -14,7 +14,7 @@ appProject.controller('project_detail.task.add',['$scope','$state','$stateParams
 {
     $scope.task={};
     var data = {};
-    myHelp.getDetail('/project/modul/list_lite/' + $stateParams.id_project)
+    myHelp.getDetail('/pm/project/modul/list_lite/' + $stateParams.id_project)
     .then(function(respons){
         $scope.moduls = respons.data;
         debugData(respons);
@@ -22,7 +22,7 @@ appProject.controller('project_detail.task.add',['$scope','$state','$stateParams
 
     $scope.ambilModul = function()
     {
-        myHelp.getDetail('/project/task/detail_pre_add/' + $scope.task.id_modul)
+        myHelp.getDetail('/pm/project/task/detail_pre_add/' + $scope.task.id_modul)
         .then(function(respons){
             $scope.modul = respons.data;
             debugData(respons);
@@ -34,7 +34,7 @@ appProject.controller('project_detail.task.add',['$scope','$state','$stateParams
         var Param = clearObj($scope.task)
         if (isValid)
         {
-           myHelp.postParam('/project/task/add', Param)
+           myHelp.postParam('/pm/project/task/add', Param)
            .then(function mySuccesresponse()
            {
               $state.go("project_detail.task",{}, { reload: true })
@@ -53,20 +53,20 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
 {
     $scope.task={};
     var data = {};
-    myHelp.getDetail('/project/modul/list_lite/' + $stateParams.id_project)
+    myHelp.getDetail('/pm/project/modul/list_lite/' + $stateParams.id_project)
     .then(function(respons){
         $scope.moduls = respons.data;
         debugData(respons);
     });
 
     //load TASK
-    myHelp.getDetail('/project/task/detail_lite/' + $stateParams.id_task)
+    myHelp.getDetail('/pm/project/task/detail_lite/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task = respons.data;
         var task_progress = respons.data.task_progress;
 
 
-        myHelp.getDetail('/project/task/detail_pre_add/' + $scope.task.id_modul)
+        myHelp.getDetail('/pm/project/task/detail_pre_add/' + $scope.task.id_modul)
         .then(function(respons){
             $scope.modul = respons.data;
             $scope.modul.TOTAL_PROGRESS = $scope.modul.TOTAL_PROGRESS -task_progress;
@@ -75,7 +75,7 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
 
         $scope.ambilModul = function()
         {
-            myHelp.getDetail('/project/task/detail_pre_add/' + $scope.task.id_modul)
+            myHelp.getDetail('/pm/project/task/detail_pre_add/' + $scope.task.id_modul)
             .then(function(respons){
                 $scope.modul = respons.data;
                 debugData(respons);
@@ -90,7 +90,7 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
         var Param = clearObj($scope.task)
         if (isValid)
         {
-           myHelp.postParam('/project/task/edit', Param)
+           myHelp.postParam('/pm/project/task/edit', Param)
            .then(function mySuccesresponse()
            {
               $state.go("project_detail.task",{}, { reload: true })
@@ -108,7 +108,7 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
 //SUB TASK DETAIL
 appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/task/detail/' + $stateParams.id_task)
+    myHelp.getDetail('/pm/project/task/detail/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task = respons.data.task;
         $scope.report_rekap = respons.data.report_rekap;
@@ -131,7 +131,7 @@ appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',f
         debugData(respons);
     });
 
-    // myHelp.getDetail('/project/task/report/detail_report/' + $stateParams.id_task)
+    // myHelp.getDetail('/pm/project/task/report/detail_report/' + $stateParams.id_task)
     // .then(function(respons){
     //     $scope.report = respons.data;
     // });
@@ -139,7 +139,7 @@ appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',f
 }]);
 appProject.controller('task_detail.rincian',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/check/' + $stateParams.id_task)
+    myHelp.getDetail('/pm/project/check/' + $stateParams.id_task)
     .then(function(respons){
         $scope.checks = respons.data;
         debugData(respons);
@@ -157,7 +157,7 @@ appProject.controller('task_detail.rincian.add',['$scope','$state','$stateParams
      $scope.submitForm = function() {
          var Param = clearObj($scope.check)
 
-        myHelp.postParam('/project/check/add', Param)
+        myHelp.postParam('/pm/project/check/add', Param)
         .then(function mySuccesresponse()
         {
            $state.go("task_detail.rincian",{}, { reload: true })
@@ -174,7 +174,7 @@ appProject.controller('task_detail.rincian.add',['$scope','$state','$stateParams
 
 appProject.controller('task_detail.rincian.edit',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    myHelp.getDetail('/project/check/detail/' + $stateParams.id_check)
+    myHelp.getDetail('/pm/project/check/detail/' + $stateParams.id_check)
     .then(function(respons){
         $scope.check = respons.data;
         debugData(respons);
@@ -183,7 +183,7 @@ appProject.controller('task_detail.rincian.edit',['$scope','$state','$stateParam
     $scope.submitForm = function() {
         var Param = clearObj($scope.check)
 
-       myHelp.postParam('/project/check/edit', Param)
+       myHelp.postParam('/pm/project/check/edit', Param)
        .then(function mySuccesresponse()
        {
           $state.go("task_detail.rincian",{}, { reload: true })
@@ -203,7 +203,7 @@ appProject.controller('task_detail.rincian.edit',['$scope','$state','$stateParam
 
 appProject.controller('task_detail.laporan',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-   myHelp.getDetail('/project/task/report/' + $stateParams.id_task)
+   myHelp.getDetail('/pm/project/task/report/' + $stateParams.id_task)
    .then(function(respons){
        $scope.reports = respons.data;
        debugData(respons);
@@ -222,7 +222,7 @@ appProject.controller('task_detail.laporan.add',['$scope','$state','$stateParams
         var Param = clearObj($scope.report)
         if (isValid)
         {
-            myHelp.postParam('/project/task/report/add', {"laporan" : Param })
+            myHelp.postParam('/pm/project/task/report/add', {"laporan" : Param })
            .then(function mySuccesresponse()
            {
               $state.go("task_detail.laporan",{}, { reload: true })
@@ -241,7 +241,7 @@ appProject.controller('task_detail.laporan.add',['$scope','$state','$stateParams
 
 appProject.controller('task_detail.laporan.detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-   myHelp.getDetail('/project/task/report/detail/' + $stateParams.id_report)
+   myHelp.getDetail('/pm/project/task/report/detail/' + $stateParams.id_report)
    .then(function(respons){
        $scope.report = respons.data.report;
        $scope.media = respons.media;
@@ -253,7 +253,7 @@ appProject.controller('task_detail.laporan.detail',['$scope','$state','$statePar
 //MEDIA
 appProject.controller('task_detail.media',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-   myHelp.getDetail('/project/task/media/' + $stateParams.id_report)
+   myHelp.getDetail('/pm/project/task/media/' + $stateParams.id_report)
    .then(function(respons){
        $scope.media = respons.media;
        debugData(respons);
@@ -265,11 +265,11 @@ appProject.controller('task_detail.media',['$scope','$state','$stateParams','myH
 appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     //aal pegawai http://localhost:8081/pm/project/task/detail_id_id/1
-    myHelp.getDetail('/project/task/detail_id_id/' + $stateParams.id_task)
+    myHelp.getDetail('/pm/project/task/detail_id_id/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task_id = respons.data;
 
-        myHelp.getDetail('/perusahaan/'+ respons.data.ID_KONTRAKTOR +'/pegawai_lite')
+        myHelp.getDetail('/pm/perusahaan/'+ respons.data.ID_KONTRAKTOR +'/pegawai_lite')
         .then(function(respons){
             $scope.pegawais = respons.data;
             debugData(respons);
@@ -282,7 +282,7 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
     function load()
     {
         var data = {jenis:"kontraktor"};
-        myHelp.getParam('/project/task/team/' + $stateParams.id_task, data)
+        myHelp.getParam('/pm/project/task/team/' + $stateParams.id_task, data)
         .then(function(respons){
             $scope.kontraktors = respons.data;
             debugData(respons);
@@ -299,7 +299,7 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
         Param.team_status=1;
         Param.id_task=$stateParams.id_task;
 
-       myHelp.postParam('/project/task/team/add', Param)
+       myHelp.postParam('/pm/project/task/team/add', Param)
        .then(function mySuccesresponse()
        {
           load();
@@ -328,7 +328,7 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
             if (isConfirm) {
                 swal("Deleted!", "Your imaginary file has been deleted.", "success");
 
-                myHelp.getDetail('/project/task/team/hapus/' + id_task_team)
+                myHelp.getDetail('/pm/project/task/team/hapus/' + id_task_team)
                 .then(function(respons){
                      load();
                 });
@@ -349,11 +349,11 @@ appProject.controller('task_detail.kontraktor',['$scope','$state','$stateParams'
 appProject.controller('task_detail.supervisi',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
     //aal pegawai http://localhost:8081/pm/project/task/detail_id_id/1
-    myHelp.getDetail('/project/task/detail_id_id/' + $stateParams.id_task)
+    myHelp.getDetail('/pm/project/task/detail_id_id/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task_id = respons.data;
 
-        myHelp.getDetail('/perusahaan/'+ respons.data.ID_SUPERVISI +'/pegawai_lite')
+        myHelp.getDetail('/pm/perusahaan/'+ respons.data.ID_SUPERVISI +'/pegawai_lite')
         .then(function(respons){
             $scope.pegawais = respons.data;
             debugData(respons);
@@ -366,7 +366,7 @@ appProject.controller('task_detail.supervisi',['$scope','$state','$stateParams',
     function load()
     {
         var data = {jenis:"supervisi"};
-        myHelp.getParam('/project/task/team/' + $stateParams.id_task, data)
+        myHelp.getParam('/pm/project/task/team/' + $stateParams.id_task, data)
         .then(function(respons){
             $scope.supervisis = respons.data;
             debugData(respons);
@@ -383,7 +383,7 @@ appProject.controller('task_detail.supervisi',['$scope','$state','$stateParams',
         Param.team_status=1;
         Param.id_task=$stateParams.id_task;
 
-       myHelp.postParam('/project/task/team/add', Param)
+       myHelp.postParam('/pm/project/task/team/add', Param)
        .then(function mySuccesresponse()
        {
           load();
@@ -412,7 +412,7 @@ appProject.controller('task_detail.supervisi',['$scope','$state','$stateParams',
             if (isConfirm) {
                 swal("Deleted!", "Your imaginary file has been deleted.", "success");
 
-                myHelp.getDetail('/project/task/team/hapus/' + id_task_team)
+                myHelp.getDetail('/pm/project/task/team/hapus/' + id_task_team)
                 .then(function(respons){
                      load();
                 });

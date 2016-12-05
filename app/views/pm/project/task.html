@@ -29,7 +29,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat="x in tasks" style="display: table-row;" class="footable-even {{x.PRIORITAS > 0 ? 'danger': '' }}"> 
+               <tr ng-repeat="x in tasks" style="display: table-row;" class="footable-even {{x.PRIORITAS > 0 ? 'danger': '' }}">
                    <td><span class="footable-toggle"></span>{{$index+1}}</td>
                    <td>
                        <a ui-sref="task_detail({id_task:x.ID_TASK})">{{x.TASK | uppercase}}</a>
@@ -43,8 +43,8 @@
                             <div class="progress-bar progress-bar-danger" style="width: 35%"></div>
                         </div>
                        {{x.TASK_PROGRESS_REALISASI/100 * x.TASK_PROGRESS }}% / {{x.TASK_PROGRESS}}%</td>
-                   <td>{{x.TASK_NILAI}} X {{x.TASK_FEE | currency:"Rp.":0}}</td>
-                   <td>{{x.TASK_NILAI*x.TASK_FEE | currency:"Rp.":0}}</td>
+                   <td>{{x.TASK_NILAI}} X {{ x.TASK_FEE | currency:"Rp.":0}}</td>
+                   <td>{{x.TASK_NILAI* x.TASK_FEE | currency:"Rp.":0}}</td>
                    <td>
                        <a ui-sref="project_detail.task.edit({id_task:x.ID_TASK})" data-original-title="Update" data-toggle="tooltip" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" type="button"><i aria-hidden="true" class="fa fa-edit"></i></button>
                    </td>

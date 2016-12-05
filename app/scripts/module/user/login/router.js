@@ -24,6 +24,6 @@ var BASE_URL = 'http://localhost:8081/pm';
               templateUrl: 'views/pm/project/project_paket.html',
               controller:'project_paket'
           })
-
+           
 
       }])

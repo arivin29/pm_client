@@ -286,6 +286,18 @@ app.directive('convertToNumber', function() {
     };
   });
 
+  app.directive('disallowSpaces', function() {
+  return {
+    restrict: 'A',
+
+    link: function($scope, $element) {
+      $element.bind('input', function() {
+        $(this).val($(this).val().replace(/ /g, ''));
+      });
+    }
+  };
+});
+
 
 
 function onLoad(lokasi,url)
