@@ -11,7 +11,8 @@
     "angular-ui-router": "*",
     "angular-datepicker": "^2.0.3",
     "angular-input-masks": "^2.5.0",
-    "moment-timezone": "^0.5.10"
+    "moment-timezone": "^0.5.10",
+    "angular-morris": "angular-morris-chart#^1.3.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

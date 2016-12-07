@@ -20,7 +20,8 @@ angular.module('v3App', [
             'ngAnimate',
             'ngTouch',
             'ui.router',
-            'ui.utils.masks'
+            'ui.utils.masks',
+            'angular.morris'
         ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

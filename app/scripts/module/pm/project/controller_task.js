@@ -108,7 +108,7 @@ appProject.controller('project_detail.task.edit',['$scope','$state','$stateParam
 //SUB TASK DETAIL
 appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',function($scope,$state,$stateParams,myHelp)
 {
-    $scope.dataChart = [];
+    //$scope.dataChart = [];
     myHelp.getDetail('/pm/project/task/detail/' + $stateParams.id_task)
     .then(function(respons){
         $scope.task = respons.data.task;
@@ -133,20 +133,37 @@ appProject.controller('task_detail',['$scope','$state','$stateParams','myHelp',f
         //panggil grafik report
         myHelp.getDetail('/pm/project/task/report/' + $stateParams.id_task)
         .then(function(respons){
-            $scope.reports = respons.data;
+            var laporan = respons.data;
+            $scope.reports = laporan;
             debugData(respons);
 
-            $scope.dataChart = [
-              {y: '2012-01-01', item1: 10},
-              {y: '2012-02-01', item1: 23},
-              {y: '2012-03-01', item1: 45},
-              {y: '2012-04-01', item1: 57},
-              {y: '2012-05-01', item1: 68},
-              {y: '2012-06-01', item1: 69},
-              {y: '2012-07-01', item1: 82},
-              {y: '2012-08-01', item1: 90},
-              {y: '2012-09-01', item1: 100}
-          ];
+            $scope.dataChart = [ ];
+            var hasilLaporan =[];
+            for (var i = 0; i < laporan.length; i++) {
+                var sub = {};
+                sub.y = laporan[i].TGL_LAPORAN;
+                sub.item1 = laporan[i].TOTAL_PROGRESS;
+                hasilLaporan.push(sub);
+                console.log(laporan[0]);
+            }
+
+            $scope.dataChart =hasilLaporan;
+
+
+
+            //   {y: '2012-01-01', item1: 10},
+            //   {y: '2012-02-01', item1: 23},
+            //   {y: '2012-03-01', item1: 45},
+            //   {y: '2012-04-01', item1: 57},
+            //   {y: '2012-05-01', item1: 68},
+            //   {y: '2012-06-01', item1: 69},
+            //   {y: '2012-07-01', item1: 82},
+            //   {y: '2012-08-01', item1: 90},
+            //   {y: '2012-09-01', item1: 100}
+
+
+
+
         });
 
     });

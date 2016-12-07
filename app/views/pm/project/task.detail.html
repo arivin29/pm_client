@@ -109,7 +109,15 @@
 
                        <div class="row sales-report">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div id="morris-line-chart"></div>
+                                    <div
+                                    line-chart
+                                    line-data= "dataChart"
+                                    line-xkey='y'
+                                    line-ykeys='["item1"]'
+                                    line-labels='["Progress %"]'
+                                    line-colors='["#31C0BE"]'>
+                                    
+                                    </div>
                                 </div>
 
                             </div>
@@ -193,21 +201,5 @@
     </div>
 </div>
 <script>
-    {{dataChart}}
-     $(function()
-     {
-         var line = new Morris.Line({
-           element: 'morris-line-chart',
-           resize: true,
-           data: [],
-           xkey: 'y',
-           ykeys: ['item1'],
-           labels: ['Progress '],
-           gridLineColor: '#eef0f2',
-           lineColors: ['#a3a4a9'],
-           lineWidth: 1,
-           hideHover: 'auto'
-         });
-     })
 
 </script>
