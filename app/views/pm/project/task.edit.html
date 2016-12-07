@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Max Lama Paket kegiatan</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{ hitung_hari(modul.MODUL_START+0, modul.MODUL_END+0) }} Hari</div>
+                                            <div class="detail" >{{ hitung_hari(modul.MODUL_START, modul.MODUL_END) }} Hari</div>
                                         </div>
                                     </div>
 
@@ -68,21 +68,21 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Nilai Kontrak</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{modul.ANGGARAN_NILAI | currency:"Rp.":0}} / Digunakan: {{modul.TOTAL | currency:"Rp.":0}}</div>
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI | currency:"Rp.":0}} / Digunakan: {{serapan.TOTAL_SERAPAN_ANGGARAN | currency:"Rp.":0}}</div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">PPN {{modul.PPN + 0 }}%</label>
+                                        <label class="control-label col-md-3">PPN {{project.PPN + 0 }}%</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((modul.PPN)/100) | currency:"Rp.":0}}</div>
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((project.PPN)/100) | currency:"Rp.":0}}</div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Sisa Anggaran</label>
                                         <div class="col-md-9">
-                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((100-modul.PPN)/100) - modul.TOTAL | currency:"Rp.":0}} </div>
+                                            <div class="detail" >{{modul.ANGGARAN_NILAI* ((100-project.PPN)/100) - serapan.TOTAL_SERAPAN_ANGGARAN | currency:"Rp.":0}} </div>
                                         </div>
                                     </div>
 
@@ -92,7 +92,7 @@
 
 
                             </div>
-                            <h3 class="box-title">Peroide : {{hitung_hari(task.task_start+0,task.task_end+0)}} Hari</h3>
+                            <h3 class="box-title">Peroide : {{hitung_hari(task.task_start,task.task_end)}} Hari</h3>
                             <hr class="m-t-0 m-b-40">
                             <div class="row">
                                 <div class="col-md-6">

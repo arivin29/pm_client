@@ -49,6 +49,15 @@ app.run(function($rootScope) {
     };
 });
 
+
+app.run(function($rootScope) {
+    $rootScope.hitung_hari_form = function(start,end) {
+        var hari = (end - start) / (1000 * 60 * 60 * 24);
+        // console.log(start);
+        return Math.round(hari);
+    };
+});
+
 app.run(function($rootScope) {
     $rootScope.isLoading = function () {
        return $http.pendingRequests.length !== 0;

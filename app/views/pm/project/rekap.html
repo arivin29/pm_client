@@ -82,8 +82,9 @@
                <div class="pull-left m-t-30 text-left">
                    <p>Total Rencana progress 100%</b></p>
                    <p>Realisasi : {{progress_rekap.MODUL_PROGRESS_REALISASI}}% </p>
+                   <p>................</p>
                    <hr>
-                   <h3><b>Total :</b> {{progress_rekap.MODUL_PROGRES}}% <b style="color:red">{{progress_rekap.MODUL_PROGRES+0 < 100 ? 'Proyek Anda belum lengkap (harus 100% )':''}}</h3> </div>
+                   <h3><b>Total :</b> {{progress_rekap.MODUL_PROGRES}}% <b style="color:red">{{progress_rekap.MODUL_PROGRES+0 < 100 ? 'Proyek Anda belum lengkap (harus 100% )':''}}</b></h3> </div>
                <div class="clearfix"></div>
                <hr>
                <div class="text-right">
@@ -97,7 +98,7 @@
                    <p>PPN ({{project.PPN}}%) :{{ serapan.TOTAL_SERAPAN_ANGGARAN* project.PPN/100 |currency:"Rp.":0 }} </p>
                    <p> <b>Nilai Kontrak: {{project.NILAI_KONTRAK  | currency:"Rp.":0}}</b></p>
                    <hr>
-                   <h3><b>Total :</b> {{serapan.TOTAL_SERAPAN_ANGGARAN + serapan.TOTAL_SERAPAN_ANGGARAN* project.PPN/100 | currency:"Rp.":0 }}</h3> </div>
+                   <h3><b>Total :</b> {{serapan.TOTAL_SERAPAN_ANGGARAN + (serapan.TOTAL_SERAPAN_ANGGARAN* project.PPN/100) | currency:"Rp.":0 }}</h3> </div>
                <div class="clearfix"></div>
                <hr>
 

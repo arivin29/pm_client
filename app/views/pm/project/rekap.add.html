@@ -16,15 +16,21 @@ sdfds
                         </div>
 
 
+
                         <div class="form-group">
-                            <label class="col-md-12">Periode Pekerjaan</label>
+                            <label class="col-md-12">Periode Pekerjaan {{project.TANGGAL_MULAI | date:'yyyy MMMM dd'}} SAMPAI {{project.BATAS_WAKTU | date:'yyyy MMMM dd'}} (Max {{hitung_hari(project.TANGGAL_MULAI , project.BATAS_WAKTU)}} hari) </label>
                             <div class="col-md-6">
                                 <input class="form-control" placeholder="" datepicker required ng-model="modul.modul_start"   type="text">
                             </div>
                             <div class="col-md-6">
                                 <input class="form-control" placeholder="" datepicker required ng-model="modul.modul_end"   type="text">
                             </div>
+                            <div class="col-md-12">
+                                <p>Lama Paket Kegiatan : {{hitung_hari(modul.modul_start , modul.modul_end) +0}} Hari</p>
+                            </div>
                         </div>
+
+                            <hr>
 
 
                         <div style="padding: 0 ;">
@@ -40,6 +46,13 @@ sdfds
                             <div class="col-md-12">
                                 <input class="form-control" ng-model="modul.modul_progres" required type="text" ui-number-mask="2" max="{{100 -pre.TOTAL + 0}}">
                                 <p>Max nilai rencana Progress {{100 - pre.TOTAL + 0}} % (tidak menggunakan %)</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-12">Urutan</label>
+                            <div class="col-md-12">
+                                <input class="form-control" ng-model="modul.urutan" required type="number" value="0"> 
                             </div>
                         </div>
 

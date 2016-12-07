@@ -42,10 +42,18 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <label class="col-md-12">Nilai Kontrak (Rp.)</label>
                             <div class="col-md-12">
                                 <input class="form-control" placeholder="" required ng-model="paket.nilai_kontrak" ui-number-mask="0"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">PPN {{paket.ppn + 0}}%</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="" required ng-model="paket.ppn"   type="number">
+                                <p>Nilai PPN {{ (paket.nilai_kontrak*paket.ppn/100)+0 | currency:"Rp.":0}}</p>
                             </div>
                         </div>
 

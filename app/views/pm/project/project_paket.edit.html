@@ -50,6 +50,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-12">PPN {{paket.ppn + 0}}%</label>
+                            <div class="col-md-12">
+                                <input class="form-control" placeholder="" required ng-model="paket.ppn"   type="number">
+                                <p>Nilai PPN {{ (paket.nilai_kontrak*paket.ppn/100)+0 | currency:"Rp.":0}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-12">PPK</label>
                             <div class="col-md-12">
                                 <input class="form-control" placeholder="" required ng-model="paket.ppk"   type="text">
@@ -96,7 +104,7 @@
 
                                 <!-- <select class="form-control" ng-model="selectedBook" ng-options="book.id as book.title for book in books" ng-init="selectedBook=0"></select> -->
                             </div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label class="col-md-12">Status Aktif</label>
                             <div class="col-md-12">

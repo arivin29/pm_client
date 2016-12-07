@@ -193,23 +193,13 @@
     </div>
 </div>
 <script>
-
+    {{dataChart}}
      $(function()
      {
          var line = new Morris.Line({
            element: 'morris-line-chart',
            resize: true,
-           data: [
-             {y: '2012-01-01', item1: 10},
-             {y: '2012-02-01', item1: 23},
-             {y: '2012-03-01', item1: 45},
-             {y: '2012-04-01', item1: 57},
-             {y: '2012-05-01', item1: 68},
-             {y: '2012-06-01', item1: 69},
-             {y: '2012-07-01', item1: 82},
-             {y: '2012-08-01', item1: 90},
-             {y: '2012-09-01', item1: 100}
-           ],
+           data: [],
            xkey: 'y',
            ykeys: ['item1'],
            labels: ['Progress '],
